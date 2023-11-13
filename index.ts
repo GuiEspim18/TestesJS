@@ -39,7 +39,9 @@ class Server {
         app.set('views', path.join(__dirname, 'views'));
         app.set('view engine', 'ejs');
         app.get("/", (req: Request, res: Response) => {
-            res.render("index")
+            res.render("index", {
+                content: "<p>hello</p>"
+            })
         });
         app.listen(this.PORT, () => {
             console.clear()
