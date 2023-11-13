@@ -33,19 +33,19 @@ class Server {
         }
     }
 
-run() {
-    this.createView()
-    const app = express();
-    app.set('views', path.join(__dirname, 'views'));
-    app.set('view engine', 'ejs');
-    app.get("/", (req: Request, res: Response) => {
-        res.render("index")
-    });
-    app.listen(this.PORT, () => {
-        console.clear()
-        console.log(`Server running on http://localhost:${this.PORT}`)
-    })
-}
+    run() {
+        this.createView()
+        const app = express();
+        app.set('views', path.join(__dirname, 'views'));
+        app.set('view engine', 'ejs');
+        app.get("/", (req: Request, res: Response) => {
+            res.render("index")
+        });
+        app.listen(this.PORT, () => {
+            console.clear()
+            console.log(`Server running on http://localhost:${this.PORT}`)
+        });
+    }
 }
 
 new Server().run()
