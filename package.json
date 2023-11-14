@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc --outDir dist && node ./dist/index.js",
+    "compile": "tsc --outDir dist && node ./dist/project/index.js",
     "dev": "nodemon --quiet -e ts  --exec \"npm run compile\"",
     "prod": "node ./dist/index.js"
   },
