@@ -1,6 +1,5 @@
 import * as http from "http";
 import { readFile } from "fs/promises";
-import path from "path";
 import { extname } from "path";
 
 const PORT = 8000;
