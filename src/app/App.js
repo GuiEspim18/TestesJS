@@ -5,6 +5,7 @@ class App extends Page {
 
     constructor() {
         super();
+        
         const div = new Div("Teste");
         this.add(div);
     }

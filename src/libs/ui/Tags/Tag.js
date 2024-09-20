@@ -14,7 +14,7 @@ class Tag {
     }
 
     add(tag) {
-        this.tag.appendChild(tag);
+        this.tag.appendChild(tag.load());
     }
 
     setText(text) {
@@ -23,6 +23,10 @@ class Tag {
 
     load() {
         return this.tag;
+    }
+
+    setBackgroundColor(color) {
+        this.tag.style.backgroundColor = color;
     }
 
 }
