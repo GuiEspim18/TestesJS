@@ -1,11 +1,11 @@
-import Tag from "../Tag";
+import Tag from "../Tag.js";
 
 class Div extends Tag {
 
     constructor(text) {
-        super(text);
+        super("div", text);
     }
 
 }
 
-export default Tag;
+export default Div;

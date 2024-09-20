@@ -2,8 +2,11 @@ class Tag {
 
     tag;
 
-    constructor(text = "") {
-        this.tag.innerText = text;
+    constructor(tag = "div", text = "") {
+        this.setTag(tag);
+        if (text.length > 0) {
+            this.tag.textContent = String(text);
+        }
     }
 
     setTag(tag) {
@@ -15,7 +18,11 @@ class Tag {
     }
 
     setText(text) {
-        this.tag.innerText = text;
+        this.tag.textContent = String(text);
+    }
+
+    load() {
+        return this.tag;
     }
 
 }

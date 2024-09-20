@@ -10,7 +10,7 @@ class Page {
     }
 
     add(tag) {
-        this.content.appendChild(tag);
+        this.content.appendChild(tag.load());
     }
 }
 
