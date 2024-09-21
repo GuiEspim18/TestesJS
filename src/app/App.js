@@ -30,8 +30,8 @@ class App extends Component {
         this.add(section);
 
         const table = new Table();
-        table.addHeader(["Nome", "Sobrenome", "Email"]);
-        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
+        table.addHeader(["Nome", "Sobrenome", "Email"], );
+        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"], {});
         table.setFontFamily("Arial");
         this.add(table);
     }

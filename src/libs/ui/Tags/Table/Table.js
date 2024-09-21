@@ -5,14 +5,17 @@ class Table extends Tag {
         super("table");
     }
 
-    addHeader(headers, headerColor = "#ccc") {
+    addHeader(headers, background = "#ccc") {
         const thead = document.createElement("thead");
         const row = document.createElement("tr");
 
         headers.forEach(header => {
             const th = document.createElement("th");
             th.textContent = header;
-            th.style.backgroundColor = headerColor;
+            if (typeof(background) == "string") {
+                
+            }
+            th.style.backgroundColor = background;
             row.appendChild(th);
         });
 
@@ -20,13 +23,16 @@ class Table extends Tag {
         this.tag.appendChild(thead);
     }
 
-    addRow(cells, rowColor = "transparent") {
+    addRow(cells, background = "transparent") {
         const row = document.createElement("tr");
-        row.style.backgroundColor = rowColor;
+        row.style.backgroundColor = background;
 
         cells.forEach(cell => {
             const td = document.createElement("td");
             td.textContent = cell;
+            if (typeof(background) == "string") {
+                
+            }
             td.style.border = "1px solid #ccc";
             row.appendChild(td);
         });
