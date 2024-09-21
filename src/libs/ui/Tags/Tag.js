@@ -25,7 +25,7 @@ class Tag {
         this.tag.style.backgroundColor = color;
     }
 
-    setBackgroundGradient({color1, color2, angle = 90}) {        
+    setBackgroundGradient({color1={color, percentage}, color2={color, percentage}, angle = 90}) {        
         this.tag.style.background = `linear-gradient(${angle}deg, ${color1.color} ${color1.percentage}%, ${color2.color} ${color2.percentage}%)`;
     }
 
@@ -148,6 +148,72 @@ class Tag {
         this.tag.style.paddingRight = this.formatMeasure(padding, type);
     }
 
+    setMaxWidth(maxWidth, type="pixels") {
+        this.tag.style.maxWidth = this.formatMeasure(maxWidth, type);
+    }
+
+    setMaxHeight(maxHeight, type="pixels") {
+        this.tag.style.maxHeight = this.formatMeasure(maxHeight, type);
+    }
+
+    show() {
+        this.tag.style.display = '';
+    }
+    
+    hide() {
+        this.tag.style.display = 'none';
+    }
+
+    setPosition(x, y, unit = "pixels") {
+        this.tag.style.position = 'absolute';
+        this.tag.style.left = this.formatMeasure(x, unit);
+        this.tag.style.top = this.formatMeasure(y, unit);
+    }
+
+    setDisplay(display) {
+        this.tag.style.display = display;
+    }
+
+    setFlexDirection(direction = "row") {
+        this.tag.style.flexDirection = direction;
+    }
+
+    setJustifyContent(alignment = "flex-start") {
+        this.tag.style.justifyContent = alignment;
+    }
+
+    setAlignItems(alignment = "stretch") {
+        this.tag.style.alignItems = alignment;
+    }
+
+    setAlignContent(alignment = "stretch") {
+        this.tag.style.alignContent = alignment;
+    }
+
+    setAlignSelf(alignment = "auto") {
+        this.tag.style.alignSelf = alignment;
+    }
+
+    setFlexWrap(wrap = "nowrap") {
+        this.tag.style.flexWrap = wrap;
+    }
+
+    setFlexGrow(grow = 0) {
+        this.tag.style.flexGrow = grow;
+    }
+    
+    setFlexShrink(shrink = 1) {
+        this.tag.style.flexShrink = shrink;
+    }
+    
+    setFlexBasis(basis = "auto") {
+        this.tag.style.flexBasis = basis;
+    }
+    
+    setFlex(flex = "0 1 auto") {
+        this.tag.style.flex = flex;
+    }
+
     // Content methods
 
     add(tag) {
@@ -167,6 +233,8 @@ class Tag {
             case "percentage": return value + "%";
             case "em": return value + "em";
             case "rem": return value + "rem";
+            case "auto": return "auto";
+            default: return value; // Retorna o valor diretamente se não for reconhecido
         }
     }
 
