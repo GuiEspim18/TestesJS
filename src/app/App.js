@@ -1,28 +1,27 @@
 import Component from "../libs/ui/Component/Component.js";
 import Div from "../libs/ui/Tags/Div/Div.js";
+import Header from "../libs/ui/Tags/Header/Header.js";
 
 class App extends Component {
 
     constructor() {
         super();
         
-        const div = new Div("Teste");
-        div.setBackgroundGradient({
+        const header = new Header();
+        header.setHeight(80);
+        header.setBackgroundGradient({
             color1: {
-                color: "#ffbc9b",
+                color: "#f3f3f3",
                 percentage: 0
-            },
+            }, 
             color2: {
-                color: "#ff5500",
+                color: "#cbcbcb",
                 percentage: 100
             },
-            angle: 180,
+            angle: 180
         });
-        div.setFontColor("#cccccc");
-        div.setFontSize(15);
-        div.setFontFamily("Arial");
-        div.setBorder({width: 1, color: "black", style: "solid"});
-        this.add(div);
+
+        this.add(header);
     }
 
 }

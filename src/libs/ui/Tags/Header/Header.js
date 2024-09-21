@@ -1,4 +1,4 @@
-import Tag from "../Tag";
+import Tag from "../Tag.js";
 
 class Header extends Tag {
     constructor(text) {
