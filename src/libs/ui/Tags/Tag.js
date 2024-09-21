@@ -13,10 +13,6 @@ class Tag {
         this.tag = document.createElement(tag);
     }
 
-    add(tag) {
-        this.tag.appendChild(tag.load());
-    }
-
     setText(text) {
         this.tag.textContent = String(text);
     }
@@ -76,6 +72,32 @@ class Tag {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
         this.tag.style.borderBottom = `${style} ${width}px ${color}`;
+    }
+
+    setFontFamily(font) {
+        this.tag.style.fontFamily = font;
+    }
+
+    setFontColor(color) {
+        this.tag.style.color = color;
+    }
+
+    setFontSize(size, type="pixels") {
+        this.tag.style.fontSize = this.formatMeasure(size, type);
+    }
+
+    setCursor(cursor) {
+        this.tag.style.cursor = cursor;
+    }
+
+    // Content methods
+
+    add(tag) {
+        this.tag.appendChild(tag.load());
+    }
+
+    remove(tag) {
+        this.tag.removeChild(tag.load());
     }
 
     
