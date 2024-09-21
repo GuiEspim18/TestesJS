@@ -25,6 +25,10 @@ class Tag {
         this.tag.style.backgroundColor = color;
     }
 
+    setBackgroundGradient({color1, color2, angle = 90}) {        
+        this.tag.style.background = `linear-gradient(${angle}deg, ${color1.color} ${color1.percentage}%, ${color2.color} ${color2.percentage}%)`;
+    }
+
     setHeight(height, type = "pixels") {
 
         this.tag.style.height = this.formatMeasure(height, type);
@@ -74,6 +78,30 @@ class Tag {
         this.tag.style.borderBottom = `${style} ${width}px ${color}`;
     }
 
+    setBorderTopRadius(radius, measure = "pixels") {
+        this.tag.style.borderTopRadius = this.formatMeasure(radius, measure);
+    }
+
+    setBorderBottomRadius(radius, measure = "pixels") {
+        this.tag.style.borderBottomRadius = this.formatMeasure(radius, measure);
+    }
+
+    setBorderTopLeftRadius(radius, measure = "pixels") {
+        this.tag.style.borderTopLeftRadius = this.formatMeasure(radius, measure);
+    }
+
+    setBorderTopRightRadius(radius, measure = "pixels") {
+        this.tag.style.borderTopRightRadius = this.formatMeasure(radius, measure);
+    }
+
+    setBorderBottomLeftRadius(radius, measure = "pixels") {
+        this.tag.style.borderBottomLeftRadius = this.formatMeasure(radius, measure);
+    }
+
+    setBorderBottomRightRadius(radius, measure = "pixels") {
+        this.tag.style.borderBottomRightRadius = this.formatMeasure(radius, measure);
+    }
+
     setFontFamily(font) {
         this.tag.style.fontFamily = font;
     }
@@ -88,6 +116,36 @@ class Tag {
 
     setCursor(cursor) {
         this.tag.style.cursor = cursor;
+    }
+
+    setPadding(padding, type="pixels") {
+        this.tag.style.padding = this.formatMeasure(padding, type);
+    }
+
+    setPaddingHorizontal(padding, type="pixels") {
+        this.tag.style.paddingLeft = this.formatMeasure(padding, type);
+        this.tag.style.paddingRight = this.formatMeasure(padding, type);
+    }
+
+    setPaddingVertical(padding, type="pixels") {
+        this.tag.style.paddingTop= this.formatMeasure(padding, type);
+        this.tag.style.paddingBottom = this.formatMeasure(padding, type);
+    }
+
+    setPaddingLeft(padding, type="pixels") {
+        this.tag.style.paddingLeft = this.formatMeasure(padding, type);
+    }
+
+    setPaddingBottom(padding, type="pixels") {
+        this.tag.style.paddingBottom = this.formatMeasure(padding, type);
+    }
+
+    setPaddingTop(padding, type="pixels") {
+        this.tag.style.paddingTop= this.formatMeasure(padding, type);
+    }
+
+    setPaddingRight(padding, type="pixels") {
+        this.tag.style.paddingRight = this.formatMeasure(padding, type);
     }
 
     // Content methods

@@ -7,11 +7,21 @@ class App extends Component {
         super();
         
         const div = new Div("Teste");
-        div.setBackgroundColor("#ff5500");
+        div.setBackgroundGradient({
+            color1: {
+                color: "#ffbc9b",
+                percentage: 0
+            },
+            color2: {
+                color: "#ff5500",
+                percentage: 100
+            },
+            angle: 180,
+        });
         div.setFontColor("#cccccc");
         div.setFontSize(15);
         div.setFontFamily("Arial");
-        div.setBorder({width: 1, color: "black", style: "solid", radius: 4});
+        div.setBorder({width: 1, color: "black", style: "solid"});
         this.add(div);
     }
 
