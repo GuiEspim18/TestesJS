@@ -1,12 +1,14 @@
-import Page from "../libs/ui/Page/Page.js";
+import Component from "../libs/ui/Component/Component.js";
 import Div from "../libs/ui/Tags/Div/Div.js";
 
-class App extends Page {
+class App extends Component {
 
     constructor() {
         super();
         
         const div = new Div("Teste");
+        div.setBackgroundColor("#ff5500");
+        div.setBorder({width: 1, color: "black", style: "solid", radius: 4});
         this.add(div);
     }
 

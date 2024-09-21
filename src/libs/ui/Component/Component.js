@@ -1,4 +1,4 @@
-class Page {
+class Component {
     content;
 
     constructor() {
@@ -14,4 +14,4 @@ class Page {
     }
 }
 
-export default Page;
+export default Component;
