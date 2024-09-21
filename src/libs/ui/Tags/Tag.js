@@ -34,8 +34,8 @@ class Tag {
         this.tag.style.height = this.formatMeasure(height, type);
     }
 
-    setWidth(widt, type = "pixels") {
-        this.tag.style.width = this.formatMeasure(height, type);
+    setWidth(width, type = "pixels") {
+        this.tag.style.width = this.formatMeasure(width, type);
     }
 
     setSize(size) {

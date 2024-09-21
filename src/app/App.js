@@ -1,5 +1,6 @@
 import Component from "../libs/ui/Component/Component.js";
 import Div from "../libs/ui/Tags/Div/Div.js";
+import Measure from "../libs/ui/Types/Measure.js";
 
 class App extends Component {
 
