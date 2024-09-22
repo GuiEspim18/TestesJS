@@ -30,8 +30,35 @@ class App extends Component {
         this.add(section);
 
         const table = new Table();
-        table.addHeader(["Nome", "Sobrenome", "Email"], );
-        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"], {});
+        table.addHeader(["Nome", "Sobrenome", "Email"]);
+        table.setHeadersTextAlignment("center");
+        table.setHeadersBackground({
+            color1: {
+                color: "#f0f0f0",
+                percentage: 0
+            }, 
+            color2: {
+                color: "#cccccc",
+                percentage: 100
+            }, 
+            angle: 180
+        });
+        table.setHeadersPadding({ padding: "horizontal", size: 30 });
+
+        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
+        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
+        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
+        table.setRowsTextAlignment("center");
+        table.setRowsBorder({
+            border: "bottom",
+            size: 1,
+            color: "#0f0f0f",
+            type: "dashed"
+        });
+
+        table.setBorder({ width: 1, color: "#0f0f0f", radius: 5 });
+
+
         table.setFontFamily("Arial");
         this.add(table);
     }

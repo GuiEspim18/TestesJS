@@ -5,24 +5,25 @@ import Tag from "../Tag";
  * @extends Tag
  */
 declare class Table extends Tag {
-    constructor() {
-    }
+    constructor();
 
-    /**
-     * Adiciona um cabeçalho à tabela.
-     * @param {Array<string>} headers - Os cabeçalhos da tabela.
-     * @param {string | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }} background - A cor de fundo do cabeçalho.
-     */
+    // Funções para adicionar linhas e cabeçalhos
+    public addHeader(headers: Array<string>): void;
+    public addRow(cells: Array<string>): void;
 
-    public addHeader(headers: Array<any>, background: String | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }): void;
+    // Funções universais de configuração para as linhas
+    public setRowsPadding(padding: { padding: "top" | "bottom" | "left" | "right" | "horizontal" | "vertical" | "all", size: number }): void;
+    public setRowsBorder(border: { border: "top" | "bottom" | "left" | "right" | "horizontal" | "vertical" | "all", size: number, color: string, type: "solid" | "dashed" | "dotted" | "double" | "groove" | "ridge" | "inset" | "outset" | "none" | "hidden" }): void;
+    public setRowsTextColor(color: string): void;
+    public setRowsTextAlignment(alignment: "left" | "center" | "right" | "justify"): void;
+    public setRowsBackground(background: string | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }): void;
 
-    /**
-     * Adiciona uma linha à tabela.
-     * @param {Array<string>} cells - O conteúdo da linha.
-     * @param {string | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }} background - A cor de fundo das células.
-     */
-
-    public addRow(cells: Array<any>, background: String | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }): void;
+    // Funções universais de configuração para os cabeçalhos
+    public setHeadersPadding(padding: { padding: "top" | "bottom" | "left" | "right" | "horizontal" | "vertical" | "all", size: number }): void;
+    public setHeadersBorder(border: { border: "top" | "bottom" | "left" | "right" | "horizontal" | "vertical" | "all", size: number, color: string, type: "solid" | "dashed" | "dotted" | "double" | "groove" | "ridge" | "inset" | "outset" | "none" | "hidden" }): void;
+    public setHeadersTextColor(color: string): void;
+    public setHeadersTextAlignment(alignment: "left" | "center" | "right" | "justify"): void;
+    public setHeadersBackground(background: string | { color1: { color: string, percentage: number }, color2: { color: string, percentage: number }, angle: number }): void;
 }
 
 export default Table;

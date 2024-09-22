@@ -10,6 +10,9 @@ class Component {
     }
 
     add(tag) {
+        if (tag.render != null) {
+            tag.render();
+        }
         this.content.appendChild(tag.load());
     }
 }
