@@ -1,4 +1,5 @@
 import Tag from "../Tag";
+import Component from "../../Component/Component";
 
 /**
  * @class Table
@@ -9,7 +10,7 @@ declare class Table extends Tag {
 
     // Funções para adicionar linhas e cabeçalhos
     public addHeader(headers: Array<string>): void;
-    public addRow(cells: Array<string>): void;
+    public addRow(cells: Array<string | Component | Tag>): void;
 
     // Funções universais de configuração para as linhas
     public setRowsPadding(padding: { padding: "top" | "bottom" | "left" | "right" | "horizontal" | "vertical" | "all", size: number }): void;

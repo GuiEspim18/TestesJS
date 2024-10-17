@@ -1,3 +1,5 @@
+import Component from "../../Component/Component.js";
+import Div from "../Div/Div.js";
 import Tag from "../Tag.js";
 
 class Table extends Tag {
@@ -120,7 +122,12 @@ class Table extends Tag {
 
             cells.forEach(cell => {
                 const td = document.createElement("td");
-                td.textContent = cell;
+                if (typeof(cell) == "object") {
+                    td.appendChild(cell.load());
+                } 
+                if (typeof(cell) == "string") {
+                    td.textContent = cell;
+                }
                 this.applyRowStyles(td);
                 row.appendChild(td);
             });
