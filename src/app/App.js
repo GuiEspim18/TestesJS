@@ -17,6 +17,7 @@ import H6 from "../libs/ui/Tags/H6/H6.js";
 import B from "../libs/ui/Tags/B/B.js";
 import I from "../libs/ui/Tags/I/I.js";
 import S from "../libs/ui/Tags/S/S.js";
+import A from "../libs/ui/Tags/A/A.js";
 
 class App extends Component {
 
@@ -33,6 +34,10 @@ class App extends Component {
         this.add(new B("Teste de Bold"));
         this.add(new I("Teste de italic"));
         this.add(new S("Teste de texto riscado"));
+        const link = new A("Teste de a");
+        link.setHref("https://facebook.com");
+        link.setTarget("_blank");
+        this.add(link);
     }
 
 }
