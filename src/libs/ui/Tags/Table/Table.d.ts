@@ -11,18 +11,15 @@ import Component from "../../Component/Component";
 declare class Table extends Tag {
     constructor();
 
-    // Funções para adicionar linhas e cabeçalhos
     public addHeader(headers: Array<string>): void;
     public addRow(cells: Array<string | Component | Tag>): void;
 
-    // Funções universais de configuração para as linhas
     public setRowsPadding(padding: Padding): void;
     public setRowsBorder(border: Border): void;
     public setRowsTextColor(color: string): void;
     public setRowsTextAlignment(alignment: "left" | "center" | "right" | "justify"): void;
     public setRowsBackground(background: string | Gradients): void;
 
-    // Funções universais de configuração para os cabeçalhos
     public setHeadersPadding(padding: Padding): void;
     public setHeadersBorder(border: Border): void;
     public setHeadersTextColor(color: string): void;

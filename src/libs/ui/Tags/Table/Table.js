@@ -1,5 +1,3 @@
-import Component from "../../Component/Component.js";
-import Div from "../Div/Div.js";
 import Tag from "../Tag.js";
 
 class Table extends Tag {

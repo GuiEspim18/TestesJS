@@ -4,63 +4,15 @@ import Header from "../libs/ui/Tags/Header/Header.js";
 import Section from "../libs/ui/Tags/Section/Section.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import Table from "../libs/ui/Tags/Table/Table.js";
+import Ul from "../libs/ui/Tags/Ul/Ul.js";
+import List from "./List.js";
 
 class App extends Component {
 
     constructor() {
         super();
-        
-        const header = new Header();
-        header.setHeight(80);
-        header.setBackgroundGradient({
-            color1: {
-                color: "#f3f3f3",
-                percentage: 0
-            }, 
-            color2: {
-                color: "#cbcbcb",
-                percentage: 100
-            },
-            angle: 180
-        });
-        this.add(header);
 
-        const section = new Section();
-        section.setHeight(100, Measure.PERCENT);
-        this.add(section);
-
-        const table = new Table();
-        table.addHeader(["Nome", "Sobrenome", "Email"]);
-        table.setHeadersTextAlignment("center");
-        table.setHeadersBackground({
-            color1: {
-                color: "#f0f0f0",
-                percentage: 0
-            }, 
-            color2: {
-                color: "#cccccc",
-                percentage: 100
-            }, 
-            angle: 180
-        });
-        table.setHeadersPadding({ padding: "horizontal", size: 30 });
-
-        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
-        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
-        table.addRow(["Guilherme", "Monteiro Espim", "guilherme.monteiro.espim@gmail.com"]);
-        table.setRowsTextAlignment("center");
-        table.setRowsBorder({
-            border: "bottom",
-            size: 1,
-            color: "#0f0f0f",
-            type: "dashed"
-        });
-
-        table.setBorder({ width: 1, color: "#0f0f0f", radius: 5 });
-
-
-        table.setFontFamily("Arial");
-        this.add(table);
+        this.add(new List(["Guilherme", "Lucas", "Vinicius", "Pedro"]));
     }
 
 }
