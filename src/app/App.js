@@ -6,6 +6,7 @@ import Measure from "../libs/ui/Types/Measure.js";
 import Table from "../libs/ui/Tags/Table/Table.js";
 import Ul from "../libs/ui/Tags/Ul/Ul.js";
 import List from "./List.js";
+import Ol from "../libs/ui/Tags/Ol/Ol.js";
 
 class App extends Component {
 
@@ -16,6 +17,10 @@ class App extends Component {
         this.add(list1);
 
         this.add(new List(["Outra lista 2"]));
+
+        this.add(new Ol([
+            "Teste"
+        ]));
     }
 
 }
