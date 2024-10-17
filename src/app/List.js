@@ -5,12 +5,16 @@ class List extends Component {
     constructor (content = []) {
         super();
 
-        const ul = new Ul(content);
-        ul.setListStyle("none");
-        ul.setFontFamily("Arial");
-        ul.setFontColor("#cecece");
-        ul.setFontSize(12);
-        this.add(ul);
+        this.ul = new Ul(content);
+        this.ul.setListStyle("none");
+        this.ul.setFontFamily("Arial");
+        this.ul.setFontColor("#cecece");
+        this.ul.setFontSize(12);
+        this.add(this.ul);
+    }
+
+    removeLine(index) {
+        this.ul.removeLine(index);
     }
 }
 

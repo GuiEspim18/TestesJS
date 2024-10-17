@@ -12,7 +12,10 @@ class App extends Component {
     constructor() {
         super();
 
-        this.add(new List(["Guilherme", "Lucas", "Vinicius", "Pedro"]));
+        const list1 = new List(["Guilherme", "Lucas", "Vinicius", "Pedro"]);
+        this.add(list1);
+
+        this.add(new List(["Outra lista 2"]));
     }
 
 }
