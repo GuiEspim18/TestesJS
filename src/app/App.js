@@ -1,43 +1,39 @@
 import Component from "../libs/ui/Component/Component.js";
-import Div from "../libs/ui/Tags/Div/Div.js";
-import Header from "../libs/ui/Tags/Header/Header.js";
-import Section from "../libs/ui/Tags/Section/Section.js";
+import HeaderStyle from "./HeaderStyle.js";
+
+import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
-import Table from "../libs/ui/Tags/Table/Table.js";
-import Ul from "../libs/ui/Tags/Ul/Ul.js";
-import List from "./List.js";
-import Ol from "../libs/ui/Tags/Ol/Ol.js";
+import Section from "../libs/ui/Tags/Section/Section.js";
 import P from "../libs/ui/Tags/P/P.js";
-import H1 from "../libs/ui/Tags/H1/H1.js";
-import H2 from "../libs/ui/Tags/H2/H2.js";
-import H3 from "../libs/ui/Tags/H3/H3.js";
-import H4 from "../libs/ui/Tags/H4/H4.js";
-import H5 from "../libs/ui/Tags/H5/H5.js";
-import H6 from "../libs/ui/Tags/H6/H6.js";
-import B from "../libs/ui/Tags/B/B.js";
-import I from "../libs/ui/Tags/I/I.js";
-import S from "../libs/ui/Tags/S/S.js";
-import A from "../libs/ui/Tags/A/A.js";
+import TextAlignment from "../libs/ui/Types/TextAlignment.js";
 
 class App extends Component {
 
     constructor() {
         super();
 
-        this.add(new P("Teste de P"));
-        this.add(new H1("Teste de H1"));
-        this.add(new H2("Teste de H2"));
-        this.add(new H3("Teste de H3"));
-        this.add(new H4("Teste de H4"));
-        this.add(new H5("Teste de H5"));
-        this.add(new H6("Teste de H6"));
-        this.add(new B("Teste de Bold"));
-        this.add(new I("Teste de italic"));
-        this.add(new S("Teste de texto riscado"));
-        const link = new A("Teste de a");
-        link.setHref("https://facebook.com");
-        link.setTarget("_blank");
-        this.add(link);
+        this.setPageColor("#FOFOFO");
+
+        const main = new Main();
+        main.setSize(100, Measure.PERCENT);
+
+        const header = new HeaderStyle();
+        main.add(header);
+
+        const section = new Section();
+        section.setPaddingHorizontal(10);
+        main.add(section)
+
+        const text = new P("Olá Mundo!");
+        text.setFontColor("#7B68EE");
+        text.setFontFamily("Arial");
+        text.setTextAlign(TextAlignment.CENTER);
+        text.setFontSize(20);
+
+        section.add(text);
+
+        this.add(main);
+
     }
 
 }

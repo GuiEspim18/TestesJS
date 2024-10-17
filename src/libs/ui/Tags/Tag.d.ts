@@ -88,6 +88,8 @@ declare class Tag {
 
     public setAlignSelf(alignment?: string): void;
 
+    public setTextAlign(alignment: string): void;
+
     public setFlexWrap(wrap?: string): void;
 
     public setFlexGrow(grow?: number): void;

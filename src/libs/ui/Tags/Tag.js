@@ -38,9 +38,13 @@ class Tag {
         this.tag.style.width = this.formatMeasure(width, type);
     }
 
-    setSize(size) {
+    setSize(size, type = "pixels") {
         this.tag.style.width = this.formatMeasure(size, type);
         this.tag.style.height = this.formatMeasure(size, type);
+    }
+
+    setTextAlign(alignment) {
+        this.tag.style.textAlign = alignment;
     }
 
     setBorder({width = 1, color, style = "solid", radius = 0, measure = "pixels"}) {

@@ -15,6 +15,10 @@ class Component {
         }
         this.content.appendChild(tag.load());
     }
+
+    setPageColor(color) {
+        document.querySelector("body").style.backgroundColor = color
+    }
 }
 
 export default Component;
