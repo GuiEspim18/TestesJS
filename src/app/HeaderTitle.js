@@ -1,17 +1,11 @@
-import Component from "../libs/ui/Component/Component.js";
 import H1 from "../libs/ui/Tags/H1/H1.js";
 
-class HeaderTitle extends Component {
-
-    title;
-
+class HeaderTitle extends H1 {
     constructor(text) {
-        super();
+        super(text);
 
-        this.title = new H1(text);
-        this.title.setFontColor("#f0f0f0");
-        this.title.setFontFamily("Arial");
-        this.add(this.title);
+        this.setFontColor("#f0f0f0");
+        this.setFontFamily("Arial");
     }
 }
 

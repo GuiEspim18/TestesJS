@@ -6,3 +6,5 @@ class JustifyContent {
     static SPACE_AROUND = "space-around";
     static SPACE_EVENLY = "space-evenly";
 }
+
+export default JustifyContent;
