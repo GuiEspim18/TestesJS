@@ -66,6 +66,20 @@ declare class Tag {
 
     public setPaddingRight(padding: number, type?: string): void;
 
+    public setMargin(margin: number | { x: number | "auto", y: number | "auto" }, type?: string): void;
+
+    public setMarginHorizontal(margin: number, type?: string): void; 
+
+    public setMarginVertical(margin: number, type?: string): void; 
+
+    public setMarginLeft(margin: number, type?: string): void; 
+
+    public setMarginBottom(margin: number, type?: string): void;
+
+    public setMarginTop(margin: number, type?: string): void;
+
+    public setMarginRight(margin: number, type?: string): void;
+
     public setMaxWidth(maxWidth: number, type?: string): void;
 
     public setMaxHeight(maxHeight: number, type?: string): void;
@@ -103,6 +117,49 @@ declare class Tag {
     public add(tag: Tag): void;
 
     public remove(tag: Tag): void;
+
+    public onClick(event: () => void | any): void;
+
+    public onClick(event: () => void | any): void;
+
+    public onDoubleClick(event: () => void | any): void;
+
+    public onMouseOver(event: () => void | any): void;
+
+    public onMouseOut(event: () => void | any): void;
+
+    public onMouseEnter(event: () => void | any): void;
+
+    public onMouseLeave(event: () => void | any): void;
+
+    public onMouseMove(event: () => void | any): void;
+
+    public onMouseDown(event: () => void | any): void;
+
+    public onMouseUp(event: () => void | any): void;
+
+    // public onKeyDown(event: () => void | any): void;
+
+    // public onKeyUp(event: () => void | any): void;
+
+    // public onKeyPress(event: () => void | any): void;
+
+    // public onFocus(event: () => void | any): void;
+
+    // public onBlur(event: () => void | any): void;
+
+    // public onChange(event: () => void | any): void;
+
+    // public onInput(event: () => void | any): void;
+
+    // public onSubmit(event: () => void | any): void;
+
+    // public onScroll(event: () => void | any): void;
+
+    public onResize(event: () => void | any): void;
+
+
+    public onMouseEnter(event: () => void | any): void;
 
     private formatMeasure(value: number, type: string): string;
 }

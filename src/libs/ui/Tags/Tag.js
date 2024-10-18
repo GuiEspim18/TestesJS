@@ -51,35 +51,55 @@ class Tag {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
-        this.tag.style.border = `${style} ${width}px ${color}`;
+        if (style == "none") {
+            this.tag.style.border = style;
+        } else {
+            this.tag.style.border = `${style} ${width}px ${color}`;
+        }
     }
 
     setBorderLeft({width = 1, color, style = "solid", radius = 0}) {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
-        this.tag.style.borderLeft = `${style} ${width}px ${color}`;
+        if (style == "none") {
+            this.tag.style.borderLeft = style;
+        } else {
+            this.tag.style.borderLeft = `${style} ${width}px ${color}`;
+        }
     }
 
     setBorderRight({width = 1, color, style = "solid", radius = 0}) {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
-        this.tag.style.borderRight = `${style} ${width}px ${color}`;
+        if (style == "none") {
+            this.tag.style.borderRight = style;
+        } else {
+            this.tag.style.borderRight = `${style} ${width}px ${color}`;
+        }
     }
 
     setBorderTop({width = 1, color, style = "solid", radius = 0}) {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
-        this.tag.style.borderTop = `${style} ${width}px ${color}`;
+        if (style == "none") {
+            this.tag.style.borderTop = style;
+        } else {
+            this.tag.style.borderTop = `${style} ${width}px ${color}`;
+        }
     }
 
     setBorderBottom({width = 1, color, style = "solid", radius = 0}) {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
-        this.tag.style.borderBottom = `${style} ${width}px ${color}`;
+        if (style == "none") {
+            this.tag.style.borderBottom = style;
+        } else {
+            this.tag.style.borderBottom = `${style} ${width}px ${color}`;
+        }
     }
 
     setBorderTopRadius(radius, measure = "pixels") {
@@ -151,6 +171,42 @@ class Tag {
     setPaddingRight(padding, type="pixels") {
         this.tag.style.paddingRight = this.formatMeasure(padding, type);
     }
+
+
+    setMargin(margin, type = "pixels") {
+        if (typeof(margin) == "object") {
+            this.tag.style.margin = `${typeof(margin.y) == "string" ? "auto" : this.formatMeasure(margin.y, type)} ${typeof(margin.x) == "string" ? "auto" : this.formatMeasure(margin.x, type)}`;
+        } else {
+            this.tag.style.margin = this.formatMeasure(margin, type);
+        }
+    }
+    
+    setMarginHorizontal(margin, type = "pixels") {
+        this.tag.style.marginLeft = this.formatMeasure(margin, type);
+        this.tag.style.marginRight = this.formatMeasure(margin, type);
+    }
+    
+    setMarginVertical(margin, type = "pixels") {
+        this.tag.style.marginTop = this.formatMeasure(margin, type);
+        this.tag.style.marginBottom = this.formatMeasure(margin, type);
+    }
+    
+    setMarginLeft(margin, type = "pixels") {
+        this.tag.style.marginLeft = this.formatMeasure(margin, type);
+    }
+    
+    setMarginBottom(margin, type = "pixels") {
+        this.tag.style.marginBottom = this.formatMeasure(margin, type);
+    }
+    
+    setMarginTop(margin, type = "pixels") {
+        this.tag.style.marginTop = this.formatMeasure(margin, type);
+    }
+    
+    setMarginRight(margin, type = "pixels") {
+        this.tag.style.marginRight = this.formatMeasure(margin, type);
+    }
+    
 
     setMaxWidth(maxWidth, type="pixels") {
         this.tag.style.maxWidth = this.formatMeasure(maxWidth, type);
@@ -227,6 +283,85 @@ class Tag {
     remove(tag) {
         this.tag.removeChild(tag.load());
     }
+
+    // events
+
+    onClick(event) {
+        this.tag.addEventListener("click", event);
+    }
+
+    onDoubleClick(event) {
+        this.tag.addEventListener("dblclick", event);
+    }
+    
+    onMouseOver(event) {
+        this.tag.addEventListener("mouseover", event);
+    }
+    
+    onMouseOut(event) {
+        this.tag.addEventListener("mouseout", event);
+    }
+    
+    onMouseEnter(event) {
+        this.tag.addEventListener("mouseenter", event);
+    }
+    
+    onMouseLeave(event) {
+        this.tag.addEventListener("mouseleave", event);
+    }
+    
+    onMouseMove(event) {
+        this.tag.addEventListener("mousemove", event);
+    }
+    
+    onMouseDown(event) {
+        this.tag.addEventListener("mousedown", event);
+    }
+    
+    onMouseUp(event) {
+        this.tag.addEventListener("mouseup", event);
+    }
+    
+    // onKeyDown(event) {
+    //     this.tag.addEventListener("keydown", event);
+    // }
+    
+    // onKeyUp(event) {
+    //     this.tag.addEventListener("keyup", event);
+    // }
+    
+    // onKeyPress(event) {
+    //     this.tag.addEventListener("keypress", event);
+    // }
+    
+    // onFocus(event) {
+    //     this.tag.addEventListener("focus", event);
+    // }
+    
+    // onBlur(event) {
+    //     this.tag.addEventListener("blur", event);
+    // }
+    
+    // onChange(event) {
+    //     this.tag.addEventListener("change", event);
+    // }
+    
+    // onInput(event) {
+    //     this.tag.addEventListener("input", event);
+    // }
+    
+    // onSubmit(event) {
+    //     this.tag.addEventListener("submit", event);
+    // }
+    
+    // onScroll(event) {
+    //     this.tag.addEventListener("scroll", event);
+    // }
+    
+    onResize(event) {
+        window.addEventListener("resize", event);
+    }
+    
 
     
     // Private methods

@@ -6,6 +6,9 @@ import Measure from "../libs/ui/Types/Measure.js";
 import Section from "../libs/ui/Tags/Section/Section.js";
 import P from "../libs/ui/Tags/P/P.js";
 import TextAlignment from "../libs/ui/Types/TextAlignment.js";
+import Button from "../libs/ui/Tags/Button/Button.js";
+
+import MainButton from "./MainButton.js";
 
 class App extends Component {
 
@@ -24,11 +27,27 @@ class App extends Component {
         section.setPaddingHorizontal(10);
         main.add(section)
 
-        const text = new P("Olá Mundo!");
+        let value = "Olá Mundo! ";
+        let count = 0;
+
+        const text = new P(value + count);
         text.setFontColor("#7B68EE");
         text.setFontFamily("Arial");
         text.setTextAlign(TextAlignment.CENTER);
         text.setFontSize(20);
+
+        const button = new MainButton("Teste");
+        button.onClick(function () {
+            count++;
+            text.setText(value + count);
+        });
+        button.onMouseEnter(function() {
+            button.setBackgroundColor("red");
+        });
+        button.onMouseLeave(function () {
+            button.setBackgroundColor("#7B68EE");
+        });
+        main.add(button);
 
         section.add(text);
 
