@@ -9,7 +9,6 @@ const server = http.createServer(async (req, res) => {
     let ext = extname(filePath);
     let contentType = 'text/html';
 
-    // Determina o tipo MIME baseado na extensão do arquivo
     switch (ext) {
         case '.js':
             contentType = 'application/javascript';
