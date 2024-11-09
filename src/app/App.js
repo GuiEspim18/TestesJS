@@ -4,6 +4,7 @@ import HeaderStyle from "./HeaderStyle.js";
 import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import Card from "./Card.js";
+import InputNumber from "../libs/ui/Tags/InputNumber/InputNumber.js";
 
 class App extends Component {
 
@@ -18,6 +19,9 @@ class App extends Component {
         const main = new Main();
         main.setSize(100, Measure.PERCENT);
 
+        const inputText = new InputNumber();
+        main.add(inputText);
+ 
         main.add(new Card());
 
         this.add(main);
