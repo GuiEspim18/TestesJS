@@ -29,7 +29,7 @@ class Input extends Tag {
 
     
     setPattern(pattern) {
-        this.tag.pattern = pattern;
+        this.tag.pattern = pattern; 
     }
 
 }
