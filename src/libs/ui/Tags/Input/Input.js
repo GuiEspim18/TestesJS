@@ -27,9 +27,12 @@ class Input extends Tag {
         this.tag.autocomplete = autocomplete;
     }
 
-    
     setPattern(pattern) {
         this.tag.pattern = pattern; 
+    }
+
+    setPlaceholder(placeholder) {
+        this.tag.placeholder = placeholder
     }
 
 }
