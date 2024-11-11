@@ -20,6 +20,7 @@ class App extends Component {
         main.setSize(100, Measure.PERCENT);
 
         const inputNumber = new InputNumber();
+        inputNumber.setSpinButton(false);
         main.add(inputNumber);
 
         main.add(new Card());
