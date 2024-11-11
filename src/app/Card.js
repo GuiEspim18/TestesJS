@@ -30,7 +30,7 @@ class Card extends Section {
         text.setFontSize(20);
         text.setMargin({x: 0, y: 12});
         this.add(text);
-        
+
         const button = new MainButton("Click-me");
         button.onClick(() => {
             this.count++;
