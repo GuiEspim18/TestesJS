@@ -23,4 +23,5 @@ a front-end test library
     <li>reset - Botão para resetar um formulário</li>
     <li>✅button - Botão genérico</li>
     <li>image - Botão de envio com uma imagem</li>
+    <li>datalist - Usado com o elemento &lt;datalist&gt; para criar uma lista de opções para outros controles</li>
 </ul>
