@@ -1,5 +1,5 @@
 import Section from "../libs/ui/Tags/Section/Section.js";
-import P from "../libs/ui/Tags/P/P.js";
+import P from "../libs/ui/Tags/Text/P/P.js";
 import Display from "../libs/ui/Types/Display.js";
 import FlexDirection from "../libs/ui/Types/FlexDirection.js";
 import JustifyContent from "../libs/ui/Types/JustifyContent.js";
