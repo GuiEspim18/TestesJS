@@ -47,6 +47,26 @@ class InputFile extends Input {
         super();
         this.tag.type = "file";
     }
+
+    setAccept(accept) {
+        this.tag.accept = accept;
+    }
+
+    setMultiple(multiple) {
+        this.tag.multiple = multiple;
+    }
+
+    setCapture(capture) {
+        this.tag.capture = capture;
+    }
+
+    setWebkitdirectory(webkitdirectory) {
+        this.tag.webkitdirectory = webkitdirectory ;
+    }
+
+    getFiles() {
+        return this.tag.files;
+    }
 }
 
 export default InputFile;

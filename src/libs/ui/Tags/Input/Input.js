@@ -34,6 +34,10 @@ class Input extends Tag {
         this.tag.placeholder = placeholder
     }
 
+    setValue(value) {
+        this.tag.value = value;
+    }
+
 }
 
 export default Input;

@@ -16,6 +16,8 @@ declare class Input extends Tag {
     public setPattern(pattern: string): void;
 
     public setPlaceholder(placeholder: string): void;
+
+    public setValue(value: any): void;
 }
 
 export default Input;
