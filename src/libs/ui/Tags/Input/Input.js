@@ -1,5 +1,4 @@
-import { read } from "fs";
-import Tag from "../Tag";
+import Tag from "../Tag.js";
 
 class Input extends Tag {
 
