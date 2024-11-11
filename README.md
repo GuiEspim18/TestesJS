@@ -13,7 +13,7 @@ a front-end test library
     <li>✅datetime-local - Para selecionar data e hora</li>
     <li>✅month - Para selecionar um mês e ano</li>
     <li>✅week - Para selecionar uma semana e ano</li>
-    <li>color - Para selecionar uma cor</li>
+    <li>✅color - Para selecionar uma cor</li>
     <li>range - Para selecionar um valor dentro de um intervalo (slider)</li>
     <li>✅file - Para upload de arquivos</li>
     <li>checkbox - Caixa de seleção</li>
