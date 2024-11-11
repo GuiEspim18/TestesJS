@@ -4,7 +4,7 @@ import HeaderStyle from "./HeaderStyle.js";
 import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import Card from "./Card.js";
-import InputUrl from "../libs/ui/Tags/Input/InputUrl/InputUrl.js";
+import InputSearch from "../libs/ui/Tags/Input/InputSearch/InputSearch.js";
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
         const main = new Main();
         main.setSize(100, Measure.PERCENT);
 
-        const test = new InputUrl();
+        const test = new InputSearch();
         main.add(test);
 
         main.add(new Card());
