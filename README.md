@@ -5,8 +5,8 @@ a front-end test library
     <li>✅password - Campo para senhas (oculta os caracteres)</li>
     <li>✅email - Para endereços de e-mail</li>
     <li>✅number - Para entrada numérica</li>
-    <li>tel - Para números de telefone</li>
-    <li>url - Para URLs</li>
+    <li>✅tel - Para números de telefone</li>
+    <li>✅url - Para URLs</li>
     <li>search - Para campos de busca</li>
     <li>date - Para selecionar uma data</li>
     <li>time - Para selecionar um horário</li>
