@@ -4,7 +4,7 @@ import HeaderStyle from "./HeaderStyle.js";
 import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import Card from "./Card.js";
-import InputMonth from "../libs/ui/Tags/Input/InputMonth/InputMonth.js";
+import InputWeek from "../libs/ui/Tags/Input/InputWeek/InputWeek.js";
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
         const main = new Main();
         main.setSize(100, Measure.PERCENT);
 
-        const test = new InputMonth();
+        const test = new InputWeek();
         main.add(test);
 
         main.add(new Card());
