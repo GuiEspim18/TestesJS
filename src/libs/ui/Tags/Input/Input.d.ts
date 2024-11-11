@@ -18,6 +18,8 @@ declare class Input extends Tag {
     public setPlaceholder(placeholder: string): void;
 
     public setValue(value: any): void;
+
+    public setOutline(outline: string): void;
 }
 
 export default Input;

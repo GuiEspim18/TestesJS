@@ -38,6 +38,10 @@ class Input extends Tag {
         this.tag.value = value;
     }
 
+    setOutline(outline) {
+        this.tag.style.outline = outline;
+    }
+
 }
 
 export default Input;
