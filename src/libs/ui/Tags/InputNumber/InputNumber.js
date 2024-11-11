@@ -5,6 +5,18 @@ class InputNumber extends Input {
         super("input");
         this.tag.type = "number";
     }
+
+    setMin(min) {
+        this.tag.min = min;
+    }
+
+    setMax(max) {
+        this.tag.max = max;
+    }
+
+    setStep(step) {
+        this.tag.step = step;
+    }
 }
 
 export default InputNumber;
