@@ -11,7 +11,7 @@ a front-end test library
     <li>✅date - Para selecionar uma data</li>
     <li>✅time - Para selecionar um horário</li>
     <li>✅datetime-local - Para selecionar data e hora</li>
-    <li>month - Para selecionar um mês e ano</li>
+    <li>✅month - Para selecionar um mês e ano</li>
     <li>week - Para selecionar uma semana e ano</li>
     <li>color - Para selecionar uma cor</li>
     <li>range - Para selecionar um valor dentro de um intervalo (slider)</li>
