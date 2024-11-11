@@ -2,7 +2,7 @@ import Input from "../Input/Input.js";
 
 class InputNumber extends Input {
     constructor() {
-        super("input");
+        super();
         this.tag.type = "number";
     }
 
