@@ -43,5 +43,5 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
     console.clear();
-    console.log(`Servidor rodando em http://localhost:${PORT}/`);
+    console.log(`✅ Servidor rodando em http://localhost:${PORT}/`);
 });
