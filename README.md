@@ -14,7 +14,7 @@ a front-end test library
     <li>✅month - Para selecionar um mês e ano</li>
     <li>✅week - Para selecionar uma semana e ano</li>
     <li>✅color - Para selecionar uma cor</li>
-    <li>range - Para selecionar um valor dentro de um intervalo (slider)</li>
+    <li>✅range - Para selecionar um valor dentro de um intervalo (slider)</li>
     <li>✅file - Para upload de arquivos</li>
     <li>checkbox - Caixa de seleção</li>
     <li>radio - Botão de opção</li>
