@@ -2,8 +2,8 @@ a front-end test library
 
 <ul style="list-style: none;">
     <li>✅text - Entrada de texto padrão (uma linha)</li>
-    <li>✅ password - Campo para senhas (oculta os caracteres)</li>
-    <li>email - Para endereços de e-mail</li>
+    <li>✅password - Campo para senhas (oculta os caracteres)</li>
+    <li>✅email - Para endereços de e-mail</li>
     <li>✅number - Para entrada numérica</li>
     <li>tel - Para números de telefone</li>
     <li>url - Para URLs</li>
