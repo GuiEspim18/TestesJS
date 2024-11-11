@@ -4,7 +4,7 @@ import HeaderStyle from "./HeaderStyle.js";
 import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import Card from "./Card.js";
-import InputPassword from "../libs/ui/Tags/Input/InputPassword/InputPassword.js";
+import InputEmail from "../libs/ui/Tags/Input/InputEmail/InputEmail.js";
 
 class App extends Component {
 
