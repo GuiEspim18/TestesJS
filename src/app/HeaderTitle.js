@@ -1,4 +1,4 @@
-import H1 from "../libs/ui/Tags/H1/H1.js";
+import H1 from "../libs/ui/Tags/Text/H1/H1.js";
 
 class HeaderTitle extends H1 {
     constructor(text) {
