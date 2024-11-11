@@ -1,6 +1,6 @@
-import Tag from "../Tag.js";
+import Input from "../Input/Input.js";
 
-class InputNumber extends Tag {
+class InputNumber extends Input {
     constructor() {
         super("input");
         this.tag.type = "number";
