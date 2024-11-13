@@ -114,6 +114,10 @@ declare class Tag {
 
     public setFlex(flex?: string): void;
 
+    public setName(name: string): void;
+
+    public setId(id: string): void;
+
     public add(tag: Tag): void;
 
     public remove(tag: Tag): void;

@@ -1,4 +1,4 @@
-import Input from "../Input";
+import Input from "../Input.js";
 
 declare class InputBinary extends Input {
     public setChecked(checked: boolean): void;
