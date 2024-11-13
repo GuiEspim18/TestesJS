@@ -1,6 +1,6 @@
-import Input from "../Input/Input";
+import InputTyped from "../InputTyped/InputTyped";
 
-declare class InputNumber extends Input {
+declare class InputNumber extends InputTyped {
     constructor();
     
     public setMin(min: number): void;
