@@ -284,6 +284,16 @@ class Tag {
         this.tag.removeChild(tag.load());
     }
 
+    // attributes
+
+    setName(name) {
+        this.tag.setAttribute("name", name);
+    }
+
+    setId(id) {
+        this.tag.setAttribute("id", id); 
+    }
+
     // events
 
     onClick(event) {
