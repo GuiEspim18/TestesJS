@@ -22,20 +22,8 @@ class Input extends Tag {
         this.tag.autofocus = autofocus;
     }
 
-    setAutocomplete(autocomplete) {
-        this.tag.autocomplete = autocomplete;
-    }
-
     setPattern(pattern) {
         this.tag.pattern = pattern; 
-    }
-
-    setPlaceholder(placeholder) {
-        this.tag.placeholder = placeholder
-    }
-
-    setValue(value) {
-        this.tag.value = value;
     }
 
     setOutline(outline) {

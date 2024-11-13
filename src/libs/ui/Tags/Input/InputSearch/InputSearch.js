@@ -1,6 +1,6 @@
-import Input from "../Input.js";
+import InputTyped from "../InputTyped/InputTyped.js";
 
-class InputSearch extends Input {
+class InputSearch extends InputTyped {
     constructor() {
         super();
         this.tag.type = "search";

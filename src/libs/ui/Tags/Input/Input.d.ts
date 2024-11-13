@@ -11,13 +11,7 @@ declare class Input extends Tag {
 
     public setAutofocus(autofocus: boolean): void;
 
-    public setAutocomplete(autocomplete: string): void;
-
     public setPattern(pattern: string): void;
-
-    public setPlaceholder(placeholder: string): void;
-
-    public setValue(value: any): void;
 
     public setOutline(outline: string): void;
 }

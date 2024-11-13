@@ -1,6 +1,6 @@
-import Input from "../Input.js";
+import InputTyped from "../InputTyped/InputTyped.js";
 
-class InputTime extends Input {
+class InputTime extends InputTyped {
     constructor() {
         super();
         this.tag.type = "time";

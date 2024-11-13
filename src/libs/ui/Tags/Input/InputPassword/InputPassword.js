@@ -1,6 +1,6 @@
-import Input from "../Input.js";
+import InputTyped from "../InputTyped/InputTyped.js";
 
-class InputPassword extends Input {
+class InputPassword extends InputTyped {
     constructor() {
         super();
         this.tag.type = "password";
