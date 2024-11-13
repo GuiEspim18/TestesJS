@@ -1,6 +1,6 @@
-import Input from "../Input.js";
+import InputBinary from "../InputBinary/InputBinary.js";
 
-class InputCheckBox extends Input {
+class InputCheckBox extends InputBinary {
     constructor() {
         super();
         this.tag.type = "checkbox";
