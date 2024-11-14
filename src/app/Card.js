@@ -6,6 +6,7 @@ import JustifyContent from "../libs/ui/Types/JustifyContent.js";
 import AlignItems from "../libs/ui/Types/AlignItems.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import MainButton from "./MainButton.js";
+import InputText from "../libs/ui/Tags/Input/InputText/InputText.js";
 
 class Card extends Section {
 
