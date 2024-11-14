@@ -18,7 +18,6 @@ a front-end test library
     <li>✅file - Para upload de arquivos</li>
     <li>✅checkbox - Caixa de seleção</li>
     <li>✅radio - Botão de opção</li>
-    <li>hidden - Campo oculto (não visível para o usuário)</li>
     <li>submit - Botão para enviar um formulário</li>
     <li>reset - Botão para resetar um formulário</li>
     <li>✅button - Botão genérico</li>
