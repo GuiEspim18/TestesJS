@@ -9,6 +9,10 @@ class InputImage extends Input {
     setImage(image) {
         this.tag.src = image;
     }
+
+    setValue(value) {
+        this.tag.value = value;
+    }
 }
 
 export default InputImage;
