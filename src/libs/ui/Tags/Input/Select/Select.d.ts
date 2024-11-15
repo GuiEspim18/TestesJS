@@ -7,6 +7,8 @@ declare class Select extends Tag {
 
     public setOptions(options: Array<Option>): void;
 
+    public addOptions(options: Array<Option>): void;
+
     public addOption(option: Option): void;
 
     public getValue(): string | number | any;

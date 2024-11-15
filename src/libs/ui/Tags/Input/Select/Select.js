@@ -14,6 +14,13 @@ class Select extends Tag {
         this.loadOptions();
     }
 
+    addOptions(options) {
+        for(let option in options) {
+            this.options.push(option);
+        }
+        this.loadOptions();
+    }
+
     addOption(option) {
         this.options.push(option);
         this.loadOptions();
