@@ -23,3 +23,47 @@ a front-end test library
     <li>✅button - Botão genérico</li>
     <li>✅image - Botão de envio com uma imagem</li>
 </ul>
+
+Atributos exclusivos da tag <form>
+action
+
+Especifica a URL para a qual os dados do formulário devem ser enviados.
+Exemplo: <form action="/processar-dados">.
+method
+
+Define o método HTTP a ser usado ao enviar os dados do formulário (GET ou POST, por exemplo).
+Exemplo: <form method="POST">.
+enctype
+
+Especifica o tipo de codificação dos dados ao enviar o formulário.
+Valores comuns:
+application/x-www-form-urlencoded (padrão)
+multipart/form-data (para upload de arquivos)
+text/plain
+Exemplo: <form enctype="multipart/form-data">.
+target
+
+Define o contexto de navegação onde o resultado da submissão do formulário será exibido.
+Valores comuns:
+_self (padrão: mesma janela/aba)
+_blank (nova aba ou janela)
+_parent
+_top
+Exemplo: <form target="_blank">.
+novalidate
+
+Indica que o navegador não deve validar os dados do formulário antes de enviá-los.
+Exemplo: <form novalidate>.
+name
+
+Dá um nome ao formulário, permitindo referências em JavaScript.
+Exemplo: <form name="meuFormulario">.
+autocomplete
+
+Controla se o navegador deve preencher automaticamente os campos do formulário.
+Valores: on (padrão) ou off.
+Exemplo: <form autocomplete="off">.
+rel
+
+Especifica a relação entre o documento atual e o destino do formulário quando method="GET".
+Exemplo: <form rel="noopener">
