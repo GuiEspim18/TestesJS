@@ -6,14 +6,17 @@ class Select extends Tag {
     constructor(options = []) {
         super("select");
         this.options = options;
+        this.setOptions(this.options);
     }
 
     setOptions(options) {
         this.options = options;
+        this.loadOptions();
     }
 
     addOption(option) {
         this.options.push(option);
+        this.loadOptions();
     }
 
     getValue() {
@@ -21,8 +24,13 @@ class Select extends Tag {
     }
 
     loadOptions() {
-        for (option of this.options) {
-            this.add(option);
+        if (this.options.length > 0 &&  this.tag.childNodes.length > 0) {
+            for (let child of this.tag.children) {
+                child.remove();
+            }
+        }
+        for (let option of this.options) {
+            this.tag.appendChild(option);
         }
     }
 }

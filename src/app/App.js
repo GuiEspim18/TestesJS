@@ -19,7 +19,8 @@ class App extends Component {
         const main = new Main();
         main.setSize(100, Measure.PERCENT);
 
-        const test1 = new Select();
+        const test1 = new Select([new Option("Heloísa", "Heloísa")]);
+        test1.addOption(new Option("Guilherme", "Guilherme"))
         main.add(test1);
 
         main.add(new Card());
