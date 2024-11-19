@@ -7,7 +7,7 @@ class Text extends P {
 
         this.setFontFamily("arial");
         this.setFontSize(1, Measure.REM);
-        this.setFontColor("#292929");
+        this.setFontColor("#474747");
     }
 }
 

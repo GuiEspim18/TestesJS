@@ -22,7 +22,7 @@ class TextField extends Div {
         input.setDisplay(Display.FLEX);
         input.setPadding(5);
         input.setBorder({
-            color: "#292929",
+            color: "#474747",
             size: 1,
             type: "solid",
         });
