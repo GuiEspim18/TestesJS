@@ -47,14 +47,32 @@ class Tag {
         this.tag.style.textAlign = alignment;
     }
 
-    setBorder({width = 1, color, style = "solid", radius = 0, measure = "pixels"}) {
+    setShadow(shadow) {
+        if (shadow === "none") {
+            this.tag.style.boxShadow = "none";
+        } else {
+            const {
+                hOffset = 0,
+                vOffset = 0,
+                blur = 0,
+                spread = 0,
+                color = "rgba(0,0,0,0.75)",
+                inset = false
+            } = shadow;
+    
+            const shadowString = `${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color}`;
+            this.tag.style.boxShadow = inset ? `inset ${shadowString}` : shadowString;
+        }
+    }
+
+    setBorder({size = 1, color, style = "solid", radius = 0, measure = "pixels"}) {
         if (radius > 0) {
             this.tag.style.borderRadius = this.formatMeasure(radius, measure);
         }
         if (style == "none") {
             this.tag.style.border = style;
         } else {
-            this.tag.style.border = `${style} ${width}px ${color}`;
+            this.tag.style.border = `${style} ${size}px ${color}`;
         }
     }
 
@@ -225,15 +243,15 @@ class Tag {
     }
 
     show() {
-        this.tag.style.display = '';
+        this.tag.style.display = "";
     }
     
     hide() {
-        this.tag.style.display = 'none';
+        this.tag.style.display = "none";
     }
 
     setPosition(x, y, unit = "pixels") {
-        this.tag.style.position = 'absolute';
+        this.tag.style.position = "absolute";
         this.tag.style.left = this.formatMeasure(x, unit);
         this.tag.style.top = this.formatMeasure(y, unit);
     }

@@ -10,6 +10,7 @@ class TextField extends Div {
         super();
 
         this.setWidth(100, Measure.PERCENT);
+        this.setMarginBottom(7);
 
         if (text.length > 0) {
             const label = new Text(text);
@@ -25,7 +26,6 @@ class TextField extends Div {
         holder.setPadding(5);
         holder.setBorder({
             color: "#474747",
-            size: 1,
             type: "solid",
         });
         holder.setBorderRadius(5);
@@ -56,17 +56,21 @@ class TextField extends Div {
         input.onFocusIn(function () {
             holder.setBorder({
                 color: "#10d4f3",
-                size: 1,
+                size: 2,
                 type: "solid"
+            });
+            holder.setShadow({
+                color: "#10d4f366",
+                spread: 2.5
             });
         });
 
         input.onFocusOut(function () {
             holder.setBorder({
                 color: "#474747",
-                size: 1,
                 type: "solid"
             });
+            holder.setShadow("none");
         })
 
 

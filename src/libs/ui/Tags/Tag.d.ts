@@ -1,5 +1,6 @@
 import { Border } from "../Interfaces/Border";
 import { Gradients } from "../Interfaces/Gradient";
+import { Shadow } from "../Interfaces/Shadow";
 
 declare class Tag {
     tag: HTMLElement;
@@ -87,6 +88,8 @@ declare class Tag {
     public setMaxWidth(maxWidth: number, type?: string): void;
 
     public setMaxHeight(maxHeight: number, type?: string): void;
+
+    public setShadow(shadow: Shadow | "none"): void;
 
     public show(): void;
 
