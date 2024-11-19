@@ -47,6 +47,22 @@ class Tag {
         this.tag.style.textAlign = alignment;
     }
 
+    setTransition(transition) {
+        if (transition === "none") {
+            this.tag.style.transition = "none";
+        } else {
+            const {
+                property = "all",
+                duration = "0.3s",
+                timingFunction = "ease",
+                delay = "0s"
+            } = transition;
+    
+            const transitionString = `${property} ${duration} ${timingFunction} ${delay}`;
+            this.tag.style.transition = transitionString;
+        }
+    }
+
     setShadow(shadow) {
         if (shadow === "none") {
             this.tag.style.boxShadow = "none";

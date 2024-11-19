@@ -33,6 +33,9 @@ class TextField extends Div {
         holder.setWidth(100, Measure.PERCENT);
         holder.setMargin(0);
         holder.setBoxSizing(BoxSizing.BORDER_BOX);
+        holder.setTransition({
+            duration: "0.2s"
+        })
         this.add(holder);
 
         const input = new InputText();
@@ -48,6 +51,8 @@ class TextField extends Div {
         input.setOutline("none");
         input.setPadding(0);
         holder.add(input);
+
+        // Effects
 
         holder.onClick(function () {
             input.setFocus();
@@ -71,7 +76,7 @@ class TextField extends Div {
                 type: "solid"
             });
             holder.setShadow("none");
-        })
+        });
 
 
     }
