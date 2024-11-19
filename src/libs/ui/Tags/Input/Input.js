@@ -30,6 +30,18 @@ class Input extends Tag {
         this.tag.style.outline = outline;
     }
 
+    setFocus() {
+        this.tag.focus();
+    }
+
+    onFocusIn(focusIn) {
+        this.tag.addEventListener("focus", focusIn);
+    }
+
+    onFocusOut(focusOut) {
+        this.tag.addEventListener("focusout", focusOut);
+    }
+
 }
 
 export default Input;

@@ -14,6 +14,12 @@ declare class Input extends Tag {
     public setPattern(pattern: string): void;
 
     public setOutline(outline: string): void;
+
+    public setFocus(): void;
+
+    public onFocusIn(focusIn: () => void | any): void;
+    
+    public onFocusOut(focusOut: () => void | any): void;
 }
 
 export default Input;
