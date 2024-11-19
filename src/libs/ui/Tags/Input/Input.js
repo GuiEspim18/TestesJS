@@ -34,6 +34,10 @@ class Input extends Tag {
         this.tag.focus();
     }
 
+    getValue() {
+        return this.tag.value;
+    }
+
     onFocusIn(focusIn) {
         this.tag.addEventListener("focus", focusIn);
     }

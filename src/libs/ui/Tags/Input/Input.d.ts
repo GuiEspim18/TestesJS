@@ -17,6 +17,8 @@ declare class Input extends Tag {
 
     public setFocus(): void;
 
+    public getValue(): any;
+
     public onFocusIn(focusIn: () => void | any): void;
     
     public onFocusOut(focusOut: () => void | any): void;

@@ -10,7 +10,7 @@ class TextField extends Div {
     holder;
     input;
 
-    constructor(text = "", name="") {
+    constructor(text = "", name = "", placehoder = "") {
         super();
 
         if (text.length > 0) {
@@ -22,6 +22,11 @@ class TextField extends Div {
         this.add(this.holder);
 
         this.input = new InputText();
+        
+        if (placehoder.length > 0) {
+            this.input.setPlaceholder(placehoder);
+        }
+
         this.holder.add(this.input);
 
         this.loadStyles();
@@ -47,6 +52,7 @@ class TextField extends Div {
         });
         this.holder.setBorderRadius(5);
         this.holder.setHeight(30);
+        this.holder.setBackgroundColor("#f5f5f5");
         this.holder.setWidth(100, Measure.PERCENT);
         this.holder.setMargin(0);
         this.holder.setBoxSizing(BoxSizing.BORDER_BOX);
@@ -91,6 +97,10 @@ class TextField extends Div {
             });
             this.holder.setShadow("none");
         });
+    }
+
+    getValue() {
+        return this.input.getValue();
     }
 }
 

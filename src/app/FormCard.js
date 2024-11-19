@@ -7,6 +7,7 @@ import FlexDirection from "../libs/ui/Types/FlexDirection.js";
 import JustifyContent from "../libs/ui/Types/JustifyContent.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import TextAlignment from "../libs/ui/Types/TextAlignment.js";
+import Button from "../libs/ui/Tags/Button/Button.js";
 
 class FormCard extends Div {
     constructor() {
@@ -26,11 +27,19 @@ class FormCard extends Div {
         title.setTextAlign(TextAlignment.CENTER);
         this.add(title);
 
-        const name = new TextField("Nome");
+        const name = new TextField("Nome", "name");
         this.add(name);
 
-        const email = new TextField("Email");
+        const email = new TextField("Email", "email", "example@email.com");
         this.add(email);
+
+        const btn = new Button("submit");
+        
+        btn.onClick(() => {
+            console.log(name.getValue());   
+        });
+
+        this.add(btn);
     }
 }
 
