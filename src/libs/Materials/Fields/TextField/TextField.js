@@ -9,9 +9,12 @@ class TextField extends Div {
     label;
     holder;
     input;
+    name = "";
 
     constructor(text = "", name = "", placehoder = "") {
         super();
+
+        this.name = "";
 
         if (text.length > 0) {
             this.label = new Text(text);
@@ -101,6 +104,10 @@ class TextField extends Div {
 
     getValue() {
         return this.input.getValue();
+    }
+
+    setName(name) {
+        this.name = name;
     }
 }
 
