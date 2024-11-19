@@ -98,7 +98,17 @@ declare class Tag {
 
     public hide(): void;
 
-    public setPosition(x: number, y: number, unit?: string): void;
+    public setPosition(position: string): void;
+
+    public setX(x: number, unit?: string): void;
+
+    public setY(y: number, unit?: string): void;
+
+    public setOpacity(opacity: number): void;
+
+    public setTransform(scale: number): void;
+
+    public setOverflow(overflow: string): void;
 
     public setDisplay(display: string): void;
 

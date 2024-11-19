@@ -266,14 +266,32 @@ class Tag {
         this.tag.style.display = "none";
     }
 
-    setPosition(x, y, unit = "pixels") {
-        this.tag.style.position = "absolute";
+    setPosition(position) {
+        this.tag.style.position = position;
+    }
+
+    setX(x, unit = "pixels") {
         this.tag.style.left = this.formatMeasure(x, unit);
+    }
+
+    setY(y, unit = "pixels") {
         this.tag.style.top = this.formatMeasure(y, unit);
+    }
+
+    setTransform(scale) {
+        this.tag.style.transform = `scale(${scale})`;
+    }
+
+    setOpacity(opacity) {
+        this.tag.style.opacity = opacity;
     }
 
     setDisplay(display) {
         this.tag.style.display = display;
+    }
+
+    setOverflow(overflow) {
+        this.tag.style.overflow = overflow;
     }
 
     setFlexDirection(direction = "row") {
