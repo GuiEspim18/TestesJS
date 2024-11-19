@@ -2,30 +2,6 @@ import Button from "../../../ui/Tags/Button/Button.js";
 import Span from "../../../ui/Tags/Span/Span.js";
 import Measure from "../../../ui/Types/Measure.js";
 
-/*
-function onClick(event) {
-        event.preventDefault();
-        const button = event.currentTarget;
-        const ripple = document.createElement('span');
-        const diameter = Math.max(button.clientWidth, button.clientHeight);
-        const radius = diameter / 2;
-        ripple.classList.add('ripple-effect');
-        ripple.style.width = ripple.style.height = `${diameter}px`;
-        ripple.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
-        ripple.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
-        ripple.style.backgroundColor = props.rippleColor ? props.rippleColor : "#ffffff80";
-        button.appendChild(ripple);
-      
-        setTimeout(() => {
-          button.removeChild(ripple);
-        }, 500);
-        
-        if (props.onClick) {
-            props.onClick();
-        }
-    }
-*/
-
 class DefaultButton extends Button {
 
     constructor(text) {
