@@ -6,79 +6,91 @@ import Measure from "../../../ui/Types/Measure.js";
 import Text from "../../Texts/Text/Text.js";
 
 class TextField extends Div {
+    label;
+    holder;
+    input;
+
     constructor(text = "", name="") {
         super();
 
+        if (text.length > 0) {
+            this.label = new Text(text);
+            this.add(this.label);
+        }
+
+        this.holder = new Div();
+        this.add(this.holder);
+
+        this.input = new InputText();
+        this.holder.add(this.input);
+
+        this.loadStyles();
+
+    }
+
+    loadStyles() {        
         this.setWidth(100, Measure.PERCENT);
         this.setMarginBottom(7);
 
-        if (text.length > 0) {
-            const label = new Text(text);
-            label.setMargin(0);
-            label.setMarginBottom(3);
-            label.setFontSize(0.9, Measure.REM);
-            label.setMarginLeft(2);
-            this.add(label);
+        if (this.label != null) {
+            this.label.setMargin(0);
+            this.label.setMarginBottom(3);
+            this.label.setFontSize(0.9, Measure.REM);
+            this.label.setMarginLeft(2);
         }
 
-        const holder = new Div();
-        holder.setDisplay(Display.FLEX);
-        holder.setPadding(5);
-        holder.setBorder({
+        this.holder.setDisplay(Display.FLEX);
+        this.holder.setPadding(5);
+        this.holder.setBorder({
             color: "#474747",
             type: "solid",
         });
-        holder.setBorderRadius(5);
-        holder.setHeight(30);
-        holder.setWidth(100, Measure.PERCENT);
-        holder.setMargin(0);
-        holder.setBoxSizing(BoxSizing.BORDER_BOX);
-        holder.setTransition({
+        this.holder.setBorderRadius(5);
+        this.holder.setHeight(30);
+        this.holder.setWidth(100, Measure.PERCENT);
+        this.holder.setMargin(0);
+        this.holder.setBoxSizing(BoxSizing.BORDER_BOX);
+        this.holder.setTransition({
             duration: "0.2s"
-        })
-        this.add(holder);
+        });
 
-        const input = new InputText();
-        input.setBorder({
+        this.input.setBorder({
             type: "none",
             size: 0,
             color: "transparent"
         });
-        input.setHeight(100, Measure.PERCENT);
-        input.setWidth(100, Measure.PERCENT);
-        input.setBackgroundColor("transparent");
-        input.setMargin(0);
-        input.setOutline("none");
-        input.setPadding(0);
-        holder.add(input);
+        this.input.setHeight(100, Measure.PERCENT);
+        this.input.setWidth(100, Measure.PERCENT);
+        this.input.setBackgroundColor("transparent");
+        this.input.setMargin(0);
+        this.input.setOutline("none");
+        this.input.setPadding(0);
 
-        // Effects
+        // effects
 
-        holder.onClick(function () {
-            input.setFocus();
+        this.holder.onClick(() => {
+            this.input.setFocus();
         });
         
-        input.onFocusIn(function () {
-            holder.setBorder({
+        this.input.onFocusIn(() => {
+            this.holder.setBorder({
                 color: "#10d4f3",
-                size: 2,
+                size: 1,
                 type: "solid"
             });
-            holder.setShadow({
+            this.holder.setShadow({
                 color: "#10d4f366",
                 spread: 2.5
             });
         });
 
-        input.onFocusOut(function () {
-            holder.setBorder({
+        this.input.onFocusOut(() => {
+            this.holder.setBorder({
                 color: "#474747",
                 type: "solid"
             });
-            holder.setShadow("none");
+            this.holder.setShadow("none");
         });
-
-
     }
 }
 

@@ -19,6 +19,10 @@ class Component {
     setPageColor(color) {
         document.querySelector("body").style.backgroundColor = color
     }
+
+    setFontFamily(fontFamily) {
+        document.querySelector("body").style.fontFamily = fontFamily
+    }
 }
 
 export default Component;

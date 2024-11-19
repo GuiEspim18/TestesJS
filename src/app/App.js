@@ -3,8 +3,7 @@ import HeaderStyle from "./HeaderStyle.js";
 
 import Main from "../libs/ui/Tags/Main/Main.js";
 import Measure from "../libs/ui/Types/Measure.js";
-import Card from "./Card.js";
-import Select from "../libs/ui/Tags/Input/Select/Select.js";
+import FormCard from "./FormCard.js";
 
 class App extends Component {
 
@@ -12,6 +11,7 @@ class App extends Component {
         super();
 
         this.setPageColor("#FOFOFO");
+        this.setFontFamily("arial");
 
         const header = new HeaderStyle();
         this.add(header);
@@ -19,11 +19,7 @@ class App extends Component {
         const main = new Main();
         main.setSize(100, Measure.PERCENT);
 
-        const test1 = new Select([new Option("Heloísa", "Heloísa")]);
-        test1.addOption(new Option("Guilherme", "Guilherme"))
-        main.add(test1);
-
-        main.add(new Card());
+        main.add(new FormCard());
 
         this.add(main);
 

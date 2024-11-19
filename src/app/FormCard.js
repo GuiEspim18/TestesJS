@@ -1,16 +1,14 @@
-import Section from "../libs/ui/Tags/Section/Section.js";
-import P from "../libs/ui/Tags/Text/P/P.js";
+import TextField from "../libs/Materials/Fields/TextField/TextField.js";
+import Div from "../libs/ui/Tags/Div/Div.js";
+import H1 from "../libs/ui/Tags/Text/H1/H1.js";
+import AlignItems from "../libs/ui/Types/AlignItems.js";
 import Display from "../libs/ui/Types/Display.js";
 import FlexDirection from "../libs/ui/Types/FlexDirection.js";
 import JustifyContent from "../libs/ui/Types/JustifyContent.js";
-import AlignItems from "../libs/ui/Types/AlignItems.js";
 import Measure from "../libs/ui/Types/Measure.js";
-import MainButton from "./MainButton.js";
+import TextAlignment from "../libs/ui/Types/TextAlignment.js";
 
-class Card extends Section {
-
-    count = 0;
-
+class FormCard extends Div {
     constructor() {
         super();
 
@@ -24,21 +22,16 @@ class Card extends Section {
         this.setJustifyContent(JustifyContent.CENTER);
         this.setAlignItems(AlignItems.CENTER);
 
-        const text = new P("0");
-        text.setFontColor("#7B68EE");
-        text.setFontFamily("Arial");
-        text.setFontSize(20);
-        text.setMargin({x: 0, y: 12});
-        this.add(text);
+        const title = new H1("Formulário");
+        title.setTextAlign(TextAlignment.CENTER);
+        this.add(title);
 
-        const button = new MainButton("Click-me");
-        button.onClick(() => {
-            this.count++;
-            text.setText(`${this.count}`);
-        });
-        this.add(button);
-        
+        const name = new TextField("Nome");
+        this.add(name);
+
+        const email = new TextField("Email");
+        this.add(email);
     }
 }
 
-export default Card;
+export default FormCard;
