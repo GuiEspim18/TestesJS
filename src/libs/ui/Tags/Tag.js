@@ -102,6 +102,14 @@ class Tag {
         }
     }
 
+    setBoxSizing(boxSizing) {
+        this.tag.style.boxSizing = boxSizing;
+    }
+
+    setBorderRadius(radius, measure = "pixels") {
+        this.tag.style.borderRadius = this.formatMeasure(radius, measure);
+    }
+
     setBorderTopRadius(radius, measure = "pixels") {
         this.tag.style.borderTopRadius = this.formatMeasure(radius, measure);
     }

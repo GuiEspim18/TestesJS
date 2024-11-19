@@ -22,6 +22,8 @@ declare class Tag {
 
     public setSize(size: number, type?: string): void;
 
+    public setBoxSizing(boxSizing: string): void;
+
     public setBorder(border: Border): void;
 
     public setBorderLeft(border: Border): void;
@@ -43,6 +45,8 @@ declare class Tag {
     public setBorderBottomLeftRadius(radius: number, measure?: string): void;
 
     public setBorderBottomRightRadius(radius: number, measure?: string): void;
+
+    public setBorderRadius(radius: number, measure?: string): void;
 
     public setFontFamily(font: string): void;
 

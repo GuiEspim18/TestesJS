@@ -7,6 +7,7 @@ import AlignItems from "../libs/ui/Types/AlignItems.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import MainButton from "./MainButton.js";
 import InputText from "../libs/ui/Tags/Input/InputText/InputText.js";
+import TextField from "../libs/Materials/Fields/TextField/TextField.js";
 
 class Card extends Section {
 
@@ -16,7 +17,7 @@ class Card extends Section {
         super();
 
         this.setWidth(40, Measure.PERCENT);
-        this.setBackgroundColor("#cecece");
+        this.setBackgroundColor("#f0f0f0");
         this.setBorder({ style: "none", radius: 10 });
         this.setMargin({ y: 30, x: "auto" });
         this.setPadding(10);
@@ -31,6 +32,9 @@ class Card extends Section {
         text.setFontSize(20);
         text.setMargin({x: 0, y: 12});
         this.add(text);
+
+        const textField = new TextField("Nome");
+        this.add(textField);
 
         const button = new MainButton("Click-me");
         button.onClick(() => {
