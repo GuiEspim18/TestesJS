@@ -54,7 +54,7 @@ class DefaultButton extends Button {
 
         setTimeout(() => {
             this.remove(ripple);
-        }, 500);
+        }, 1000);
 
     }
 }
