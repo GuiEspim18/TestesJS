@@ -4,7 +4,7 @@ import Measure from "../../../ui/Types/Measure.js";
 
 class DefaultButton extends Button {
 
-    constructor(text) {
+    constructor(text = "") {
         super(text);
 
         this.setWidth(100, Measure.PERCENT);

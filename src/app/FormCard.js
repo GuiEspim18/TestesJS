@@ -7,7 +7,7 @@ import FlexDirection from "../libs/ui/Types/FlexDirection.js";
 import JustifyContent from "../libs/ui/Types/JustifyContent.js";
 import Measure from "../libs/ui/Types/Measure.js";
 import TextAlignment from "../libs/ui/Types/TextAlignment.js";
-import DefaultButton from "../libs/Materials/Buttons/DefaultButton/DefaultButton.js";
+import IconButton from "../libs/Materials/Buttons/IconButton/IconButton.js";
 
 class FormCard extends Div {
     constructor() {
@@ -33,7 +33,7 @@ class FormCard extends Div {
         const email = new TextField("Email", "email", "example@email.com");
         this.add(email);
 
-        const btn = new DefaultButton("submit");
+        const btn = new IconButton("submit");
         
         btn.onClick(() => {
             console.log(name.getValue());   
