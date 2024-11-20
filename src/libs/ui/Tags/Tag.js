@@ -81,58 +81,60 @@ class Tag {
         }
     }
 
-    setBorder({size = 1, color, style = "solid", radius = 0, measure = "pixels"}) {
-        if (radius > 0) {
-            this.tag.style.borderRadius = this.formatMeasure(radius, measure);
-        }
-        if (style == "none") {
-            this.tag.style.border = style;
+    setBorder(border) {
+        if (border == "none") {
+            this.tag.style.border = "none"
         } else {
-            this.tag.style.border = `${style} ${size}px ${color}`;
+            if (border.radius > 0) {
+                this.tag.style.borderRadius = this.formatMeasure(border.radius, border.measure);
+            }
+            this.tag.style.border = `${border.style} ${border.size}px ${border.color}`;
         }
     }
 
-    setBorderLeft({width = 1, color, style = "solid", radius = 0}) {
-        if (radius > 0) {
-            this.tag.style.borderRadius = this.formatMeasure(radius, measure);
-        }
-        if (style == "none") {
-            this.tag.style.borderLeft = style;
+    setBorderLeft(border) {
+        if (border == "none") {
+            this.tag.style.borderLeft = "none";
         } else {
-            this.tag.style.borderLeft = `${style} ${width}px ${color}`;
+            if (border.radius > 0) {
+                this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
+            }
+            this.tag.style.borderLeft = `${border.style} ${border.width}px ${border.color}`;
         }
     }
-
-    setBorderRight({width = 1, color, style = "solid", radius = 0}) {
-        if (radius > 0) {
-            this.tag.style.borderRadius = this.formatMeasure(radius, measure);
-        }
-        if (style == "none") {
-            this.tag.style.borderRight = style;
+    
+    setBorderRight(border) {
+        if (border == "none") {
+            this.tag.style.borderRight = "none";
         } else {
-            this.tag.style.borderRight = `${style} ${width}px ${color}`;
+            if (border.radius > 0) {
+                this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
+            }
+            this.tag.style.borderRight = `${border.style} ${border.width}px ${border.color}`;
         }
     }
-
-    setBorderTop({width = 1, color, style = "solid", radius = 0}) {
-        if (radius > 0) {
-            this.tag.style.borderRadius = this.formatMeasure(radius, measure);
-        }
-        if (style == "none") {
-            this.tag.style.borderTop = style;
+    
+    setBorderTop(border) {
+        if (border == "none") {
+            this.tag.style.borderTop = "none";
         } else {
-            this.tag.style.borderTop = `${style} ${width}px ${color}`;
+            if (border.radius > 0) {
+                this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
+                this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
+            }
+            this.tag.style.borderTop = `${border.style} ${border.width}px ${border.color}`;
         }
     }
-
-    setBorderBottom({width = 1, color, style = "solid", radius = 0}) {
-        if (radius > 0) {
-            this.tag.style.borderRadius = this.formatMeasure(radius, measure);
-        }
-        if (style == "none") {
-            this.tag.style.borderBottom = style;
+    
+    setBorderBottom(border) {
+        if (border == "none") {
+            this.tag.style.borderBottom = "none";
         } else {
-            this.tag.style.borderBottom = `${style} ${width}px ${color}`;
+            if (border.radius > 0) {
+                this.tag.style.borderBottomLeftRadius = this.formatMeasure(border.radius, border.measure);
+                this.tag.style.borderBottomRightRadius = this.formatMeasure(border.radius, border.measure);
+            }
+            this.tag.style.borderBottom = `${border.style} ${border.width}px ${border.color}`;
         }
     }
 

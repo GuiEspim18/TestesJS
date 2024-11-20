@@ -4,6 +4,8 @@ import Measure from "../../../ui/Types/Measure.js";
 
 class DefaultButton extends Button {
 
+    rippleColor = "#ffffff"
+
     constructor(text = "") {
         super(text);
 
@@ -11,11 +13,7 @@ class DefaultButton extends Button {
         this.setHeight(30);
         this.setBackgroundColor("#10d4f3");
         this.setFontColor("#f0f0f0");
-        this.setBorder({
-            type: "none",
-            size: 0,
-            color: "transparent"
-        });
+        this.setBorder("none");
         this.setBorderRadius(5);
         this.setPosition("relative");
         this.setOverflow("hidden");
@@ -44,7 +42,7 @@ class DefaultButton extends Button {
         ripple.setHeight(diameter);
         ripple.setX(event.clientX - this.tag.getBoundingClientRect().left - radius);
         ripple.setY(event.clientY - this.tag.getBoundingClientRect().top - radius);
-        ripple.setBackgroundColor("#ffffff80");
+        ripple.setBackgroundColor(this.rippleColor+ "80");
         this.add(ripple);
         
         setTimeout(() => {
@@ -56,6 +54,10 @@ class DefaultButton extends Button {
             this.remove(ripple);
         }, 1000);
 
+    }
+
+    setRippleColor(rippleColor) {
+        this.rippleColor = rippleColor;
     }
 }
 

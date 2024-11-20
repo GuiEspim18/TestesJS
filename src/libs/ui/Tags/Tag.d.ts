@@ -26,7 +26,7 @@ declare class Tag {
 
     public setBoxSizing(boxSizing: string): void;
 
-    public setBorder(border: Border): void;
+    public setBorder(border: Border | "none"): void;
 
     public setBorderLeft(border: Border): void;
 
