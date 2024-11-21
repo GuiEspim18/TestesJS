@@ -1,8 +1,21 @@
+import { routes } from "../../../../app/Routes.js";
+
 class Outlet {
-    constructor() {
-        window.addEventListener("hashchange", () => {
-            console.log("Mudou de rota: " + window.location.hash );
-        });
+
+    constructor(element) {      
+        window.addEventListener("popstate", () => {
+            for (let item of routes) {
+                if (item.path == window.location.pathname) {
+                    element.add(new item.component());
+                }
+            }
+        });    
+        for (let item of routes) {
+            console.log(window.location);
+            if (item.path == window.location.pathname) {
+                element.add(new item.component());
+            }
+        }
     }
 }
 

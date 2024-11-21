@@ -1,11 +1,20 @@
 import * as http from "http";
 import { readFile } from "fs/promises";
-import { extname } from "path";
+import { extname, join } from "path";
+import { existsSync } from "fs";
+import { routes } from "./src/app/Routes.js";
 
 const PORT = 8000;
 
 const server = http.createServer(async (req, res) => {
-    let filePath = req.url === '/' ? 'index.html' : `.${req.url}`;
+
+    const paths = new Array();
+
+    for (let item of routes) {
+        paths.push(item.path);
+    }
+    
+    let filePath = req.url === "/" ? 'index.html' : `.${req.url}`;
     let ext = extname(filePath);
     let contentType = 'text/html';
 
@@ -31,6 +40,14 @@ const server = http.createServer(async (req, res) => {
     }
 
     try {
+        if (!req.url.includes(".js") && !paths.includes(req.url)) {
+            throw new Error();
+        }
+
+        if (!existsSync(filePath) && ext !== '.html') {
+            filePath = 'index.html';
+        }
+        
         const data = await readFile(filePath);
         res.writeHead(200, { 'Content-Type': contentType });
         res.end(data, 'utf-8');
