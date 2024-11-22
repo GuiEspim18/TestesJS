@@ -1,7 +1,6 @@
 import { routes } from "../../../../app/Routes.js";
 
 class Outlet {
-
     constructor(element) {      
         const oldPushState = history.pushState;
         history.pushState = function pushState() {
@@ -24,17 +23,20 @@ class Outlet {
         });
 
         window.addEventListener("locationchange", () => {
-            window.dispatchEvent(new Event("locationchange"));
+            // Remove all children of the element
             element.removeAll();
+
+            // Add the component corresponding to the current path
             for (let item of routes) {
-                if (item.path == window.location.pathname) {
+                if (item.path === window.location.pathname) {
                     element.add(new item.component());
                 }
             }
-        });   
+        });
 
+        // Initialize with the current route
         for (let item of routes) {
-            if (item.path == window.location.pathname) {
+            if (item.path === window.location.pathname) {
                 element.add(new item.component());
             }
         }
