@@ -142,6 +142,8 @@ declare class Tag {
 
     public remove(tag: Tag): void;
 
+    public removeAll(): void;
+
     public onClick(event: () => void | any): void;
 
     public onClick(event: () => void | any): void;

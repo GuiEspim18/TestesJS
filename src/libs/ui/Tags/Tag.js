@@ -346,6 +346,12 @@ class Tag {
         this.tag.removeChild(tag.load());
     }
 
+    removeAll() {
+        while (this.tag.firstChild) {
+            this.tag.removeChild(this.tag.firstChild);
+        }
+    }
+
     // attributes
 
     setName(name) {
