@@ -10,9 +10,9 @@ class App extends Component {
         this.add(new NavButton("Home", "/home"));
         this.add(new NavButton("Test", "/test"));
         
-        const div = new Div();
-        new Outlet(div);
-        this.add(div);
+        const outlet = new Div();
+        new Outlet(outlet);
+        this.add(outlet);
     }
 
 }
