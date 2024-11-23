@@ -26,14 +26,24 @@ class Outlet {
             element.removeAll();
             for (let item of routes) {
                 if (item.path === window.location.pathname) {
-                    element.add(new item.component());
+                    if(item.redirect) {
+                        history.pushState(null, "", item.redirect);
+                    } else {
+                        element.removeAll();
+                        element.add(new item.component());
+                    }
                 }
             }
         });
         
         for (let item of routes) {
             if (item.path === window.location.pathname) {
-                element.add(new item.component());
+                if(item.redirect) {
+                    history.pushState(null, "", item.redirect);
+                } else {
+                    element.removeAll();
+                    element.add(new item.component());
+                }
             }
         }
     }
