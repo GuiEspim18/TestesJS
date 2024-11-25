@@ -1,4 +1,4 @@
-import DefaultButton from "../libs/Materials/Buttons/DefaultButton/DefaultButton.js";
+import IconButton from "../libs/Materials/Buttons/IconButton/IconButton.js";
 import NavButton from "../libs/Materials/Buttons/NavButton/NavButton.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
 import Component from "../libs/ui/Component/Component.js";
@@ -14,7 +14,7 @@ class App extends Component {
         const text = new P(String(current));
         this.add(text);
 
-        const addBtn = new DefaultButton("Adicionar");
+        const addBtn = new IconButton("Adicionar");
         addBtn.setMarginBottom(5);
         addBtn.onClick(() => {
             current++;
