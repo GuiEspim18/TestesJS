@@ -40,11 +40,27 @@ const server = http.createServer(async (req, res) => {
     }
 
     try {
-        if (!req.url.includes(".js") && !paths.includes(req.url)) {
-            throw new Error();
+        // console.log(req.url);
+        if (!req.url.includes(".js")) {
+            let valid = false;
+            for (let item of paths) {
+                let path = item;
+                if (path.includes("/:")) {
+                    const index = path.indexOf("/:");
+                    path = path.indexOf(0, index);
+                }
+                if (req.url.includes(path)) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (!valid) {
+                throw new Error();
+            }
         }
-
+        
         if (!existsSync(filePath) && ext !== '.html') {
+            console.log(req.url);
             filePath = 'index.html';
         }
         

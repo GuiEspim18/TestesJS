@@ -1,6 +1,6 @@
 class Router {
 
-    async getParam() {
+    static getParam() {
         console.log(window.location.pathname);
     }
 
