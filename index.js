@@ -1,21 +1,13 @@
 import * as http from "http";
 import { readFile } from "fs/promises";
-import { extname, join } from "path";
+import { extname } from "path";
 import { existsSync } from "fs";
 import { routes } from "./src/app/Routes.js";
 
 const PORT = 8000;
 
 const server = http.createServer(async (req, res) => {
-
-    const paths = new Array();
-
-    for (let item of routes) {
-        paths.push(item.path);
-    }
-    
-    let filePath = req.url === "/" ? 'index.html' : `.${req.url}`;
-    let ext = extname(filePath);
+    const ext = extname(req.url);
     let contentType = 'text/html';
 
     switch (ext) {
@@ -39,38 +31,49 @@ const server = http.createServer(async (req, res) => {
             break;
     }
 
-    try {
-        // console.log(req.url);
-        if (!req.url.includes(".js")) {
-            let valid = false;
-            for (let item of paths) {
-                let path = item;
-                if (path.includes("/:")) {
-                    const index = path.indexOf("/:");
-                    path = path.indexOf(0, index);
-                }
-                if (req.url.includes(path)) {
-                    valid = true;
-                    break;
-                }
-            }
-            if (!valid) {
-                throw new Error();
-            }
+    let filePath;
+
+    // Se a URL é para um recurso estático, tentamos servir esse arquivo
+    if (ext) {
+        filePath = `.${req.url}`;
+        if (!existsSync(filePath)) {
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.end('<h1>404 Not Found</h1>');
+            return;
         }
-        
-        if (!existsSync(filePath) && ext !== '.html') {
-            console.log(req.url);
+    } else {
+        // Verifica se a URL é uma rota válida
+        const isValidRoute = routes.some(route => {
+            const routeSegments = route.path.split('/').filter(Boolean);
+            const urlSegments = req.url.split('/').filter(Boolean);
+
+            if (routeSegments.length !== urlSegments.length) {
+                return false;
+            }
+
+            return routeSegments.every((segment, index) => {
+                return segment.startsWith(':') || segment === urlSegments[index];
+            });
+        });
+
+        // Se é uma rota válida ou a raiz, servimos index.html
+        if (isValidRoute || req.url === "/") {
             filePath = 'index.html';
+        } else {
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.end('<h1>404 Not Found</h1>');
+            return;
         }
-        
+    }
+
+    try {
         const data = await readFile(filePath);
         res.writeHead(200, { 'Content-Type': contentType });
         res.end(data, 'utf-8');
     } catch (error) {
         console.log(error);
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>404 Not Found</h1>');
+        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.end('<h1>500 Internal Server Error</h1>');
     }
 });
 

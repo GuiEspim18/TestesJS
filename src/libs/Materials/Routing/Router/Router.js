@@ -1,7 +1,7 @@
 class Router {
 
     static getParam() {
-        console.log(window.location.pathname);
+        // console.log(window.location.pathname);
     }
 
 }
