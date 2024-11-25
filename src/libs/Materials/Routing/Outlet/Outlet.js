@@ -1,7 +1,7 @@
 import { routes } from "../../../../app/Routes.js";
 
 class Outlet {
-    constructor(element) {      
+    constructor(element) {   
         const oldPushState = history.pushState;
         history.pushState = function pushState() {
             const ret = oldPushState.apply(this, arguments);
@@ -23,21 +23,21 @@ class Outlet {
         });
 
         window.addEventListener("locationchange", () => {
-            element.removeAll();
-            for (let item of routes) {
-                if (item.path === window.location.pathname) {
-                    if(item.redirect) {
-                        history.pushState(null, "", item.redirect);
-                    } else {
-                        element.removeAll();
-                        element.add(new item.component());
-                    }
-                }
-            }
+            this.setComponent(element);
         });
         
+        this.setComponent(element);
+    }
+
+    setComponent(element) {
+        element.removeAll();
         for (let item of routes) {
-            if (item.path === window.location.pathname) {
+            let path = item.path;
+            if (path.includes("/:id")) {
+                const index = path.indexOf("/:id");
+                path = path.substring(0, index);
+            }
+            if (path === window.location.pathname) {
                 if(item.redirect) {
                     history.pushState(null, "", item.redirect);
                 } else {
