@@ -1,4 +1,4 @@
-a front-end test library
+a front-end test framework
 
 <ul style="list-style: none;">
     <li>✅Ícone de menu (hambúrguer)</li>
