@@ -24,7 +24,7 @@ class App extends Component {
         this.add(addBtn);
 
         this.add(new NavButton("Home", "/home"));
-        this.add(new NavButton("Test", "/test/" + current));
+        this.add(new NavButton("Teste", "/test/" + current));
         
         const outlet = new Div();
         new Outlet(outlet);
