@@ -4,7 +4,6 @@ import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
 import Component from "../libs/ui/Component/Component.js";
 import Div from "../libs/ui/Tags/Div/Div.js";
-import Svg from "../libs/ui/Tags/Svg/Svg.js";
 import P from "../libs/ui/Tags/Text/P/P.js";
 
 class App extends Component {
