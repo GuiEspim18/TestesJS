@@ -1,30 +1,37 @@
-import Tag from "../Tag.js";
+import ElementNS from "../ElementNS/ElementNS.js";
 
-class Svg extends Tag {
+class Svg extends ElementNS {
     constructor(viewBox, content="") {
-        super("svg");
-        this.tag.innerHTML = content;
-        console.log(this.tag);
-        this.tag.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        this.tag.setAttribute("viewBox", viewBox);
-        this.tag.setAttribute("width", "14");
-        this.tag.setAttribute("height", "14");
-    }
-
-    setContent(content) {
-        this.tag.innerHTML = content;
+        super();
+        this.setContent(content);
+        this.tag.setAttributeNS(null, "viewBox", viewBox);
+        this.tag.setAttributeNS(null, "width", "50");
+        this.tag.setAttributeNS(null, "height", "50");
     }
 
     setViewBox(viewBox) {
-        this.tag.setAttribute("viewBox", viewBox);
+        this.tag.setAttributeNS(null, "viewBox", viewBox);
     }
 
     setXmlns(xmlns) {
-        this.tag.setAttribute("xmlns", xmlns);
+        this.tag.setAttributeNS(null, "xmlns", xmlns);
     }
 
     setFill(fill) {
-        this.tag.setAttribute("fill", fill);
+        this.tag.setAttributeNS(null, "fill", fill);
+    }
+
+    setSize(size) {
+        this.tag.setAttributeNS(null, "width", size);
+        this.tag.setAttributeNS(null, "height", size);
+    }
+
+    setWidth(width) {
+        this.tag.setAttributeNS(null, "width", width);
+    }
+
+    setHeight(height) {
+        this.tag.setAttributeNS(null, "height", height);
     }
 }
 

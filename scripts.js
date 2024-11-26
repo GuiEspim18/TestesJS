@@ -1,5 +1,9 @@
 import App from "./src/app/App.js";
 
-const root = document.querySelector("div#root");
+document.addEventListener("DOMContentLoaded", function() {
+    const root = document.querySelector("div#root");
 
-root.appendChild(new App().load());
+    console.log(new App().load())
+    
+    root.appendChild(new App().load());
+});
