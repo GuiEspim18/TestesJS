@@ -2,7 +2,7 @@ a front-end test framework
 
 <ul style="list-style: none;">
     <li>✅Ícone de menu (hambúrguer)</li>
-    <li>Ícone de voltar</li>
+    <li>✅Ícone de voltar</li>
     <li>Ícone de avançar</li>
     <li>Ícone de casa (home)</li>
     <li>Ícone de salvar</li>
