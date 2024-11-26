@@ -19,7 +19,6 @@ class Router {
 
             for (let i = 0; i < pathSegments.length; i++) {
                 if (pathSegments[i].startsWith(":")) {
-                    console.log(pathSegments[i])
                     const pathName = pathSegments[i].substring(1);
                     params[pathName] = currentSegments[i];
                 } else if (pathSegments[i] !== currentSegments[i]) {
