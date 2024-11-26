@@ -5,6 +5,7 @@ class NavButton extends DefaultButton {
 
     constructor(text = "", path = "") {
         super();
+        this.setText(text);
         this.path = path;
         if (this.path.length > 0) {
             this.onClick(() => {
