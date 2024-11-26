@@ -33,7 +33,6 @@ class Router {
 
     }
 
->>>>>>> e060d20aa08494b3eefdc28b29c052ae43c1821b
 }
 
 export default Router;
