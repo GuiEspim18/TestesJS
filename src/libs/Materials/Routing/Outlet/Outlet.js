@@ -34,25 +34,49 @@ class Outlet {
         const currentPath = window.location.pathname;
         
         for (let item of routes) {
+           
             const routePath = item.path;
-            const pathSegments = routePath.split('/').filter(Boolean);
             const currentSegments = currentPath.split('/').filter(Boolean);
-
-            if (pathSegments.length !== currentSegments.length) {
-                continue;
-            }
-
+            
             let match = true;
+            let childSelected = {};
             let params = {};
+            
+            if (item.children) {
+                console.log("found")
+                for (let child of item.children) {
+                    const pathSegments = (routePath + child.path).split("/").filter(Boolean);
+                    
+                    for (let i = 0; i < pathSegments.length; i++) {
+                        console.log(pathSegments, currentSegments)
+                        if (pathSegments[i].startsWith(":")) {
+                            const paramName = pathSegments[i].substring(1);
+                            params[paramName] = currentSegments[i];
+                        } else if(pathSegments[i] !== currentSegments[i]) {
+                            match = false;
+                            break;
+                        }
+                    }
 
-            for (let i = 0; i < pathSegments.length; i++) {
-                if (pathSegments[i].startsWith(':')) {
-                    const paramName = pathSegments[i].substring(1);
-                    params[paramName] = currentSegments[i];
-                } else if (pathSegments[i] !== currentSegments[i]) {
-                    match = false;
-                    break;
                 }
+            } else {
+                const pathSegments = routePath.split('/').filter(Boolean);
+    
+                if (pathSegments.length !== currentSegments.length) {
+                    continue;
+                }
+    
+                for (let i = 0; i < pathSegments.length; i++) {
+                    if (pathSegments[i].startsWith(':')) {
+                        const paramName = pathSegments[i].substring(1);
+                        params[paramName] = currentSegments[i];
+                    } else if (pathSegments[i] !== currentSegments[i]) {
+                        match = false;
+                        console.log("not found")
+                        break;
+                    }
+                }
+    
             }
 
             if (match) {
@@ -60,6 +84,7 @@ class Outlet {
                     history.pushState(null, "", item.redirect);
                 } else {
                     element.removeAll();
+                    console.log(childSelected);
                     const componentInstance = new item.component();
                     if (componentInstance.setParams) {
                         componentInstance.setParams(params);
