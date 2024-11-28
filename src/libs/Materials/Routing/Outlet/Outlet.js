@@ -48,9 +48,10 @@ class Outlet {
                     const pathSegments = (routePath + child.path).split("/").filter(Boolean);
                     
                     for (let i = 0; i < pathSegments.length; i++) {
-                        console.log(pathSegments, currentSegments)
                         if (pathSegments[i].startsWith(":")) {
                             const paramName = pathSegments[i].substring(1);
+                            console.log(pathSegments, currentSegments)
+                            
                             params[paramName] = currentSegments[i];
                         } else if(pathSegments[i] !== currentSegments[i]) {
                             match = false;
