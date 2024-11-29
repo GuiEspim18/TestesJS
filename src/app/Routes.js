@@ -18,8 +18,12 @@ export const routes = [
                 component: Test,
             },
             {
-                path: "/user"
+                path: "/user/:id",
+                component: Test
             }
         ]
+    }, 
+    {
+        path: "1"
     }
 ];

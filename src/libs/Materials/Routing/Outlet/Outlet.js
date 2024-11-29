@@ -43,7 +43,6 @@ class Outlet {
             let params = {};
             
             if (item.children) {
-                console.log("found")
                 for (let child of item.children) {
                     const pathSegments = (routePath + child.path).split("/").filter(Boolean);
                     

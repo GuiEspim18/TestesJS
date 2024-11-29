@@ -3,6 +3,7 @@ import { readFile } from "fs/promises";
 import { extname } from "path";
 import { existsSync } from "fs";
 import { routes } from "./src/app/Routes.js";
+import { log } from "console";
 
 const PORT = 8000;
 
@@ -43,12 +44,19 @@ const server = http.createServer(async (req, res) => {
         }
     } else {
         // Verifica se a URL é uma rota válida
-        const isValidRoute = routes.some(route => {
-            const routeSegments = route.path.split('/').filter(Boolean);
+        const isValidRoute = routes.map(route => {
             const urlSegments = req.url.split('/').filter(Boolean);
-
+            const routeSegments = route.path.split('/').filter(Boolean);
             if (routeSegments.length !== urlSegments.length) {
                 return false;
+            }
+
+            if (urlSegments[0] == routeSegments[0]) {
+                if (route.children && urlSegments.length > 1) {
+                    return route.children.filter(child => child.path == "/" + urlSegments[1]).length > 0;
+                } else {
+
+                }
             }
 
             return routeSegments.every((segment, index) => {
