@@ -24,6 +24,6 @@ export const routes = [
         ]
     }, 
     {
-        path: "1"
+        path: "/oi"
     }
 ];

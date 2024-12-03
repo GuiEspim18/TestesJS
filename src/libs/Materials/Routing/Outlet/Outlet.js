@@ -30,70 +30,80 @@ class Outlet {
     }
 
     setComponent(element) {
-        element.removeAll();
-        const currentPath = window.location.pathname;
-        
-        for (let item of routes) {
-           
-            const routePath = item.path;
-            const currentSegments = currentPath.split('/').filter(Boolean);
-            
-            let match = true;
-            let childSelected = {};
-            let params = {};
-            
-            if (item.children) {
-                for (let child of item.children) {
-                    const pathSegments = (routePath + child.path).split("/").filter(Boolean);
-                    
-                    for (let i = 0; i < pathSegments.length; i++) {
-                        if (pathSegments[i].startsWith(":")) {
-                            const paramName = pathSegments[i].substring(1);
-                            console.log(pathSegments, currentSegments)
-                            
-                            params[paramName] = currentSegments[i];
-                        } else if(pathSegments[i] !== currentSegments[i]) {
-                            match = false;
+        element.removeAll(); // Remove o conteúdo existente
+    const currentPath = window.location.pathname; // Caminho atual
+
+    // Itera sobre todas as rotas para encontrar uma correspondência
+    for (let item of routes) {
+        const routePath = item.path; // Caminho da rota principal
+        const currentSegments = currentPath.split('/').filter(Boolean); // Segmentos da URL atual
+
+        let match = true;
+        let params = {};
+        let matchedChild = null;
+
+        // Verificar se há rotas filhas
+        if (item.children) {
+            for (let child of item.children) {
+                const childPath = child.path;
+                const childSegments = childPath.split('/').filter(Boolean);
+
+                if (childSegments.length === currentSegments.length) {
+                    let childMatch = true;
+                    const childParams = {};
+
+                    for (let i = 0; i < childSegments.length; i++) {
+                        if (childSegments[i].startsWith(':')) {
+                            const paramName = childSegments[i].substring(1);
+                            childParams[paramName] = currentSegments[i];
+                        } else if (childSegments[i] !== currentSegments[i]) {
+                            childMatch = false;
                             break;
                         }
                     }
 
-                }
-            } else {
-                const pathSegments = routePath.split('/').filter(Boolean);
-    
-                if (pathSegments.length !== currentSegments.length) {
-                    continue;
-                }
-    
-                for (let i = 0; i < pathSegments.length; i++) {
-                    if (pathSegments[i].startsWith(':')) {
-                        const paramName = pathSegments[i].substring(1);
-                        params[paramName] = currentSegments[i];
-                    } else if (pathSegments[i] !== currentSegments[i]) {
-                        match = false;
-                        console.log("not found")
+                    if (childMatch) {
+                        matchedChild = child;
+                        params = childParams;
                         break;
                     }
                 }
-    
-            }
-
-            if (match) {
-                if (item.redirect) {
-                    history.pushState(null, "", item.redirect);
-                } else {
-                    element.removeAll();
-                    console.log(childSelected);
-                    const componentInstance = new item.component();
-                    if (componentInstance.setParams) {
-                        componentInstance.setParams(params);
-                    }
-                    element.add(componentInstance);
-                }
-                break;
             }
         }
+
+        if (!matchedChild) {
+            // Verificar a rota principal
+            const routeSegments = routePath.split('/').filter(Boolean);
+            if (routeSegments.length !== currentSegments.length) {
+                continue;
+            }
+
+            for (let i = 0; i < routeSegments.length; i++) {
+                if (routeSegments[i].startsWith(':')) {
+                    const paramName = routeSegments[i].substring(1);
+                    params[paramName] = currentSegments[i];
+                } else if (routeSegments[i] !== currentSegments[i]) {
+                    match = false;
+                    break;
+                }
+            }
+        }
+
+        if (match || matchedChild) {
+            const matchedRoute = matchedChild || item;
+
+            if (matchedRoute.redirect) {
+                history.pushState(null, "", matchedRoute.redirect);
+            } else {
+                const componentInstance = new matchedRoute.component();
+                if (componentInstance.setParams) {
+                    componentInstance.setParams(params);
+                }
+                element.add(componentInstance);
+            }
+            break;
+        }
+    }
     }
 }
 

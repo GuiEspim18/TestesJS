@@ -53,7 +53,8 @@ const server = http.createServer(async (req, res) => {
 
             if (urlSegments[0] == routeSegments[0]) {
                 if (route.children && urlSegments.length > 1) {
-                    return route.children.filter(child => child.path == "/" + urlSegments[1]).length > 0;
+                    // return route.children.filter(child => child.path == "/" + urlSegments[1]).length > 0;
+                    // children
                 } else {
 
                 }
