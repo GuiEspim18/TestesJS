@@ -31,67 +31,59 @@ class Outlet {
 
     setComponent(element) {
         element.removeAll(); // Remove o conteúdo existente
-    const currentPath = window.location.pathname; // Caminho atual
-
-    // Itera sobre todas as rotas para encontrar uma correspondência
-    for (let item of routes) {
-        const routePath = item.path; // Caminho da rota principal
-        const currentSegments = currentPath.split('/').filter(Boolean); // Segmentos da URL atual
-
-        let match = true;
-        let params = {};
-        let matchedChild = null;
-
-        // Verificar se há rotas filhas
-        if (item.children) {
-            for (let child of item.children) {
-                const childPath = child.path;
-                const childSegments = childPath.split('/').filter(Boolean);
-
-                if (childSegments.length === currentSegments.length) {
-                    let childMatch = true;
-                    const childParams = {};
-
-                    for (let i = 0; i < childSegments.length; i++) {
-                        if (childSegments[i].startsWith(':')) {
-                            const paramName = childSegments[i].substring(1);
-                            childParams[paramName] = currentSegments[i];
-                        } else if (childSegments[i] !== currentSegments[i]) {
-                            childMatch = false;
-                            break;
-                        }
-                    }
-
-                    if (childMatch) {
-                        matchedChild = child;
-                        params = childParams;
+        const currentPath = window.location.pathname; // Caminho atual completo
+    
+        let matchedRoute = null; // Rota correspondente
+        let params = {}; // Parâmetros dinâmicos extraídos
+    
+        // Função auxiliar para verificar correspondência de rota
+        const matchRoute = (routePath, currentSegments) => {
+            const pathSegments = routePath.split('/').filter(Boolean);
+            if (pathSegments.length !== currentSegments.length) {
+                return false;
+            }
+            for (let i = 0; i < pathSegments.length; i++) {
+                if (pathSegments[i].startsWith(':')) {
+                    const paramName = pathSegments[i].substring(1);
+                    params[paramName] = currentSegments[i];
+                } else if (pathSegments[i] !== currentSegments[i]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+    
+        const currentSegments = currentPath.split('/').filter(Boolean);
+    
+        // Itera sobre todas as rotas principais
+        for (let route of routes) {
+            const routeSegments = route.path.split('/').filter(Boolean);
+    
+            // Verifica se a rota principal corresponde
+            if (matchRoute(route.path, currentSegments)) {
+                matchedRoute = route;
+                break;
+            }
+    
+            // Verifica as rotas filhas, se existirem
+            if (route.children && currentSegments[0] === routeSegments[0]) {
+                for (let child of route.children) {
+                    const combinedPath = `${route.path}${child.path}`; // Combina o caminho do pai com o do filho
+                    const childSegments = combinedPath.split('/').filter(Boolean);
+    
+                    if (matchRoute(combinedPath, currentSegments)) {
+                        matchedRoute = child;
                         break;
                     }
                 }
             }
-        }
-
-        if (!matchedChild) {
-            // Verificar a rota principal
-            const routeSegments = routePath.split('/').filter(Boolean);
-            if (routeSegments.length !== currentSegments.length) {
-                continue;
-            }
-
-            for (let i = 0; i < routeSegments.length; i++) {
-                if (routeSegments[i].startsWith(':')) {
-                    const paramName = routeSegments[i].substring(1);
-                    params[paramName] = currentSegments[i];
-                } else if (routeSegments[i] !== currentSegments[i]) {
-                    match = false;
-                    break;
-                }
+    
+            if (matchedRoute) {
+                break;
             }
         }
-
-        if (match || matchedChild) {
-            const matchedRoute = matchedChild || item;
-
+    
+        if (matchedRoute) {
             if (matchedRoute.redirect) {
                 history.pushState(null, "", matchedRoute.redirect);
             } else {
@@ -101,10 +93,12 @@ class Outlet {
                 }
                 element.add(componentInstance);
             }
-            break;
+        } else {
+            console.error("Nenhuma rota encontrada para o caminho:", currentPath);
         }
     }
-    }
+    
+    
 }
 
 export default Outlet;
