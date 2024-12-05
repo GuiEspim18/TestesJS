@@ -1,6 +1,6 @@
-import Tag from "../Tag";
+import ElementNS from "../ElementNS/ElementNS";
 
-declare class Svg extends Tag {
+declare class Svg extends ElementNS {
     constructor(viewBox: string, content?: string);
 
     public setContent(content: string): void;

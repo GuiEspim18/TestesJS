@@ -17,7 +17,7 @@ class App extends Component {
 
         this.add(Icons.LEFT_LONG);
 
-        const addBtn = new IconButton("Adicionar");
+        const addBtn = new IconButton("Adicionar",  Icons.LEFT_LONG);
         addBtn.setMarginBottom(5);
         addBtn.onClick(() => {
             current++;

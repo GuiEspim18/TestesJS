@@ -2,6 +2,7 @@ import { Border } from "../Interfaces/Border";
 import { Gradients } from "../Interfaces/Gradient";
 import { Shadow } from "../Interfaces/Shadow";
 import { Transition } from "../Interfaces/Transition";
+import ElementNS from "./ElementNS/ElementNS";
 
 declare class Tag {
     tag: HTMLElement;
@@ -138,9 +139,9 @@ declare class Tag {
 
     public setId(id: string): void;
 
-    public add(tag: Tag): void;
+    public add(tag: Tag | ElementNS): void;
 
-    public remove(tag: Tag): void;
+    public remove(tag: Tag | ElementNS): void;
 
     public removeAll(): void;
 
