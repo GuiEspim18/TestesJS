@@ -8,6 +8,8 @@ import Div from "../../../ui/Tags/Div/Div.js";
 class IconButton extends DefaultButton {
 
     divIcon;
+    textBtn;
+    icon;
 
     constructor(text = "", icon = null) {
         super();
@@ -20,18 +22,24 @@ class IconButton extends DefaultButton {
         this.add(this.divIcon);
 
         if (icon != null) {
-            icon.setFill("#f0f0f0");
-            icon.setSize(20);
-            this.divIcon.add(icon);
+            this.icon = icon;
+            this.icon.setFill("#f0f0f0");
+            this.icon.setSize(20);
+            this.divIcon.add(this.icon);
         }
 
-        const textBtn = new P(text);
-        textBtn.setMargin(0);
-        this.add(textBtn);
+        this.textBtn = new P(text);
+        this.textBtn.setMargin(0);
+        this.add(this.textBtn);
     }
 
     setIcon(icon) {
         this.divIcon.add(icon);
+    }
+    
+    setColor(color) {
+        this.textBtn.setFontColor(color);
+        this.icon.setFill(color);
     }
 }
 
