@@ -28,13 +28,19 @@ class IconButton extends DefaultButton {
             this.divIcon.add(this.icon);
         }
 
-        this.textBtn = new P(text);
-        this.textBtn.setMargin(0);
-        this.add(this.textBtn);
+        if (text.length > 0) {
+            this.textBtn = new P(text);
+            this.textBtn.setMargin(0);
+            this.add(this.textBtn);
+        }
+
     }
 
     setIcon(icon) {
-        this.divIcon.add(icon);
+        this.icon = icon;
+        this.icon.setFill("#f0f0f0");
+        this.icon.setSize(20);
+        this.divIcon.add(this.icon);
     }
     
     setColor(color) {

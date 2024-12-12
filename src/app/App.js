@@ -1,4 +1,5 @@
 import IconButton from "../libs/Materials/Buttons/IconButton/IconButton.js";
+import IconRoundButton from "../libs/Materials/Buttons/IconRoundButton/IconRoundButton.js";
 import NavButton from "../libs/Materials/Buttons/NavButton/NavButton.js";
 import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
@@ -23,6 +24,8 @@ class App extends Component {
             current++;
             text.setText(current);
         });
+    
+        this.add(new IconRoundButton(Icons.HOME));
 
         this.add(addBtn);
 
