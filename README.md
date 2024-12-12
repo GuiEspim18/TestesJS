@@ -6,7 +6,7 @@ a front-end test framework
     <li>✅Ícone de avançar</li>
     <li>✅Ícone de casa (home)</li>
     <li>✅Ícone de salvar</li>
-    <li>Ícone de editar</li>
+    <li>✅Ícone de editar</li>
     <li>Ícone de excluir</li>
     <li>Ícone de adicionar (+)</li>
     <li>Ícone de compartilhar</li>
