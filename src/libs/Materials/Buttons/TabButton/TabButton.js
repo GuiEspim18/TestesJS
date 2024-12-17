@@ -2,10 +2,10 @@ import DefaultButton from "../DefaultButton/DefaultButton.js";
 
 class TabButton extends DefaultButton {
 
-    page;
+    page = null;
     parent = null;
 
-    constructor(text = "", page = "") {
+    constructor(text = "", page = null) {
         super(text);
 
         this.setBorderTopRadius(5);
@@ -13,8 +13,8 @@ class TabButton extends DefaultButton {
         this.setMarginHorizontal(2.5);
         this.setBackgroundColor("#cecece");
 
-        if (page.length > 0) {
-            this.page = page;
+        if (page != null) {
+            this.setPage(page);
         }
 
         this.onClick(() => {
@@ -37,6 +37,10 @@ class TabButton extends DefaultButton {
 
     setParent(parent) {
         this.parent = parent;
+    }
+
+    getPage() {
+        return this.page;
     }
 
     setSelected(selected) {

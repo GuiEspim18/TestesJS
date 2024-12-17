@@ -29,10 +29,7 @@ class Tabs extends Div {
 
     setTabs(tabs) {
         this.tabsList = tabs;
-        for (let tab of tabs) {
-            this.tabsHolder.add(tab);
-            tab.setParent(this);
-        }
+        this.loadTabs();
     }
 
     getTabs() {
@@ -42,6 +39,28 @@ class Tabs extends Div {
     setPage(page) {
         this.holder.removeAll();
         this.holder.add(page);
+    }
+
+    addTabs(tabs) {
+        for (let tab of tabs) {
+            this.tabsList.push(tab);
+        }
+        this.loadTabs();
+    }
+
+    addTab(tab) {
+        this.tabsList.push(tab);
+        this.loadTabs();
+    }
+
+    loadTabs() {
+        this.tabsList[0].setSelected(true);
+        this.holder.add(this.tabsList[0].getPage());
+        this.tabsHolder.removeAll();
+        for (let tab of this.tabsList) {
+            this.tabsHolder.add(tab);
+            tab.setParent(this);
+        }
     }
 
 }
