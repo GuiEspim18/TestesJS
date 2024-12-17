@@ -147,11 +147,13 @@ class Tag {
     }
 
     setBorderTopRadius(radius, measure = "pixels") {
-        this.tag.style.borderTopRadius = this.formatMeasure(radius, measure);
+        this.tag.style.borderTopLeftRadius = this.formatMeasure(radius, measure);
+        this.tag.style.borderTopRighttRadius = this.formatMeasure(radius, measure);
     }
 
     setBorderBottomRadius(radius, measure = "pixels") {
-        this.tag.style.borderBottomRadius = this.formatMeasure(radius, measure);
+        this.tag.style.borderBottomLeftRadius = this.formatMeasure(radius, measure);
+        this.tag.style.borderBottomRightRadius = this.formatMeasure(radius, measure);
     }
 
     setBorderTopLeftRadius(radius, measure = "pixels") {
