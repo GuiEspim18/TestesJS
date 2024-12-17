@@ -1,7 +1,6 @@
 import Div from "../../ui/Tags/Div/Div.js";
 import BoxSizing from "../../ui/Types/BoxSizing.js";
 import Display from "../../ui/Types/Display.js";
-import JustifyContent from "../../ui/Types/JustifyContent.js";
 
 class Tabs extends Div {
 
@@ -9,7 +8,7 @@ class Tabs extends Div {
     tabsHolder;
     tabsList = [];
 
-    constructor(tabs = [], pages = []) {
+    constructor(tabs = []) {
         super();
 
         this.tabsHolder = new Div();
@@ -25,10 +24,6 @@ class Tabs extends Div {
         if (tabs.length > 0) {
             this.setTabs(tabs);
         } 
-
-        if (pages.length > 0) {
-
-        }
         
     }
 
@@ -36,7 +31,17 @@ class Tabs extends Div {
         this.tabsList = tabs;
         for (let tab of tabs) {
             this.tabsHolder.add(tab);
+            tab.setParent(this);
         }
+    }
+
+    getTabs() {
+        return this.tabsList;
+    }
+
+    setPage(page) {
+        this.holder.removeAll();
+        this.holder.add(page);
     }
 
 }

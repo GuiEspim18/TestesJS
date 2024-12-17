@@ -15,7 +15,7 @@ class App extends Component {
         super();
         let current = 0; 
 
-        const tabs = new Tabs([ new TabButton("Home"), new TabButton("Users") ]);
+        const tabs = new Tabs([ new TabButton("Home", new Div("Home")), new TabButton("Users", new Div("Users")) ]);
         this.add(tabs);
 
         const text = new P(String(current));
