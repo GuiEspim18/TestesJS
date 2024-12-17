@@ -15,6 +15,8 @@ class App extends Component {
         super();
         let current = 0; 
 
+        this.setFontFamily("arial");
+
         const tabs = new Tabs([ new TabButton("Home", new Div("Home")), new TabButton("Users", new Div("Users")) ]);
         this.add(tabs);
 
