@@ -11,10 +11,12 @@ class Field extends Div {
     input;
     name = "";
 
-    constructor(text = "", name = "", placehoder = "") {
+    constructor(text = "", name = "", placeholder = "") {
         super();
 
-        this.name = "";
+        this.name = name;
+
+        this.placeholder = placeholder;
 
         if (text.length > 0) {
             this.label = new Text(text);
@@ -28,9 +30,9 @@ class Field extends Div {
     }
 
     loadStyles() {       
-        // if (placehoder.length > 0) {
-        //     this.input.setPlaceholder(placehoder);
-        // }
+        if (this.placeholder.length > 0) {
+            this.input.setPlaceholder(this.placeholder);
+        }
 
         this.setWidth(100, Measure.PERCENT);
         this.setMarginBottom(7);

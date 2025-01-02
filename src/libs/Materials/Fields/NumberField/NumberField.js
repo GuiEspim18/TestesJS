@@ -5,7 +5,7 @@ import InputText from "../../../ui/Tags/Input/InputText/InputText.js";
 class NumberField extends Field {
     
     constructor(text = "", name = "", placeholder = "") {
-        super();
+        super(text, name, placeholder);
 
         this.input = new InputNumber();
         this.holder.add(this.input);
