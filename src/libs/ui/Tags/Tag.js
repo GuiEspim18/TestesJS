@@ -88,7 +88,7 @@ class Tag {
             if (border.radius > 0) {
                 this.tag.style.borderRadius = this.formatMeasure(border.radius, border.measure);
             }
-            this.tag.style.border = `${border.style} ${border.size}px ${border.color}`;
+            this.tag.style.border = `${border.type} ${border.size}px ${border.color}`;
         }
     }
 
@@ -99,7 +99,7 @@ class Tag {
             if (border.radius > 0) {
                 this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
             }
-            this.tag.style.borderLeft = `${border.style} ${border.width}px ${border.color}`;
+            this.tag.style.borderLeft = `${border.type} ${border.width}px ${border.color}`;
         }
     }
     
@@ -110,7 +110,7 @@ class Tag {
             if (border.radius > 0) {
                 this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
             }
-            this.tag.style.borderRight = `${border.style} ${border.width}px ${border.color}`;
+            this.tag.style.borderRight = `${border.type} ${border.width}px ${border.color}`;
         }
     }
     
@@ -122,7 +122,7 @@ class Tag {
                 this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
                 this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
             }
-            this.tag.style.borderTop = `${border.style} ${border.width}px ${border.color}`;
+            this.tag.style.borderTop = `${border.type} ${border.width}px ${border.color}`;
         }
     }
     
@@ -134,7 +134,7 @@ class Tag {
                 this.tag.style.borderBottomLeftRadius = this.formatMeasure(border.radius, border.measure);
                 this.tag.style.borderBottomRightRadius = this.formatMeasure(border.radius, border.measure);
             }
-            this.tag.style.borderBottom = `${border.style} ${border.width}px ${border.color}`;
+            this.tag.style.borderBottom = `${border.type} ${border.width}px ${border.color}`;
         }
     }
 

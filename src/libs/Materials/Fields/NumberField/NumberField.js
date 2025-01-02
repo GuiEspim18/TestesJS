@@ -1,13 +1,16 @@
-import Div from "../../../ui/Tags/Div/Div.js";
+import Field from "../Field.js";
+import InputNumber from "../../../ui/Tags/Input/InputNumber/InputNumber.js";
+import InputText from "../../../ui/Tags/Input/InputText/InputText.js";
 
-class NumberField extends Div {
-    label;
-    holder;
-    input;
-    name = "";
+class NumberField extends Field {
     
-    constructor(label) {
+    constructor(text = "", name = "", placeholder = "") {
         super();
+
+        this.input = new InputNumber();
+        this.holder.add(this.input);
+
+        this.loadStyles();
     }
 
 }
