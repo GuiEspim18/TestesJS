@@ -2,8 +2,6 @@ import IconButton from "../libs/Materials/Buttons/IconButton/IconButton.js";
 import IconRoundButton from "../libs/Materials/Buttons/IconRoundButton/IconRoundButton.js";
 import NavButton from "../libs/Materials/Buttons/NavButton/NavButton.js";
 import TabButton from "../libs/Materials/Buttons/TabButton/TabButton.js";
-import NumberField from "../libs/Materials/Fields/NumberField/NumberField.js";
-import TextField from "../libs/Materials/Fields/TextField/TextField.js";
 import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
 import Tabs from "../libs/Materials/Tabs/Tabs.js";
@@ -26,8 +24,6 @@ class App extends Component {
         this.add(text);
 
         this.add(Icons.LEFT_LONG);
-
-        this.add(new TextField("teste", "teste", "teste"));
 
         const addBtn = new IconButton("Adicionar",  Icons.LEFT_LONG);
         addBtn.setMarginBottom(5);
