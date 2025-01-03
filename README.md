@@ -8,7 +8,7 @@ a front-end test framework
     <li>✅Ícone de salvar</li>
     <li>✅Ícone de editar</li>
     <li>✅Ícone de excluir</li>
-    <li>Ícone de adicionar (+)</li>
+    <li>✅Ícone de adicionar (+)</li>
     <li>Ícone de compartilhar</li>
     <li>Ícone de download</li>
     <li>Ícone de upload</li>
