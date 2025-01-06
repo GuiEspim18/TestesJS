@@ -1,6 +1,6 @@
 a front-end test framework
 
-<ul style="list-style: none;">
+<ul style="list-style: square;">
     <li>✅Ícone de menu (hambúrguer)</li>
     <li>✅Ícone de voltar</li>
     <li>✅Ícone de avançar</li>
@@ -30,7 +30,7 @@ a front-end test framework
     <li>✅Ícone de carrinho de compras</li>
     <li>✅Ícone de pagamento</li>
     <li>✅Ícone de lista de desejos</li>
-    <li>Ícone de configurações</li>
+    <li>✅Ícone de configurações</li>
     <li>Ícone de busca (lupa)</li>
     <li>Ícone de localização (mapa)</li>
     <li>Ícones de calendário e data</li>
