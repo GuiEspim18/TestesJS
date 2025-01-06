@@ -19,8 +19,8 @@ a front-end test framework
     <li>✅Ícone de stop</li>
     <li>✅Ícone de volume (mute, alto)</li>
     <li>✅Ícone de câmera</li>
-    <li>Ícone de imagem</li>
-    <li>Ícone de carregamento (loading/spinner)</li>
+    <li>✅Ícone de imagem</li>
+    <li>✅Ícone de carregamento (loading/spinner)</li>
     <li>Ícone de sucesso (checkmark)</li>
     <li>Ícone de erro (x ou alerta)</li>
     <li>Ícone de aviso (triângulo de atenção)</li>
