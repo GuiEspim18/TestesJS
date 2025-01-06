@@ -26,8 +26,8 @@ a front-end test framework
     <li>✅Ícone de aviso (triângulo de atenção)</li>
     <li>✅Ícone de usuário</li>
     <li>✅Ícone de perfil</li>
-    <li>Ícone de logout</li>
-    <li>Ícone de carrinho de compras</li>
+    <li>✅Ícone de logout</li>
+    <li>✅Ícone de carrinho de compras</li>
     <li>Ícone de pagamento</li>
     <li>Ícone de lista de desejos</li>
     <li>Ícone de configurações</li>
