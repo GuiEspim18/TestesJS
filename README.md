@@ -22,8 +22,8 @@ a front-end test framework
     <li>✅Ícone de imagem</li>
     <li>✅Ícone de carregamento (loading/spinner)</li>
     <li>✅Ícone de sucesso (checkmark)</li>
-    <li>Ícone de erro (x ou alerta)</li>
-    <li>Ícone de aviso (triângulo de atenção)</li>
+    <li>✅Ícone de erro (x ou alerta)</li>
+    <li>✅Ícone de aviso (triângulo de atenção)</li>
     <li>Ícone de usuário</li>
     <li>Ícone de perfil</li>
     <li>Ícone de logout</li>
