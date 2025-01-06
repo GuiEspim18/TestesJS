@@ -31,7 +31,7 @@ a front-end test framework
     <li>✅Ícone de pagamento</li>
     <li>✅Ícone de lista de desejos</li>
     <li>✅Ícone de configurações</li>
-    <li>Ícone de busca (lupa)</li>
+    <li>✅Ícone de busca (lupa)</li>
     <li>Ícone de localização (mapa)</li>
     <li>Ícones de calendário e data</li>
     <li>Ícones de hora e relógio</li>
