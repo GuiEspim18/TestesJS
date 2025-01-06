@@ -24,8 +24,8 @@ a front-end test framework
     <li>✅Ícone de sucesso (checkmark)</li>
     <li>✅Ícone de erro (x ou alerta)</li>
     <li>✅Ícone de aviso (triângulo de atenção)</li>
-    <li>Ícone de usuário</li>
-    <li>Ícone de perfil</li>
+    <li>✅Ícone de usuário</li>
+    <li>✅Ícone de perfil</li>
     <li>Ícone de logout</li>
     <li>Ícone de carrinho de compras</li>
     <li>Ícone de pagamento</li>
