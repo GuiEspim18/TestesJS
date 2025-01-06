@@ -12,7 +12,7 @@ a front-end test framework
     <li>✅Ícone de compartilhar</li>
     <li>✅Ícone de download</li>
     <li>✅Ícone de upload</li>
-    <li>Ícone de e-mail</li>
+    <li>✅Ícone de e-mail</li>
     <li>Ícone de chat</li>
     <li>Ícone de telefone</li>
     <li>Ícone de play/pause</li>
