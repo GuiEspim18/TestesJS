@@ -35,5 +35,5 @@ a front-end test framework
     <li>✅Ícone de localização (mapa)</li>
     <li>✅Ícones de calendário e data</li>
     <li>✅Ícones de hora e relógio</li>
-    <li>Ícones de favoritos (estrela)</li>
+    <li>✅Ícones de favoritos (estrela)</li>
 </ul>
