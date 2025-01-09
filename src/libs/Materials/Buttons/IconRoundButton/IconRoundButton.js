@@ -18,18 +18,18 @@ class IconRoundButton extends DefaultButton {
         this.setBackgroundColor("#00000040");
 
         if (icon) {
-            this.icon = icon;
+            this.icon = icon();
+            this.add(this.icon);
         }
 
-        this.add(icon);
     }
 
     setIcon(icon) {
         if (this.icon) {
             this.removeAll();
         }
-        this.icon = icon;
-        this.add(icon);
+        this.icon = icon();
+        this.add(this.icon);
     }
 
 }

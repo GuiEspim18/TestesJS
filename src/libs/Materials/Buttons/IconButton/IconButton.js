@@ -22,7 +22,7 @@ class IconButton extends DefaultButton {
         this.add(this.divIcon);
 
         if (icon != null) {
-            this.icon = icon;
+            this.icon = icon();
             this.icon.setFill("#f0f0f0");
             this.icon.setSize(20);
             this.divIcon.add(this.icon);
@@ -37,7 +37,7 @@ class IconButton extends DefaultButton {
     }
 
     setIcon(icon) {
-        this.icon = icon;
+        this.icon = icon();
         this.icon.setFill("#f0f0f0");
         this.icon.setSize(20);
         this.divIcon.add(this.icon);

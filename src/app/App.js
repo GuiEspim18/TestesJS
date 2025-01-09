@@ -3,7 +3,7 @@ import IconRoundButton from "../libs/Materials/Buttons/IconRoundButton/IconRound
 import NavButton from "../libs/Materials/Buttons/NavButton/NavButton.js";
 import TabButton from "../libs/Materials/Buttons/TabButton/TabButton.js";
 import PasswordField from "../libs/Materials/Fields/PasswordField/PasswordField.js";
-import { HOME, PLUS } from "../libs/Materials/Icons/Icons.js";
+import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
 import Tabs from "../libs/Materials/Tabs/Tabs.js";
 import Component from "../libs/ui/Component/Component.js";
@@ -25,9 +25,9 @@ class App extends Component {
         const text = new P(String(current));
         this.add(text);
 
-        // this.add(new PasswordField());
+        this.add(new PasswordField());
 
-        const addBtn = new IconButton("Adicionar",  PLUS);
+        const addBtn = new IconButton("Adicionar",  Icons.PLUS);
         addBtn.setMarginBottom(5);
         addBtn.onClick(() => {
             current++;
@@ -35,7 +35,7 @@ class App extends Component {
         });
         this.add(addBtn);
 
-        const addBtn2 = new IconButton("Adicionar",  PLUS);
+        const addBtn2 = new IconButton("Adicionar",  Icons.PLUS);
         addBtn2.setMarginBottom(5);
         addBtn2.onClick(() => {
             current++;
@@ -44,7 +44,7 @@ class App extends Component {
         this.add(addBtn2);
     
     
-        this.add(new IconRoundButton(HOME));
+        this.add(new IconRoundButton(Icons.HOME));
 
 
         this.add(new NavButton("Home", "/home"));
