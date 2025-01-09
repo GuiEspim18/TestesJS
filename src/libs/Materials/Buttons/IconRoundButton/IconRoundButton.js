@@ -5,6 +5,8 @@ import DefaultButton from "../DefaultButton/DefaultButton.js";
 
 class IconRoundButton extends DefaultButton {
 
+    icon = null;
+
     constructor(icon = null) {
         super();
         this.setDisplay(Display.FLEX);
@@ -15,6 +17,18 @@ class IconRoundButton extends DefaultButton {
         this.setBorderRadius(30);
         this.setBackgroundColor("#00000040");
 
+        if (icon) {
+            this.icon = icon;
+        }
+
+        this.add(icon);
+    }
+
+    setIcon(icon) {
+        if (this.icon) {
+            this.removeAll();
+        }
+        this.icon = icon;
         this.add(icon);
     }
 

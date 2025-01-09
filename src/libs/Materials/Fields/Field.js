@@ -1,4 +1,5 @@
 import Div from "../../ui/Tags/Div/Div.js";
+import AlignItems from "../../ui/Types/AlignItems.js";
 import BoxSizing from "../../ui/Types/BoxSizing.js";
 import Display from "../../ui/Types/Display.js";
 import Measure from "../../ui/Types/Measure.js";
@@ -60,6 +61,7 @@ class Field extends Div {
         this.holder.setTransition({
             duration: "0.2s"
         });
+        this.holder.setAlignItems(AlignItems.CENTER);
 
         this.input.setBorder("none");
         this.input.setHeight(100, Measure.PERCENT);

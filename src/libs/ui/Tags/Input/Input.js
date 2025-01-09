@@ -30,6 +30,10 @@ class Input extends Tag {
         this.tag.style.outline = outline;
     }
 
+    setType(type) {
+        this.tag.type = type;
+    }
+
     setFocus() {
         this.tag.focus();
     }
