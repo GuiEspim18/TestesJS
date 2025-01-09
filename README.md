@@ -36,4 +36,5 @@ a front-end test framework
     <li>✅Ícones de calendário e data</li>
     <li>✅Ícones de hora e relógio</li>
     <li>✅Ícones de favoritos (estrela)</li>
+    <li>✅Olho (senha)</li>
 </ul>
