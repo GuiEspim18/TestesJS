@@ -2,6 +2,7 @@ import IconButton from "../libs/Materials/Buttons/IconButton/IconButton.js";
 import IconRoundButton from "../libs/Materials/Buttons/IconRoundButton/IconRoundButton.js";
 import NavButton from "../libs/Materials/Buttons/NavButton/NavButton.js";
 import TabButton from "../libs/Materials/Buttons/TabButton/TabButton.js";
+import DateField from "../libs/Materials/Fields/DateField/DateField.js";
 import PasswordField from "../libs/Materials/Fields/PasswordField/PasswordField.js";
 import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
@@ -25,7 +26,7 @@ class App extends Component {
         const text = new P(String(current));
         this.add(text);
 
-        this.add(new PasswordField());
+        this.add(new DateField());
 
         const addBtn = new IconButton("Adicionar",  Icons.PLUS);
         addBtn.setMarginBottom(5);

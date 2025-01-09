@@ -1,3 +1,5 @@
+import UUID from "../../UUID/UUID.js";
+
 class Tag {
 
     tag;
@@ -11,6 +13,7 @@ class Tag {
 
     setTag(tag) {
         this.tag = document.createElement(tag);
+        this.tag.setAttribute("id", UUID.generate());
     }
 
     setText(text) {
