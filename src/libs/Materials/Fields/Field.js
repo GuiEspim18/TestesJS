@@ -107,6 +107,27 @@ class Field extends Div {
         this.name = name;
     }
 
+    focus() {
+        this.holder.setBorder({
+            color: "#10d4f3",
+            size: 1,
+            type: "solid"
+        });
+        this.holder.setShadow({
+            color: "#10d4f366",
+            spread: 2.5
+        });
+    }
+
+    exitFocus() {
+        this.holder.setBorder({
+            color: "#474747",
+            type: "solid",
+            size: 1
+        });
+        this.holder.setShadow("none");
+    }
+
 }
 
 export default Field;

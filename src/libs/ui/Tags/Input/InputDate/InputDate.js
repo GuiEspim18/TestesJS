@@ -19,12 +19,12 @@ class InputDate extends InputTyped {
         styleSheet.insertRule(`input#${this.tag.getAttribute("id")}::-webkit-calendar-picker-indicator { display: ${display}; }`, styleSheet.cssRules.length);
     }
 
-    focus() {
-        this.tag.focus();
-    }
+    // focus() {
+    //     this.tag.focus();
+    // }
 
-    click() {
-        this.tag.click();
+    showPicker() {
+        this.tag.showPicker();
     }
 }
 

@@ -25,8 +25,7 @@ class DateField extends Field {
 
     openCalendar(event) {
         event.stopPropagation();
-        this.input.focus();
-        this.input.click();
+        this.input.showPicker();
     }
 
 }
