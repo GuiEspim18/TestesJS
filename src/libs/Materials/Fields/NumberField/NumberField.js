@@ -1,6 +1,5 @@
 import Field from "../Field.js";
 import InputNumber from "../../../ui/Tags/Input/InputNumber/InputNumber.js";
-import InputText from "../../../ui/Tags/Input/InputText/InputText.js";
 
 class NumberField extends Field {
     

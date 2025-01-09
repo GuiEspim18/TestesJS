@@ -1,7 +1,7 @@
 import Field from "../Field.js";
 import InputPassword from "../../../ui/Tags/Input/InputPassword/InputPassword.js";
 import IconRoundButton from "../../Buttons/IconRoundButton/IconRoundButton.js";
-import Icons from "../../Icons/Icons.js";
+import { EYE_FILLED, EYE_SLASHED_FILLED } from "../../Icons/Icons.js";
 
 class PasswordField extends Field {
 
@@ -14,7 +14,7 @@ class PasswordField extends Field {
         this.input = new InputPassword();
         this.holder.add(this.input);
 
-        this.btn = new IconRoundButton(Icons.EYE_SLASHED_FILLED);
+        this.btn = new IconRoundButton(EYE_SLASHED_FILLED);
         this.btn.setBackgroundColor("transparent");
         this.btn.onClick((e) => this.changeVisibility(e));
         this.holder.add(this.btn);
@@ -26,10 +26,10 @@ class PasswordField extends Field {
         event.stopPropagation();
         this.visibility = !this.visibility;
         if (this.visibility) {
-            this.btn.setIcon(Icons.EYE_FILLED);
+            this.btn.setIcon(EYE_FILLED);
             this.input.setType("text");
         } else {
-            this.btn.setIcon(Icons.EYE_SLASHED_FILLED);
+            this.btn.setIcon(EYE_SLASHED_FILLED);
             this.input.setType("password");
         }
     }
