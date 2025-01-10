@@ -16,16 +16,16 @@ class DateField extends Field {
 
         this.btn = new IconRoundButton(Icons.CALENDAR);
         this.btn.setBackgroundColor("transparent");
-        this.btn.onClick((e) => this.openCalendar(e));
+        this.btn.onClick(() => this.openCalendar());
         this.holder.add(this.btn);
 
         this.loadStyles();
 
     }
 
-    openCalendar(event) {
-        event.stopPropagation();
+    openCalendar() {
         this.input.showPicker();
+        this.focus();
     }
 
 }
