@@ -11,11 +11,15 @@ declare class Select extends Tag {
 
     public addOption(option: Option): void;
 
+    public setOutline(outline: string): void;
+
     public getValue(): string | number | any;
 
     private loadOptions(): void;
 
-
+    public onFocusIn(focusIn: () => void | any): void;
+    
+    public onFocusOut(focusOut: () => void | any): void;
 }
 
 export default Select;

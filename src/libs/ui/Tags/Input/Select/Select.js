@@ -26,6 +26,18 @@ class Select extends Tag {
         this.loadOptions();
     }
 
+    setOutline(outline) {
+        this.tag.style.outline = outline;
+    }
+
+    onFocusIn(focusIn) {
+        this.tag.addEventListener("focus", focusIn);
+    }
+
+    onFocusOut(focusOut) {
+        this.tag.addEventListener("focusout", focusOut);
+    }
+
     getValue() {
         return this.tag.value;
     }
