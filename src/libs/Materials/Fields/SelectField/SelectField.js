@@ -22,6 +22,13 @@ class SelectField extends Field {
         this.options.push(option);
         this.input.setOptions(this.options);
     }
+
+    addOptions(options) {
+        for (let option of options) {
+            this.options.push(option);
+        }
+        this.input.setOptions(this.options);
+    }
 }
 
 export default SelectField;
