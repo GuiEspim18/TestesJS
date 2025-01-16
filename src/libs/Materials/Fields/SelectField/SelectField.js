@@ -4,11 +4,16 @@ import Select from "../../../ui/Tags/Input/Select/Select.js";
 class SelectField extends Field {
     options = new Array();
 
-    constructor(text = "", name = "", placeholder = "") {
-        super(text, name, placeholder);
+    constructor(text = "", name = "", options = new Array()) {
+        super(text, name);
 
         this.input = new Select();
         this.holder.add(this.input);
+
+        if (options.length > 0) {
+            this.options = options;
+            this.input.setOptions(options);
+        }
 
         this.loadStyles();
     }
