@@ -20,6 +20,10 @@ class Tag {
         this.tag.textContent = String(text);
     }
 
+    setFontWeight(fontWeight) {
+        this.tag.style.fontWeight = fontWeight;
+    }
+
     load() {
         return this.tag;
     }

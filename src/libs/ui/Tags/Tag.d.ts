@@ -95,6 +95,8 @@ declare class Tag {
 
     public setTransition(transition: Transition | "none"): void;
 
+    public setFontWeight(fontWeight: string): void;
+
     public show(): void;
 
     public hide(): void;
