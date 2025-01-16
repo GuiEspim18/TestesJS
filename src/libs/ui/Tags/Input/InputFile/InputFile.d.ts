@@ -12,6 +12,8 @@ declare class InputFile extends Input {
     setWebkitdirectory(webkitdirectory: boolean): void;
 
     getFiles(): FileList | null;
+
+    click(): void;
 }
 
 export default InputFile;

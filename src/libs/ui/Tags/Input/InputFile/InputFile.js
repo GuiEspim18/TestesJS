@@ -67,6 +67,10 @@ class InputFile extends Input {
     getFiles() {
         return this.tag.files;
     }
+
+    click() {
+        this.tag.click();
+    }
 }
 
 export default InputFile;

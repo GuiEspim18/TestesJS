@@ -22,6 +22,8 @@ declare class Input extends Tag {
     public onFocusIn(focusIn: () => void | any): void;
     
     public onFocusOut(focusOut: () => void | any): void;
+
+    public onChange(change: () => void | any): void;
 }
 
 export default Input;

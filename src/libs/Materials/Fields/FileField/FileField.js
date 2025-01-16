@@ -9,6 +9,7 @@ import FontWeight from "../../../ui/Types/FontWeight.js";
 class FileField extends Field {
     button = new DefaultButton();
     text = new P();
+    value = null;
 
     constructor(text = "", name = "") {
         super(text, name);
@@ -20,6 +21,7 @@ class FileField extends Field {
         this.button.setWidth(40, Measure.PERCENT);
         this.button.setHeight(25);
         this.holder.add(this.button);
+        this.button.onClick(() => this.selectFile());
 
         this.text = new P("");
         this.text.setFontWeight(FontWeight.LIGHTER);
@@ -33,7 +35,15 @@ class FileField extends Field {
         
     }
 
-    
+    selectFile () {
+        this.input.click();
+        this.input.onChange(() => {
+            if (this.input.getFiles().length > 0) {
+                this.value = this.input.getFiles();
+                this.text.setText(this.input.getFiles()[0].name);
+            }
+        });
+    }
 }
 
 export default FileField;

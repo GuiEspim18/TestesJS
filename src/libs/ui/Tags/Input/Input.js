@@ -50,6 +50,10 @@ class Input extends Tag {
         this.tag.addEventListener("focusout", focusOut);
     }
 
+    onChange(change) {
+        this.tag.addEventListener("change", change);
+    }
+
 }
 
 export default Input;
