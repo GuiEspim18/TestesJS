@@ -30,6 +30,10 @@ class Icon extends Tag {
         this.icon.setSize(size, measure);
     }
 
+    setFill(fill) {
+        this.icon.setFill(fill);
+    }
+
     setIconColor(iconColor) {
         this.icon.setFill(iconColor);
     }

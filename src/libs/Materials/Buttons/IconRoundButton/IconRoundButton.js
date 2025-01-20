@@ -33,6 +33,10 @@ class IconRoundButton extends DefaultButton {
         this.add(this.icon);
     }
 
+    setIconColor(color) {
+        this.icon.setFill(color);
+    }
+
 }
 
 export default IconRoundButton;
