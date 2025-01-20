@@ -8,6 +8,8 @@ import IconRoundButton from "../../Buttons/IconRoundButton/IconRoundButton.js";
 import Icons from "../../Icons/Icons.js";
 
 class CounterField extends Div {
+    counter = 0;
+
     constructor() {
         super();
 
@@ -17,7 +19,7 @@ class CounterField extends Div {
         this.minus = new IconRoundButton(Icons.MINUS);
         this.add(this.minus);
 
-        this.text = new P("0");
+        this.text = new P(String(this.counter));
         this.text.setMargin(0);
         this.text.setFontSize(1.7, Measure.REM);
         this.text.setMarginHorizontal(5);
