@@ -9,14 +9,27 @@ import Icons from "../../Icons/Icons.js";
 
 class CounterField extends Div {
     counter = 0;
+    minimun = 0;
+    maximun = null;
 
     constructor() {
         super();
 
         this.setDisplay(Display.FLEX);
         this.setAlignItems(AlignItems.CENTER);
+        this.setPadding(5);
         
         this.minus = new IconRoundButton(Icons.MINUS);
+        this.minus.onClick(() => {
+            if (this.minimun != null) {
+                if (this.counter > this.minimun) {
+                    this.counter -= 1;
+                }
+            } else {
+                this.counter -= 1;
+            }
+            this.text.setText(String(this.counter));
+        });
         this.add(this.minus);
 
         this.text = new P(String(this.counter));
@@ -26,6 +39,17 @@ class CounterField extends Div {
         this.add(this.text);
 
         this.plus = new IconRoundButton(Icons.PLUS);
+        this.plus.onClick(() => {
+            if (this.maximun != null) {
+                if (this.counter < this.maximun) {
+                    this.counter += 1;
+                }
+            } else {
+                this.counter += 1;
+            }
+    
+            this.text.setText(String(this.counter));
+        });
         this.add(this.plus);
 
     }
