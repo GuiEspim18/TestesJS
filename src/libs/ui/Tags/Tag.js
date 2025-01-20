@@ -44,6 +44,10 @@ class Tag {
         }
     }
 
+    setBackgroundPosition(position) {
+        this.tag.style.backgroundPosition = position;
+    }
+
     setBackgroundGradient({color1={color, percentage}, color2={color, percentage}, angle = 90}) {        
         this.tag.style.background = `linear-gradient(${angle}deg, ${color1.color} ${color1.percentage}%, ${color2.color} ${color2.percentage}%)`;
     }

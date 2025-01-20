@@ -10,12 +10,13 @@ import P from "../../../ui/Tags/Text/P/P.js";
 import Div from "../../../ui/Tags/Div/Div.js";
 import FlexDirection from "../../../ui/Types/FlexDirection.js";
 import AlignItems from "../../../ui/Types/AlignItems.js";
+import BackgroundPosition from "../../../ui/Types/BackgroundPosition.js";
 
 class ImageField extends Field {
     p = new P("Selecione uma image");
     icon = new Icon(Icons.CAMERA);
 
-    constructor(text = "Selecione uma image", name = "") {
+    constructor(text = "", name = "") {
         super(text, name);
 
         this.input = new InputFile();
@@ -34,11 +35,8 @@ class ImageField extends Field {
         this.icon.setIconColor("#cecece");
         div.add(this.icon);
 
-        if (text.length > 0) {
-            this.p.setText(text);
-            this.p.setFontColor("#cecece")
-            div.add(this.p);
-        }
+        this.p.setFontColor("#cecece")
+        div.add(this.p);
 
         this.holder.add(div);
 
@@ -49,6 +47,7 @@ class ImageField extends Field {
         this.holder.setCursor(Cursor.POINTER);
         this.holder.setBackgroundSize(BackgroundSize.COVER);
         this.holder.setJustifyContent(JustifyContent.CENTER);
+        this.holder.setBackgroundPosition(BackgroundPosition.CENTER)
     }
 
     selectFile(background, div) {

@@ -19,6 +19,12 @@ declare class Tag {
 
     public setBackgroundGradient(gradient: Gradients): void;
 
+    public setBackgroundImage(image: string): void;
+
+    public setBackgroundSize(size: number | string, measure: string): void;
+
+    public setBackgroundPosition(position: string): void;
+
     public setHeight(height: number, type?: string): void;
 
     public setWidth(width: number, type?: string): void;
