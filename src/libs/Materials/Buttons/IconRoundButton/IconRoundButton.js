@@ -1,6 +1,7 @@
 import AlignItems from "../../../ui/Types/AlignItems.js";
 import Display from "../../../ui/Types/Display.js";
 import JustifyContent from "../../../ui/Types/JustifyContent.js";
+import Icon from "../../Icons/Icon.js";
 import DefaultButton from "../DefaultButton/DefaultButton.js";
 
 class IconRoundButton extends DefaultButton {
@@ -18,7 +19,7 @@ class IconRoundButton extends DefaultButton {
         this.setBackgroundColor("#00000040");
 
         if (icon) {
-            this.icon = icon();
+            this.icon = new Icon(icon);
             this.add(this.icon);
         }
 
@@ -28,7 +29,7 @@ class IconRoundButton extends DefaultButton {
         if (this.icon) {
             this.removeAll();
         }
-        this.icon = icon();
+        this.icon = new Icon(icon);
         this.add(this.icon);
     }
 
