@@ -17,6 +17,17 @@ class ElementNS {
 
     }
 
+    formatMeasure(value, type) {
+        switch (type) {
+            case "pixels": return value + "px";
+            case "percentage": return value + "%";
+            case "em": return value + "em";
+            case "rem": return value + "rem";
+            case "auto": return "auto";
+            default: return value; // Retorna o valor diretamente se não for reconhecido
+        }
+    }
+
     load() {
         return this.tag;
     }

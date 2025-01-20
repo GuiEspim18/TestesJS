@@ -4,6 +4,7 @@ import AlignItems from "../../../ui/Types/AlignItems.js";
 import JustifyContent from "../../../ui/Types/JustifyContent.js";
 import P from "../../../ui/Tags/Text/P/P.js";
 import Div from "../../../ui/Tags/Div/Div.js";
+import Icon from "../../Icons/Icon.js";
 
 class IconButton extends DefaultButton {
 
@@ -37,7 +38,7 @@ class IconButton extends DefaultButton {
     }
 
     setIcon(icon) {
-        this.icon = icon();
+        this.icon = new Icon(icon);
         this.icon.setFill("#f0f0f0");
         this.icon.setSize(20);
         this.divIcon.add(this.icon);

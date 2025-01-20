@@ -21,17 +21,17 @@ class Svg extends ElementNS {
         this.tag.setAttributeNS(null, "fill", fill);
     }
 
-    setSize(size) {
-        this.tag.setAttributeNS(null, "width", size);
-        this.tag.setAttributeNS(null, "height", size);
+    setSize(size, measure="") {
+        this.tag.setAttributeNS(null, "width", this.formatMeasure(size, measure));
+        this.tag.setAttributeNS(null, "height", this.formatMeasure(size, measure));
     }
 
     setWidth(width) {
-        this.tag.setAttributeNS(null, "width", width);
+        this.tag.setAttributeNS(null, "width", this.formatMeasure(width, measure));
     }
 
     setHeight(height) {
-        this.tag.setAttributeNS(null, "height", height);
+        this.tag.setAttributeNS(null, "height", this.formatMeasure(height, measure));
     }
 }
 
