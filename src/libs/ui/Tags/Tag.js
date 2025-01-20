@@ -33,7 +33,7 @@ class Tag {
     }
 
     setBackgroundImage(image) {
-        this.tag.style.backgroundImage = image;
+        this.tag.style.backgroundImage = `url('${image}')`;
     }
 
     setBackgroundSize(size, measure = "pixels") {
