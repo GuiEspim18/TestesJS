@@ -8,7 +8,7 @@ import Text from "../Texts/Text/Text.js";
 class Field extends Div {
 
     label;
-    holder;
+    holder = new Div();
     input;
     name = "";
 

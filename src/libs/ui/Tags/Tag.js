@@ -36,6 +36,14 @@ class Tag {
         this.tag.style.backgroundImage = image;
     }
 
+    setBackgroundSize(size, measure = "pixels") {
+        if (!isNaN(parseFloat(size)) && isFinite(size)) {
+            this.tag.style.backgroundSize = this.formatMeasure(size, measure);
+        } else {
+            this.tag.style.backgroundSize = size;
+        }
+    }
+
     setBackgroundGradient({color1={color, percentage}, color2={color, percentage}, angle = 90}) {        
         this.tag.style.background = `linear-gradient(${angle}deg, ${color1.color} ${color1.percentage}%, ${color2.color} ${color2.percentage}%)`;
     }

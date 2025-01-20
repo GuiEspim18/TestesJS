@@ -9,7 +9,7 @@ class ImageField extends Field {
 
         this.input = new InputFile();
         this.holder.add(this.input);
-        this.holder.onClick(() => this.selectFile());
+        this.holder.onClick(() => this.selectFile(this.holder));
 
         this.loadStyles();
 
@@ -18,7 +18,7 @@ class ImageField extends Field {
         this.holder.setCursor(Cursor.POINTER);
     }
 
-    selectFile() {
+    selectFile(background) {
         this.focus();
         this.input.click();
         this.input.onChange(() => {
@@ -26,6 +26,16 @@ class ImageField extends Field {
             this.value = this.input.getFiles();
             if (this.value && this.value[0]) {
                 const reader = new FileReader();
+                reader.onloadend = function () {
+                    background.setBackgroundImage(reader.result);
+                    if (this.holder) {
+                    }
+                }
+
+                if (this.value) {
+                    reader.readAsDataURL(this.value[0]);
+                }
+
             }
         });
     }
