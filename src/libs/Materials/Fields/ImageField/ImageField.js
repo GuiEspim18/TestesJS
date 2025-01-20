@@ -26,14 +26,8 @@ class ImageField extends Field {
             this.value = this.input.getFiles();
             if (this.value && this.value[0]) {
                 const reader = new FileReader();
-                reader.onloadend = function (e) {
-                    // this.holder.setBackgroundImage(reader.result);
-                    console.log(e);
-                }
 
-                if (this.input) {
-                    reader.readAsDataURL(this.input);
-                }
+        
             }
         });
     }
