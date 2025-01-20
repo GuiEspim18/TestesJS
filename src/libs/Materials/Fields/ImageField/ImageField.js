@@ -1,8 +1,8 @@
 import Field from "../Field";
 
 class ImageField extends Field {
-    constructor() {
-        
+    constructor(text = "", name = "") {
+        super(text, name);
     }
 }
 
