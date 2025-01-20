@@ -26,8 +26,6 @@ class ImageField extends Field {
             this.value = this.input.getFiles();
             if (this.value && this.value[0]) {
                 const reader = new FileReader();
-
-        
             }
         });
     }
