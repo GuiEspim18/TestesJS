@@ -66,7 +66,10 @@ class ImageField extends Field {
                 if (this.value) {
                     reader.readAsDataURL(this.value[0]);
                 }
-
+            }
+            
+            if (this.input.getFiles().length == 0) {
+                this.exitFocus();
             }
         });
     }
