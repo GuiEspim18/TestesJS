@@ -23,10 +23,10 @@ class CounterField extends Div {
         this.minus.onClick(() => {
             if (this.minimun != null) {
                 if (this.counter > this.minimun) {
-                    this.counter -= 1;
+                    this.counter--;
                 }
             } else {
-                this.counter -= 1;
+                this.counter--;
             }
             this.text.setText(String(this.counter));
         });
@@ -42,10 +42,10 @@ class CounterField extends Div {
         this.plus.onClick(() => {
             if (this.maximun != null) {
                 if (this.counter < this.maximun) {
-                    this.counter += 1;
+                    this.counter++;
                 }
             } else {
-                this.counter += 1;
+                this.counter++;
             }
     
             this.text.setText(String(this.counter));
