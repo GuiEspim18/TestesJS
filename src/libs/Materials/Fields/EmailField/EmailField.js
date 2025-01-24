@@ -1,8 +1,8 @@
 import Field from "../Field.js";
 
 class EmailField extends Field {
-    constructor() {
-        
+    constructor(text = "", name = "", placeholder = "") {
+
     }
 }
 
