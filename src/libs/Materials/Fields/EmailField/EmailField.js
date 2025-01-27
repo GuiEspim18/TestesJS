@@ -5,6 +5,7 @@ class EmailField extends Field {
         super(text, name, placeholder);
 
         this.input = new InputNumber();
+        this.holder.add(this.input);
     }
 }
 
