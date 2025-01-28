@@ -6,6 +6,9 @@ class TextAreaField extends Field {
         super(text, name, placeholder);
 
         this.input = new TextArea();
+        this.holder.add(this.input);
+
+        this.loadStyles();
     }
 }
 
