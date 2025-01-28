@@ -6,6 +6,7 @@ import CounterField from "../libs/Materials/Fields/CounterField/CounterField.js"
 import EmailField from "../libs/Materials/Fields/EmailField/EmailField.js";
 import FileField from "../libs/Materials/Fields/FileField/FileField.js";
 import PasswordField from "../libs/Materials/Fields/PasswordField/PasswordField.js";
+import TextAreaField from "../libs/Materials/Fields/TextAreaField/TextAreaField.js";
 import Icons from "../libs/Materials/Icons/Icons.js";
 import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
 import Tabs from "../libs/Materials/Tabs/Tabs.js";
@@ -28,7 +29,7 @@ class App extends Component {
         const text = new P(String(current));
         this.add(text);
 
-        this.add(new EmailField("Email", "email"));
+        this.add(new TextAreaField("Email", "email"));
 
         const addBtn = new IconButton("Adicionar",  Icons.PLUS);
         addBtn.setMarginBottom(5);
