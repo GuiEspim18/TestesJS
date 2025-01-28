@@ -15,9 +15,8 @@ class TextAreaField extends Field {
         
         this.loadStyles();
         this.input.setResize(Resize.VERTICAL)
-        this.input.setPadding(10);
         this.holder.setHeight(70)
-        this.holder.setPaddingVertical(5);
+        this.holder.setPaddingVertical(10);
         this.holder.setBoxSizing(BoxSizing.BORDER_BOX);
     }
 }
