@@ -6,6 +6,8 @@ class EmailField extends Field {
 
         this.input = new InputNumber();
         this.holder.add(this.input);
+
+        this.loadStyles();
     }
 }
 
