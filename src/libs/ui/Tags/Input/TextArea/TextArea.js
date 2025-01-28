@@ -1,8 +1,24 @@
 import Tag from "../../Tag.js";
 
 class TextArea extends Tag {
+
+    sizeChange = () => 0;
+
     constructor() {
         super("textarea");
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type == "attributes") {
+                    this.sizeChange();
+                }
+            });
+        });
+
+        observer.observe(this.tag, {
+            attributes: true,
+            attributeFilter: ["style"]
+        });
     }
 
     setReadOnly(readOnly) {
@@ -51,6 +67,22 @@ class TextArea extends Tag {
 
     onChange(change) {
         this.tag.addEventListener("change", change);
+    }
+
+    onSizeChange(sizeChange) {
+        this.sizeChange = sizeChange;
+    }
+
+    setCols(cols) {
+        this.tag.setAttribute("cols", String(cols));
+    }
+
+    setRows(rows) {
+        this.tag.setAttribute("rows", String(rows));
+    }
+
+    setResize(resize) {
+        this.tag.style.resize = resize;
     }
 }
 
