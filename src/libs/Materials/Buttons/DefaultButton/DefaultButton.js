@@ -42,7 +42,7 @@ class DefaultButton extends Button {
         ripple.setHeight(diameter);
         ripple.setX(event.clientX - this.tag.getBoundingClientRect().left - radius);
         ripple.setY(event.clientY - this.tag.getBoundingClientRect().top - radius);
-        ripple.setBackgroundColor(this.rippleColor+ "80");
+        ripple.setBackgroundColor(this.rippleColor+ "59");
         this.add(ripple);
         
         setTimeout(() => {
