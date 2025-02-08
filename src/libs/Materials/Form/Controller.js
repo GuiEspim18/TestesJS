@@ -3,6 +3,10 @@ class Controller {
         this.controller = controller;
         this.required = required;
     }
+
+    isValid() {
+        
+    }
 }
 
 export default Controller;
