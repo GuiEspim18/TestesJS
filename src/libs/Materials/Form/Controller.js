@@ -5,7 +5,9 @@ class Controller {
     }
 
     isValid() {
-        
+        if (this.required) {
+
+        }
     }
 }
 
