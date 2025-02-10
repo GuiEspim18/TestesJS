@@ -8,6 +8,7 @@ class Controller {
         if (this.required) {
 
         }
+        return true;
     }
 }
 
