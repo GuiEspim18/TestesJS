@@ -1,5 +1,5 @@
-class FieldTYpe {
+class FieldType {
 
 }
 
-export default FieldTYpe;
+export default FieldType;
