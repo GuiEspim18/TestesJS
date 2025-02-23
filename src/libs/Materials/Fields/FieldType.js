@@ -4,6 +4,7 @@ class FieldType {
     static EMAIL = 3;
     static SELECT = 4;
     static DATE = 5;
+    static FILE = 6;
 }
 
 export default FieldType;
