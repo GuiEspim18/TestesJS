@@ -6,7 +6,9 @@ class Controller {
 
     isValid() {
         if (this.required) {
-
+            switch(this.controller.type) {
+                
+            }
         }
         return true;
     }
