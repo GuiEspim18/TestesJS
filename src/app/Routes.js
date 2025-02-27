@@ -1,10 +1,11 @@
 import Home from "./pages/Home/Home.js";
+import PlayGround from "./pages/Home/PlayGround.js";
 import Test from "./pages/Home/Test.js";
 
 export const routes = [
     {
         path: "/",
-        redirect: "/home"
+        redirect: "/play-ground"
     }, 
     {
         path: "/home",
@@ -23,6 +24,10 @@ export const routes = [
             }
         ]
     }, 
+    {
+        path: "/play-ground",
+        component: PlayGround
+    },
     {
         path: "/oi"
     }
