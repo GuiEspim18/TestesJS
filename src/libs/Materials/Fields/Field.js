@@ -11,6 +11,7 @@ class Field extends Div {
     holder = new Div();
     input;
     name = "";
+    type = null;
 
     constructor(text = "", name = "", placeholder = "") {
         super();
