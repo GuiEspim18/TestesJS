@@ -8,8 +8,5 @@ export const routes = [
     {
         path: "/play-ground",
         component: PlayGround
-    },
-    {
-        path: "/oi"
     }
 ];
