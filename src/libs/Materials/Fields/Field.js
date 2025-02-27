@@ -108,6 +108,10 @@ class Field extends Div {
         this.name = name;
     }
 
+    getName() {
+        return this.name;
+    }
+
     focus() {
         this.holder.setBorder({
             color: "#10d4f3",

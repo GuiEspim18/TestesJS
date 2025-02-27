@@ -17,6 +17,14 @@ class Form {
         }
         return !validation.includes(false);
     }
+
+    getValue() {
+        const value = { };
+        for (const controller of this.controllers) {
+            value[controller.getName()] = controller.getValue();
+        }
+        return value;
+    }
 }
 
 export default Form;

@@ -30,6 +30,14 @@ class Controller {
         this.controller.setInvalid();
     }
 
+    getValue() {
+        return this.controller.getValue();
+    }
+
+    getName() {
+        return this.controller.getName();
+    }
+
 }
 
 export default Controller;

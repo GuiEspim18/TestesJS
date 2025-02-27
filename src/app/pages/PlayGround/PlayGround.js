@@ -15,13 +15,13 @@ class PlayGround extends Main {
 
         // Display here your code
 
-        const name = new TextField("Name");
+        const name = new TextField("Name", "name");
         this.add(name);
 
-        const surname = new TextField("Surname");
+        const surname = new TextField("Surname", "surname");
         this.add(surname);
 
-        const telephone = new TextField("Telephone");
+        const telephone = new TextField("Telephone", "telephone");
         this.add(telephone);
 
         const form = new Form([
@@ -33,7 +33,7 @@ class PlayGround extends Main {
         const btn = new DefaultButton("Validate");
         this.add(btn);
 
-        btn.onClick(() => console.log(form.isValid()));
+        btn.onClick(() => console.log(form.getValue()));
 
         
     }
