@@ -27,11 +27,11 @@ class Field extends Div {
 
         this.holder = new Div();
         this.add(this.holder);
-        
+
 
     }
 
-    loadStyles() {       
+    loadStyles() {
         if (this.placeholder.length > 0) {
             this.input.setPlaceholder(this.placeholder);
         }
@@ -77,7 +77,7 @@ class Field extends Div {
         this.holder.onClick(() => {
             this.input.setFocus();
         });
-        
+
         this.input.onFocusIn(() => {
             this.holder.setBorder({
                 color: "#10d4f3",
@@ -127,6 +127,18 @@ class Field extends Div {
             size: 1
         });
         this.holder.setShadow("none");
+    }
+
+    setInvalid() {
+        this.holder.setBorder({
+            color: "#e14e4e",
+            size: 1,
+            type: "solid"
+        });
+        this.holder.setShadow({
+            color: "#e14e4e66",
+            spread: 2.5
+        });
     }
 
 }

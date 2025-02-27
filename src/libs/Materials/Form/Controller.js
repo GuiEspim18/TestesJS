@@ -10,19 +10,26 @@ class Controller {
         if (this.required) {
             switch(this.controller.type) {
                 case FieldType.DATE:
-                    return this.validateDate();
+                    return this.validateLength();
+                case FieldType.TEXT:
+                    return this.validateLength();
             }
         }
         return true;
     }
 
-    validateDate() {
-        const value = this.controller.getValue();
-        if (value.length > 0) {
-            return true;
+    validateLength() {
+        if (this.required) {
+            const value = this.controller.getValue();
+            return value.length > 0
         }
-        return false
+        return true;
     }
+
+    setInvalid() {
+        this.controller.setInvalid();
+    }
+
 }
 
 export default Controller;
