@@ -6,11 +6,13 @@ import JustifyContent from "../../../ui/Types/JustifyContent.js";
 import Measure from "../../../ui/Types/Measure.js";
 import IconRoundButton from "../../Buttons/IconRoundButton/IconRoundButton.js";
 import Icons from "../../Icons/Icons.js";
+import FieldType from "../FieldType.js";
 
 class CounterField extends Div {
     counter = 0;
     minimun = 0;
     maximun = null;
+    type = FieldType.COUNTER;
 
     constructor() {
         super();
