@@ -14,6 +14,7 @@ class Component {
             tag.render();
         }
         this.content.appendChild(tag.load());
+        return tag;
     }
 
     setPageColor(color) {

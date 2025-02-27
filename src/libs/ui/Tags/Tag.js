@@ -365,6 +365,7 @@ class Tag {
 
     add(tag) {
         this.tag.appendChild(tag.load());
+        return tag;
     }
 
     remove(tag) {

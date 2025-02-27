@@ -15,14 +15,11 @@ class PlayGround extends Main {
 
         // Display here your code
 
-        const name = new TextField("Name", "name");
-        this.add(name);
+        const name = this.add(new TextField("Name", "name"));
 
-        const surname = new TextField("Surname", "surname");
-        this.add(surname);
+        const surname = this.add(new TextField("Surname", "surname"));
 
-        const telephone = new TextField("Telephone", "telephone");
-        this.add(telephone);
+        const telephone = this.add(new TextField("Telephone", "telephone"));
 
         const form = new Form([
             new Controller(name),
@@ -30,9 +27,7 @@ class PlayGround extends Main {
             new Controller(telephone, false)
         ]);
 
-        const btn = new DefaultButton("Validate");
-        this.add(btn);
-
+        const btn = this.add(new DefaultButton("Validate"));
         btn.onClick(() => console.log(form.getValue()));
 
         

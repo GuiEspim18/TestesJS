@@ -8,9 +8,7 @@ class App extends Component {
     constructor() {
         super();
 
-        const outlet = new Div();
-        new Outlet(outlet);
-        this.add(outlet);
+        new Outlet(this.add(new Div()));
     }
 
 }
