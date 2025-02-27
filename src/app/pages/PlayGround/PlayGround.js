@@ -19,12 +19,12 @@ class PlayGround extends Main {
 
         const surname = this.add(new TextField("Surname", "surname"));
 
-        const telephone = this.add(new TextField("Telephone", "telephone"));
+        // const telephone = this.add(new TextField("Telephone", "telephone"));
 
         const form = new Form([
             new Controller(name),
             new Controller(surname),
-            new Controller(telephone, false)
+            // new Controller(telephone, false)
         ]);
 
         const btn = this.add(new DefaultButton("Validate"));
