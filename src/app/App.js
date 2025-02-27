@@ -1,5 +1,5 @@
 import Component from "../libs/ui/Component/Component.js";
-import Outlet from "../libs/Materials/Routing/Outlet/Outlet.js";
+import Outlet from "../libs/Routing/Outlet/Outlet.js";
 import Div from "../libs/ui/Tags/Div/Div.js";
 
 

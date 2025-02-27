@@ -1,4 +1,4 @@
-import { routes } from "../../../../app/Routes.js";
+import { routes } from "../../../app/Routes.js";
 
 class Outlet {
     constructor(element) {
