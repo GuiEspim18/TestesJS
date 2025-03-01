@@ -13,19 +13,13 @@ class PlayGround extends Main {
         this.add(new P("Play Ground"));
         this.add(new Hr());
 
-        // Display here your code
+        // Add this code here
 
-        const name = this.add(new TextField("Name", "name"));
-
-        const surname = this.add(new TextField("Surname", "surname"));
-
-        // const telephone = this.add(new TextField("Telephone", "telephone"));
-
-        const form = new Form([
-            new Controller(name),
-            new Controller(surname),
-            // new Controller(telephone, false)
-        ]);
+        const form = this.add(new Form([
+            new Controller(new TextField("Name", "name")),
+            new Controller(new TextField("Surname", "surname")),
+            new Controller(new TextField("Telephone", "telephone"), false)
+        ]));
 
         const btn = this.add(new DefaultButton("Validate"));
         btn.onClick(() => {

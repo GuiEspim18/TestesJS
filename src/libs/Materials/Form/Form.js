@@ -1,3 +1,5 @@
+import Div from "../../ui/Tags/Div/Div.js";
+
 class Form {
     constructor(controllers) {
         this.controllers = controllers;
@@ -24,6 +26,14 @@ class Form {
             value[controller.getName()] = controller.getValue();
         }
         return value;
+    }
+
+    load() {
+        const form = new Div();
+        for (const controller of this.controllers) {
+            form.add(controller.load());
+        }
+        return form.load();
     }
 }
 

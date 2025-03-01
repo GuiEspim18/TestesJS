@@ -38,6 +38,10 @@ class Controller {
         return this.controller.getName();
     }
 
+    load() {
+        return this.controller;
+    }
+
 }
 
 export default Controller;
