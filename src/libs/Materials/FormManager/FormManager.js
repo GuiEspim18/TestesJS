@@ -1,6 +1,6 @@
 import Div from "../../ui/Tags/Div/Div.js";
 
-class Form {
+class FormManager {
     constructor(controllers) {
         this.controllers = controllers;
     }
@@ -37,4 +37,4 @@ class Form {
     }
 }
 
-export default Form;
+export default FormManager;

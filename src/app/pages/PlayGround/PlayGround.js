@@ -1,5 +1,5 @@
-import Controller from "../../../libs/Materials/Form/Controller.js";
-import Form from "../../../libs/Materials/Form/Form.js";
+import Controller from "../../../libs/Materials/FormManager/Controller.js";
+import FormManager from "../../../libs/Materials/FormManager/FormManager.js";
 import Hr from "../../../libs/ui/Tags/Hr/Hr.js";
 import Main from "../../../libs/ui/Tags/Main/Main.js";
 import P from "../../../libs/ui/Tags/Text/P/P.js";
@@ -15,7 +15,7 @@ class PlayGround extends Main {
 
         // Add this code here
 
-        const form = this.add(new Form([
+        const form = this.add(new FormManager([
             new Controller(new TextField("Name", "name")),
             new Controller(new TextField("Surname", "surname")),
             new Controller(new TextField("Telephone", "telephone"), false)
