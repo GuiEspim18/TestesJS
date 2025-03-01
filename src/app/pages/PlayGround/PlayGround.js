@@ -22,7 +22,7 @@ class PlayGround extends Main {
         ]));
 
         const btn = this.add(new DefaultButton("Validate"));
-        btn.onClick(() => {
+        btn.onClick(() => {Í
             if (form.isValid()) {
                 console.log(form.getValue());
             }
