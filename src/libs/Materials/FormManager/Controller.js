@@ -13,6 +13,8 @@ class Controller {
                     return this.validateLength();
                 case FieldType.TEXT:
                     return this.validateLength();
+                case FieldType.EMAIL:
+                    return this.validateEmail();
             }
         }
         return true;
@@ -24,6 +26,10 @@ class Controller {
             return value.length > 0
         }
         return true;
+    }
+
+    validateEmail() {
+
     }
 
     setInvalid() {
