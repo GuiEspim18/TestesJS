@@ -29,7 +29,9 @@ class Controller {
     }
 
     validateEmail() {
+        if (this.validateLength()) {
 
+        }
     }
 
     setInvalid() {
