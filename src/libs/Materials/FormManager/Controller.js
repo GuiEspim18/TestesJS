@@ -30,8 +30,9 @@ class Controller {
 
     validateEmail() {
         if (this.validateLength()) {
-
+            const value = this.controller.getValue();
         }
+        return false;
     }
 
     setInvalid() {
