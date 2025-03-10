@@ -31,6 +31,8 @@ class Controller {
     validateEmail() {
         if (this.validateLength()) {
             const value = this.controller.getValue();
+            const user = value.substring(0, value.indexOf("@"));
+            const domain = value.substring(value.indexOf("@") + 1, value.length);
         }
         return false;
     }
