@@ -25,7 +25,7 @@ import { TFlexWrap } from "../Types/FlexWrapType";
 
 class Tag {
 
-    private tag: HTMLElement;
+    protected tag: HTMLElement;
 
     constructor(tag = "div", text = "") {
         this.setTag(tag);
