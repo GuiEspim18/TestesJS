@@ -6,11 +6,11 @@ export type TTransition = {
     property: TTransitionProperty,
     duration: {
         value: number,
-        measure: TTimeMeasure
+        measure?: TTimeMeasure
     },
     timingFunction: TTimingFunction,
     delay: {
         value: number,
-        measure: TTimeMeasure
+        measure?: TTimeMeasure
     }
 };

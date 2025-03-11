@@ -1,5 +1,8 @@
 import UUID from "../../UUID/UUID";
 import { TBackgroundGradient } from "../Types/BackgroundGradientType";
+import { TSize } from "../Types/SizeType";
+import { TBorder } from "../Types/BorderType";
+import { TBoxSizing } from "../Types/BoxSizingType";
 import FontWeight from "../Types/FontWeight";
 import { TFontWeight } from "../Types/FontWeightType";
 import Measure from "../Types/Measure";
@@ -10,6 +13,15 @@ import { TShadow } from "../Types/ShadowType";
 import { TTextAlignment } from "../Types/TextAlignmentType";
 import { TTimeMeasure } from "../Types/TimeMeasureType";
 import { TTransition } from "../Types/TransitionType";
+import { TCursor } from "../Types/CursorType";
+import { TDisplay } from "../Types/DisplayType";
+import { TOverflow } from "../Types/OverflowType";
+import { TFlexDirection } from "../Types/FlexDirectionType";
+import { TJustifyContent } from "../Types/JustifyContentType";
+import { TAlignItems } from "../Types/AlignItemsType";
+import { TAlignContent } from "../Types/AlignContentType";
+import { TAlignSelf } from "../Types/AlignSelfType";
+import { TFlexWrap } from "../Types/FlexWrapType";
 
 class Tag {
 
@@ -84,7 +96,7 @@ class Tag {
         if (transition === "none") {
             this.tag.style.transition = "none";
         } else {
-            const transitionString = `${transition.property} ${this.formatTiming(transition.duration.value, transition.duration.measure)} ${transition.timingFunction} ${this.formatTiming(transition.delay.value, transition.delay.measure)}`;
+            const transitionString = `${transition.property} ${this.formatTiming(transition.duration.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure)} ${transition.timingFunction} ${this.formatTiming(transition.delay.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure)}`;
             this.tag.style.transition = transitionString;
         }
     }
@@ -98,185 +110,181 @@ class Tag {
         }
     }
 
-    setBorder(border) {
+    setBorder(border: TBorder | "none") {
         if (border == "none") {
             this.tag.style.border = "none"
         } else {
-            if (border.radius > 0) {
-                this.tag.style.borderRadius = this.formatMeasure(border.radius, border.measure);
+            if (border.radius) {
+                this.tag.style.borderRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.border = `${border.type} ${border.size}px ${border.color}`;
+            this.tag.style.border = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
         }
     }
 
-    setBorderLeft(border) {
+    setBorderLeft(border: TBorder | "none") {
         if (border == "none") {
             this.tag.style.borderLeft = "none";
         } else {
-            if (border.radius > 0) {
-                this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
+            if (border.radius) {
+                this.tag.style.borderTopLeftRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.borderLeft = `${border.type} ${border.width}px ${border.color}`;
+            this.tag.style.borderLeft = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
         }
     }
     
-    setBorderRight(border) {
+    setBorderRight(border: TBorder | "none") {
         if (border == "none") {
             this.tag.style.borderRight = "none";
         } else {
-            if (border.radius > 0) {
-                this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
+            if (border.radius) {
+                this.tag.style.borderTopRightRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.borderRight = `${border.type} ${border.width}px ${border.color}`;
+            this.tag.style.borderRight = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
         }
     }
     
-    setBorderTop(border) {
+    setBorderTop(border: TBorder | "none") {
         if (border == "none") {
             this.tag.style.borderTop = "none";
         } else {
-            if (border.radius > 0) {
-                this.tag.style.borderTopLeftRadius = this.formatMeasure(border.radius, border.measure);
-                this.tag.style.borderTopRightRadius = this.formatMeasure(border.radius, border.measure);
+            if (border.radius) {
+                this.tag.style.borderTopLeftRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
+                this.tag.style.borderTopRightRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.borderTop = `${border.type} ${border.width}px ${border.color}`;
+            this.tag.style.borderTop = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
         }
     }
     
-    setBorderBottom(border) {
+    setBorderBottom(border: TBorder | "none") {
         if (border == "none") {
             this.tag.style.borderBottom = "none";
         } else {
-            if (border.radius > 0) {
-                this.tag.style.borderBottomLeftRadius = this.formatMeasure(border.radius, border.measure);
-                this.tag.style.borderBottomRightRadius = this.formatMeasure(border.radius, border.measure);
+            if (border.radius) {
+                this.tag.style.borderBottomLeftRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
+                this.tag.style.borderBottomRightRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.borderBottom = `${border.type} ${border.width}px ${border.color}`;
+            this.tag.style.borderBottom = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
         }
     }
 
-    setBoxSizing(boxSizing) {
-        this.tag.style.boxSizing = boxSizing;
+    setBoxSizing(boxSizing: TBoxSizing) {
+        this.tag.style.boxSizing = boxSizing as string;
     }
 
-    setBorderRadius(radius, measure = "pixels") {
-        this.tag.style.borderRadius = this.formatMeasure(radius, measure);
+    seTSize(borderRadius: TSize) {
+        this.tag.style.borderRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderTopRadius(radius, measure = "pixels") {
-        this.tag.style.borderTopLeftRadius = this.formatMeasure(radius, measure);
-        this.tag.style.borderTopRighttRadius = this.formatMeasure(radius, measure);
+    setBorderTopRadius(borderRadius: TSize) {
+        this.tag.style.borderTopLeftRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
+        this.tag.style.borderTopRightRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderBottomRadius(radius, measure = "pixels") {
-        this.tag.style.borderBottomLeftRadius = this.formatMeasure(radius, measure);
-        this.tag.style.borderBottomRightRadius = this.formatMeasure(radius, measure);
+    setBorderBottomRadius(borderRadius: TSize) {
+        this.tag.style.borderBottomLeftRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
+        this.tag.style.borderBottomRightRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderTopLeftRadius(radius, measure = "pixels") {
-        this.tag.style.borderTopLeftRadius = this.formatMeasure(radius, measure);
+    setBorderTopLeftRadius(borderRadius: TSize) {
+        this.tag.style.borderTopLeftRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderTopRightRadius(radius, measure = "pixels") {
-        this.tag.style.borderTopRightRadius = this.formatMeasure(radius, measure);
+    setBorderTopRightRadius(borderRadius: TSize) {
+        this.tag.style.borderTopRightRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderBottomLeftRadius(radius, measure = "pixels") {
-        this.tag.style.borderBottomLeftRadius = this.formatMeasure(radius, measure);
+    setBorderBottomLeftRadius(borderRadius: TSize) {
+        this.tag.style.borderBottomLeftRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setBorderBottomRightRadius(radius, measure = "pixels") {
-        this.tag.style.borderBottomRightRadius = this.formatMeasure(radius, measure);
+    setBorderBottomRightRadius(borderRadius: TSize) {
+        this.tag.style.borderBottomRightRadius =  String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
-    setFontFamily(font) {
+    setFontFamily(font: string) {
         this.tag.style.fontFamily = font;
     }
 
-    setFontColor(color) {
+    setFontColor(color: string) {
         this.tag.style.color = color;
     }
 
-    setFontSize(size, type="pixels") {
-        this.tag.style.fontSize = this.formatMeasure(size, type);
+    setFontSize(size: TSize) {
+        this.tag.style.fontSize = String(this.formatMeasure(size.value, size.measure == null ? Measure.PIXELS : size.measure));
     }
 
-    setCursor(cursor) {
-        this.tag.style.cursor = cursor;
+    setCursor(cursor: TCursor) {
+        this.tag.style.cursor = cursor as string;
     }
 
-    setPadding(padding, type="pixels") {
-        this.tag.style.padding = this.formatMeasure(padding, type);
+    setPadding(padding: TSize) {
+        this.tag.style.padding = String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingHorizontal(padding, type="pixels") {
-        this.tag.style.paddingLeft = this.formatMeasure(padding, type);
-        this.tag.style.paddingRight = this.formatMeasure(padding, type);
+    setPaddingHorizontal(padding: TSize) {
+        this.tag.style.paddingLeft = String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
+        this.tag.style.paddingRight = String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingVertical(padding, type="pixels") {
-        this.tag.style.paddingTop= this.formatMeasure(padding, type);
-        this.tag.style.paddingBottom = this.formatMeasure(padding, type);
+    setPaddingVertical(padding: TSize) {
+        this.tag.style.paddingTop= String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
+        this.tag.style.paddingBottom =String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingLeft(padding, type="pixels") {
-        this.tag.style.paddingLeft = this.formatMeasure(padding, type);
+    setPaddingLeft(padding: TSize) {
+        this.tag.style.paddingLeft =String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingBottom(padding, type="pixels") {
-        this.tag.style.paddingBottom = this.formatMeasure(padding, type);
+    setPaddingBottom(padding: TSize) {
+        this.tag.style.paddingBottom =String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingTop(padding, type="pixels") {
-        this.tag.style.paddingTop= this.formatMeasure(padding, type);
+    setPaddingTop(padding: TSize) {
+        this.tag.style.paddingTop=String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
-    setPaddingRight(padding, type="pixels") {
-        this.tag.style.paddingRight = this.formatMeasure(padding, type);
+    setPaddingRight(padding: TSize) {
+        this.tag.style.paddingRight =String(this.formatMeasure(padding.value, padding.measure == null ? Measure.PIXELS : padding.measure));
     }
 
 
-    setMargin(margin, type = "pixels") {
-        if (typeof(margin) == "object") {
-            this.tag.style.margin = `${typeof(margin.y) == "string" ? "auto" : this.formatMeasure(margin.y, type)} ${typeof(margin.x) == "string" ? "auto" : this.formatMeasure(margin.x, type)}`;
-        } else {
-            this.tag.style.margin = this.formatMeasure(margin, type);
-        }
+    setMargin(margin: TSize) {
+        this.tag.style.margin = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginHorizontal(margin, type = "pixels") {
-        this.tag.style.marginLeft = this.formatMeasure(margin, type);
-        this.tag.style.marginRight = this.formatMeasure(margin, type);
+    setMarginHorizontal(margin: TSize) {
+        this.tag.style.marginLeft = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
+        this.tag.style.marginRight = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginVertical(margin, type = "pixels") {
-        this.tag.style.marginTop = this.formatMeasure(margin, type);
-        this.tag.style.marginBottom = this.formatMeasure(margin, type);
+    setMarginVertical(margin: TSize) {
+        this.tag.style.marginTop = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
+        this.tag.style.marginBottom = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginLeft(margin, type = "pixels") {
-        this.tag.style.marginLeft = this.formatMeasure(margin, type);
+    setMarginLeft(margin: TSize) {
+        this.tag.style.marginLeft = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginBottom(margin, type = "pixels") {
-        this.tag.style.marginBottom = this.formatMeasure(margin, type);
+    setMarginBottom(margin: TSize) {
+        this.tag.style.marginBottom = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginTop(margin, type = "pixels") {
-        this.tag.style.marginTop = this.formatMeasure(margin, type);
+    setMarginTop(margin: TSize) {
+        this.tag.style.marginTop = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
-    setMarginRight(margin, type = "pixels") {
-        this.tag.style.marginRight = this.formatMeasure(margin, type);
+    setMarginRight(margin: TSize) {
+        this.tag.style.marginRight = String(this.formatMeasure(margin.value, margin.measure == null ? Measure.PIXELS : margin.measure));
     }
     
 
-    setMaxWidth(maxWidth, type="pixels") {
-        this.tag.style.maxWidth = this.formatMeasure(maxWidth, type);
+    setMaxWidth(maxWidth: TSize) {
+        this.tag.style.maxWidth = String(this.formatMeasure(maxWidth.value, maxWidth.measure == null ? Measure.PIXELS : maxWidth.measure));
     }
 
-    setMaxHeight(maxHeight, type="pixels") {
-        this.tag.style.maxHeight = this.formatMeasure(maxHeight, type);
+    setMaxHeight(maxHeight: TSize) {
+        this.tag.style.maxHeight = String(this.formatMeasure(maxHeight.value, maxHeight.measure == null ? Measure.PIXELS : maxHeight.measure));
     }
 
     show() {
@@ -287,82 +295,86 @@ class Tag {
         this.tag.style.display = "none";
     }
 
-    setPosition(position) {
-        this.tag.style.position = position;
+    setPosition(position: TPosition) {
+        this.tag.style.position = position as string;
     }
 
-    setX(x, unit = "pixels") {
-        this.tag.style.left = this.formatMeasure(x, unit);
+    setX(x: TSize) {
+        this.tag.style.left = String(this.formatMeasure(x.value, x.measure == null ? Measure.PIXELS : x.measure));
     }
 
-    setY(y, unit = "pixels") {
-        this.tag.style.top = this.formatMeasure(y, unit);
+    setY(y: TSize) {
+        this.tag.style.top = String(this.formatMeasure(y.value, y.measure == null ? Measure.PIXELS : y.measure));
     }
 
-    setTransform(scale) {
+    setTransform(scale: number) {
         this.tag.style.transform = `scale(${scale})`;
     }
 
-    setOpacity(opacity) {
+    setOpacity(opacity: string) {
         this.tag.style.opacity = opacity;
     }
 
-    setDisplay(display) {
-        this.tag.style.display = display;
+    setDisplay(display: TDisplay) {
+        this.tag.style.display = display as string;
     }
 
-    setOverflow(overflow) {
-        this.tag.style.overflow = overflow;
+    setOverflow(overflow: TOverflow) {
+        this.tag.style.overflow = overflow as string;
     }
 
-    setFlexDirection(direction = "row") {
-        this.tag.style.flexDirection = direction;
+    setFlexDirection(direction: TFlexDirection) {
+        this.tag.style.flexDirection = direction as string;
     }
 
-    setJustifyContent(alignment = "flex-start") {
-        this.tag.style.justifyContent = alignment;
+    setJustifyContent(justifyContent: TJustifyContent) {
+        this.tag.style.justifyContent = justifyContent as string;
     }
 
-    setAlignItems(alignment = "stretch") {
-        this.tag.style.alignItems = alignment;
+    setAlignItems(alignItems: TAlignItems) {
+        this.tag.style.alignItems = alignItems as string;
     }
 
-    setAlignContent(alignment = "stretch") {
-        this.tag.style.alignContent = alignment;
+    setAlignContent(alignContent: TAlignContent) {
+        this.tag.style.alignContent = alignContent as string;
     }
 
-    setAlignSelf(alignment = "auto") {
-        this.tag.style.alignSelf = alignment;
+    setAlignSelf(alingSelf: TAlignSelf) {
+        this.tag.style.alignSelf = alingSelf as string;
     }
 
-    setFlexWrap(wrap = "nowrap") {
-        this.tag.style.flexWrap = wrap;
+    setFlexWrap(flexWrap: TFlexWrap) {
+        this.tag.style.flexWrap = flexWrap as string;
     }
 
-    setFlexGrow(grow = 0) {
-        this.tag.style.flexGrow = grow;
+    setFlexGrow(grow: number) {
+        this.tag.style.flexGrow = String(grow);
     }
     
-    setFlexShrink(shrink = 1) {
-        this.tag.style.flexShrink = shrink;
+    setFlexShrink(shrink: number) {
+        this.tag.style.flexShrink = String(shrink);
     }
     
-    setFlexBasis(basis = "auto") {
-        this.tag.style.flexBasis = basis;
+    setFlexBasis(basis: TSize | "none" | "auto") {
+        if (basis != "none" && basis != "auto") {
+            this.tag.style.flexBasis = String(this.formatMeasure(basis.value, basis.measure == null ? Measure.PIXELS : basis.measure));
+        } else {
+            this.tag.style.flexBasis = basis;
+        }
     }
     
-    setFlex(flex = "0 1 auto") {
+    setFlex(flex: string = "0 1 auto") {
         this.tag.style.flex = flex;
     }
 
     // Content methods
 
-    add(tag) {
+    add(tag: Tag): Tag {
         this.tag.appendChild(tag.load());
         return tag;
     }
 
-    remove(tag) {
+    remove(tag: Tag) {
         this.tag.removeChild(tag.load());
     }
 
@@ -374,49 +386,49 @@ class Tag {
 
     // attributes
 
-    setName(name) {
+    setName(name: string) {
         this.tag.setAttribute("name", name);
     }
 
-    setId(id) {
+    setId(id: string) {
         this.tag.setAttribute("id", id); 
     }
 
     // events
 
-    onClick(event) {
+    onClick(event: () => any) {
         this.tag.addEventListener("click", event);
     }
 
-    onDoubleClick(event) {
+    onDoubleClick(event: () => any) {
         this.tag.addEventListener("dblclick", event);
     }
     
-    onMouseOver(event) {
+    onMouseOver(event: () => any) {
         this.tag.addEventListener("mouseover", event);
     }
     
-    onMouseOut(event) {
+    onMouseOut(event: () => any) {
         this.tag.addEventListener("mouseout", event);
     }
     
-    onMouseEnter(event) {
+    onMouseEnter(event: () => any) {
         this.tag.addEventListener("mouseenter", event);
     }
     
-    onMouseLeave(event) {
+    onMouseLeave(event: () => any) {
         this.tag.addEventListener("mouseleave", event);
     }
     
-    onMouseMove(event) {
+    onMouseMove(event: () => any) {
         this.tag.addEventListener("mousemove", event);
     }
     
-    onMouseDown(event) {
+    onMouseDown(event: () => any) {
         this.tag.addEventListener("mousedown", event);
     }
     
-    onMouseUp(event) {
+    onMouseUp(event: () => any) {
         this.tag.addEventListener("mouseup", event);
     }
     
@@ -456,7 +468,7 @@ class Tag {
     //     this.tag.addEventListener("scroll", event);
     // }
     
-    onResize(event) {
+    onResize(event: () => any) {
         window.addEventListener("resize", event);
     }
     
