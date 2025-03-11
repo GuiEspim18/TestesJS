@@ -1,0 +1,1 @@
+export type TTimeMeasure = typeof TimeMeasure[keyof typeof TimeMeasure];
