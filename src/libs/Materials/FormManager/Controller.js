@@ -33,9 +33,18 @@ class Controller {
             const value = this.controller.getValue();
             const user = value.substring(0, value.indexOf("@"));
             const domain = value.substring(value.indexOf("@") + 1, value.length);
+            if (value.indexOf("@") != -1 && !this.containsWhiteSpace(user) && user.length > 0 && !this.containsWhiteSpace(domain) && domain.length > 0 && user.indexOf("@") == -1 && domain.indexOf("@") == -1 && domain.search(".") != -1 && domain.indexOf(".") >= 1 && domain.indexOf(".") < domain.length - 1) {
+                return true;
+            }
+            return false;
         }
         return false;
     }
+
+    containsWhiteSpace(str) {
+        return /\s/g.test(str);
+    }
+
 
     setInvalid() {
         this.controller.setInvalid();
