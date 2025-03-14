@@ -9,7 +9,7 @@ class IconRoundButton extends DefaultButton {
 
     private icon: Icon;
 
-    constructor(icon = null) {
+    constructor(icon?: () => Svg) {
         super();
         this.setDisplay(Display.FLEX);
         this.setAlignItems(AlignItems.CENTER);
