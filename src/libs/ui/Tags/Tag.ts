@@ -22,6 +22,7 @@ import { TAlignItems } from "../Types/AlignItemsType";
 import { TAlignContent } from "../Types/AlignContentType";
 import { TAlignSelf } from "../Types/AlignSelfType";
 import { TFlexWrap } from "../Types/FlexWrapType";
+import ElementNS from "./ElementNS/ElementNS";
 
 class Tag {
 
@@ -96,7 +97,7 @@ class Tag {
         if (transition === "none") {
             this.tag.style.transition = "none";
         } else {
-            const transitionString = `${transition.property} ${this.formatTiming(transition.duration.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure)} ${transition.timingFunction} ${this.formatTiming(transition.delay.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure)}`;
+            const transitionString = `${transition.property} ${this.formatTiming(transition.duration.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure)} ${transition.timingFunction} ${transition.delay != null ? this.formatTiming(transition.delay.value, transition.duration.measure == null ? TimeMeasure.S : transition.duration.measure) : ""}`;
             this.tag.style.transition = transitionString;
         }
     }
@@ -171,7 +172,7 @@ class Tag {
         this.tag.style.boxSizing = boxSizing as string;
     }
 
-    seTSize(borderRadius: TSize) {
+    setBorderRadius(borderRadius: TSize) {
         this.tag.style.borderRadius = String(this.formatMeasure(borderRadius.value, borderRadius.measure == null ? Measure.PIXELS : borderRadius.measure));
     }
 
@@ -311,8 +312,8 @@ class Tag {
         this.tag.style.transform = `scale(${scale})`;
     }
 
-    setOpacity(opacity: string) {
-        this.tag.style.opacity = opacity;
+    setOpacity(opacity: number) {
+        this.tag.style.opacity = String(opacity);
     }
 
     setDisplay(display: TDisplay) {
@@ -369,7 +370,7 @@ class Tag {
 
     // Content methods
 
-    add(tag: Tag): Tag {
+    add(tag: Tag | ElementNS): Tag | ElementNS {
         this.tag.appendChild(tag.load());
         return tag;
     }
@@ -396,39 +397,39 @@ class Tag {
 
     // events
 
-    onClick(event: () => any) {
+    onClick(event: (...args: any[]) => any) {
         this.tag.addEventListener("click", event);
     }
 
-    onDoubleClick(event: () => any) {
+    onDoubleClick(event: (...args: any[]) => any) {
         this.tag.addEventListener("dblclick", event);
     }
     
-    onMouseOver(event: () => any) {
+    onMouseOver(event: (...args: any[]) => any) {
         this.tag.addEventListener("mouseover", event);
     }
     
-    onMouseOut(event: () => any) {
+    onMouseOut(event: (...args: any[]) => any) {
         this.tag.addEventListener("mouseout", event);
     }
     
-    onMouseEnter(event: () => any) {
+    onMouseEnter(event: (...args: any[]) => any) {
         this.tag.addEventListener("mouseenter", event);
     }
     
-    onMouseLeave(event: () => any) {
+    onMouseLeave(event: (...args: any[]) => any) {
         this.tag.addEventListener("mouseleave", event);
     }
     
-    onMouseMove(event: () => any) {
+    onMouseMove(event: (...args: any[]) => any) {
         this.tag.addEventListener("mousemove", event);
     }
     
-    onMouseDown(event: () => any) {
+    onMouseDown(event: (...args: any[]) => any) {
         this.tag.addEventListener("mousedown", event);
     }
     
-    onMouseUp(event: () => any) {
+    onMouseUp(event: (...args: any[]) => any) {
         this.tag.addEventListener("mouseup", event);
     }
     
@@ -468,7 +469,7 @@ class Tag {
     //     this.tag.addEventListener("scroll", event);
     // }
     
-    onResize(event: () => any) {
+    onResize(event: (...args: any[]) => any) {
         window.addEventListener("resize", event);
     }
     
@@ -476,7 +477,7 @@ class Tag {
     
     // Private methods
 
-    private formatMeasure(value: number, type: TMeasure): string | number {
+    protected formatMeasure(value: number, type: TMeasure): string | number {
         switch (type) {
             case Measure.PIXELS: return value + "px";
             case Measure.PERCENT: return value + "%";
@@ -488,7 +489,7 @@ class Tag {
     }
 
 
-    formatTiming(value: number, type: TTimeMeasure): string | number {
+    protected formatTiming(value: number, type: TTimeMeasure): string | number {
         switch (type) {
             case TimeMeasure.S: return value + "s";
             case TimeMeasure.MS: return value + "ms";

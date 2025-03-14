@@ -2,7 +2,7 @@ import Tag from "../Tag";
 
 class Div extends Tag {
 
-    constructor(text: string) {
+    constructor(text?: string) {
         super("div", text);
     }
 

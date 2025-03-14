@@ -1,6 +1,8 @@
+import Tag from "../../ui/Tags/Tag";
+
 type Route = {
     path: string,
-    component?: any // mudar,
+    component?: Tag // mudar,
     children: Array<Route>
 };
 

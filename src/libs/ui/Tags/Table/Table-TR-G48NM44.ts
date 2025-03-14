@@ -1,8 +1,3 @@
-import { TBackgroundGradient } from "../../Types/BackgroundGradientType";
-import { TBorder } from "../../Types/BorderType";
-import Measure from "../../Types/Measure";
-import { TPadding } from "../../Types/PaddingType";
-import { TTextAlignment } from "../../Types/TextAlignmentType";
 import Tag from "../Tag";
 
 class Table extends Tag {
@@ -10,23 +5,22 @@ class Table extends Tag {
     private rendered: boolean;
 
     private rowSettings: {
-        padding: TPadding | null,
-        border: TBorder | null,
+        padding: number | null,
+        border: number | null,
         textColor: string,
         textAlignment: string,
-        background: string | TBackgroundGradient
+        background: string
     };
 
     private headerSettings: {
-        padding: TPadding | null,
-        border: TBorder | null,
+        padding: number | null,
+        border: number | null,
         textColor: string,
         textAlignment: string,
-        background: string | TBackgroundGradient
+        background: string
     };
 
     private headers: Array<string>;
-    private rows: Array<Array<string | Tag>>;
 
     constructor() {
         super("table");
@@ -56,12 +50,12 @@ class Table extends Tag {
     }
 
     // Methods to configure header and row settings
-    setRowsPadding(padding: TPadding) {
+    setRowsPadding(padding: number) {
         this.rowSettings.padding = padding;
         if (this.rendered) this.applyStyles();
     }
 
-    setRowsBorder(border: TBorder) {
+    setRowsBorder(border: number) {
         this.rowSettings.border = border;
         if (this.rendered) this.applyStyles();
     }
@@ -81,12 +75,12 @@ class Table extends Tag {
         if (this.rendered) this.applyStyles();
     }
 
-    setHeadersPadding(padding: TPadding) {
+    setHeadersPadding(padding: number) {
         this.headerSettings.padding = padding;
         if (this.rendered) this.applyStyles();
     }
 
-    setHeadersBorder(border: TBorder) {
+    setHeadersBorder(border: number) {
         this.headerSettings.border = border;
         if (this.rendered) this.applyStyles();
     }
@@ -96,22 +90,22 @@ class Table extends Tag {
         if (this.rendered) this.applyStyles();
     }
 
-    setHeadersTextAlignment(alignment: TTextAlignment) {
-        this.headerSettings.textAlignment = alignment as string;
+    setHeadersTextAlignment(alignment) {
+        this.headerSettings.textAlignment = alignment;
         if (this.rendered) this.applyStyles();
     }
 
-    setHeadersBackground(background: string) {
+    setHeadersBackground(background) {
         this.headerSettings.background = background;
         if (this.rendered) this.applyStyles();
     }
 
-    addHeader(headers: Array<string>) {
+    addHeader(headers) {
         this.headers = headers;
         if (this.rendered) this.renderHeaders();
     }
 
-    addRow(cells: Array<string | Tag>) {
+    addRow(cells) {
         this.rows.push(cells);
         if (this.rendered) this.renderRows();
     }
@@ -168,7 +162,7 @@ class Table extends Tag {
         this.renderRows();
     }
 
-    applyHeaderStyles(th: HTMLElement) {
+    applyHeaderStyles(th) {
         if (typeof this.headerSettings.background === "string") {
             th.style.backgroundColor = this.headerSettings.background;
         } else if (typeof this.headerSettings.background === "object") {
@@ -187,7 +181,7 @@ class Table extends Tag {
         th.style.textAlign = this.headerSettings.textAlignment;
     }
 
-    applyRowStyles(td: HTMLElement) {
+    applyRowStyles(td) {
         if (typeof this.rowSettings.background === "string") {
             td.style.backgroundColor = this.rowSettings.background;
         } else if (typeof this.rowSettings.background === "object") {
@@ -206,58 +200,58 @@ class Table extends Tag {
         td.style.textAlign = this.rowSettings.textAlignment;
     }
 
-    applyBorder(element: HTMLElement, border: TBorder) {
+    applyBorder(element, border) {
         switch(border.border) {
             case "top": 
-                element.style.borderTop = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderTop = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "bottom": 
-                element.style.borderBottom = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderBottom = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "left": 
-                element.style.borderLeft = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderLeft = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "right": 
-                element.style.borderRight = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderRight = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "horizontal": 
-                element.style.borderLeft = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
-                element.style.borderRight = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderLeft = `${border.type} ${border.size}px ${border.color}`;
+                element.style.borderRight = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "vertical": 
-                element.style.borderTop = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
-                element.style.borderBottom = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`;
+                element.style.borderTop = `${border.type} ${border.size}px ${border.color}`;
+                element.style.borderBottom = `${border.type} ${border.size}px ${border.color}`;
                 break;
             case "all": 
-                element.style.border = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ? Measure.PIXELS : border.size.measure)} ${border.color}`; 
+                element.style.border = `${border.type} ${border.size}px ${border.color}`; 
                 break;
         }
     }
 
-    applyPadding(element: HTMLElement, padding: TPadding) {
+    applyPadding(element, padding) {
         switch(padding.padding) {
             case "top": 
-                element.style.paddingTop = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingTop = `${padding.size}px`;
                 break;
             case "bottom": 
-                element.style.paddingBottom = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingBottom = `${padding.size}px`;
                 break;
             case "left": 
-                element.style.paddingLeft = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingLeft = `${padding.size}px`;
                 break;
             case "right": 
-                element.style.paddingRight = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingRight = `${padding.size}px`;
                 break;
             case "horizontal": 
-                element.style.paddingLeft = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
-                element.style.paddingRight = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingLeft = `${padding.size}px`;
+                element.style.paddingRight = `${padding.size}px`;
                 break;
             case "vertical": 
-                element.style.paddingTop = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
-                element.style.paddingBottom = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`;
+                element.style.paddingTop = `${padding.size}px`;
+                element.style.paddingBottom = `${padding.size}px`;
                 break;
             case "all": 
-                element.style.padding = `${this.formatMeasure(padding.size.value, padding.size.measure == null ? Measure.PIXELS : padding.size.measure)}`; 
+                element.style.padding = `${padding.size}px`; 
                 break;
         }
     }

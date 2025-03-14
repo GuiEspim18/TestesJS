@@ -1,7 +1,7 @@
 import Tag from "../Tag";
 
 class Span extends Tag {
-    constructor(text: string) {
+    constructor(text?: string) {
         super("span", text);
     }
 }
