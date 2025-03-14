@@ -2,7 +2,7 @@ import Measure from "../../Types/Measure";
 import { TMeasure } from "../../Types/MeasureType";
 
 class ElementNS {
-    private tag: Element;
+    protected tag: Element;
 
     constructor(tag: string = "svg", ns: string ="http://www.w3.org/2000/svg", content: string = "") {
         this.setTag(tag, ns);
