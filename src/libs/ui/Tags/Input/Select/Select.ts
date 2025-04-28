@@ -10,40 +10,40 @@ class Select extends Tag {
         this.setOptions(this.options);
     }
 
-    setOptions(options: Array<Option>) {
+    public setOptions(options: Array<Option>) {
         this.options = options;
         this.loadOptions();
     }
 
-    addOptions(options: Array<Option>) {
+    public addOptions(options: Array<Option>) {
         for(let option in options) {
             this.options.push(option as unknown as Option);
         }
         this.loadOptions();
     }
 
-    addOption(option: Option) {
+    public addOption(option: Option) {
         this.options.push(option);
         this.loadOptions();
     }
 
-    setOutline(outline: string) {
+    public setOutline(outline: string) {
         this.tag.style.outline = outline;
     }
 
-    onFocusIn(focusIn: () => any) {
+    public onFocusIn(focusIn: () => any) {
         this.tag.addEventListener("focus", focusIn);
     }
 
-    onFocusOut(focusOut: () => any) {
+    public onFocusOut(focusOut: () => any) {
         this.tag.addEventListener("focusout", focusOut);
     }
 
-    getValue() {
+    public getValue() {
         return (this.tag as HTMLSelectElement).value;
     }
 
-    loadOptions() {
+    public loadOptions() {
         if (this.options.length > 0 &&  this.tag.childNodes.length > 0) {
             for (let child of this.tag.children) {
                 child.remove();
@@ -52,6 +52,10 @@ class Select extends Tag {
         for (let option of this.options) {
             this.tag.appendChild(option.load());
         }
+    }
+
+    public onChange(change: () => any) {
+        this.tag.addEventListener("change", change);
     }
 }
 

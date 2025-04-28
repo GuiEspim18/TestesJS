@@ -67,7 +67,7 @@ const server = http.createServer(async (req, res) => {
 
         // Se é uma rota válida ou a raiz, servimos index.html
         if (isValidRoute || req.url === "/") {
-            filePath = 'index.html';
+            filePath = './build/index.html';
         } else {
             res.writeHead(404, { 'Content-Type': 'text/html' });
             res.end('<h1>404 Not Found</h1>');

@@ -1,14 +1,26 @@
 import Div from "../../ui/Tags/Div/Div";
+import Input from "../../ui/Tags/Input/Input";
+import InputFile from "../../ui/Tags/Input/InputFile/inputFile";
+import InputTyped from "../../ui/Tags/Input/InputTyped/InputTyped";
+import Select from "../../ui/Tags/Input/Select/Select";
+import TextArea from "../../ui/Tags/Input/TextArea/TextArea";
+import Tag from "../../ui/Tags/Tag";
+import P from "../../ui/Tags/Text/P/P";
+import AlignItems from "../../ui/Types/AlignItems";
+import BoxSizing from "../../ui/Types/BoxSizing";
+import Display from "../../ui/Types/Display";
+import Measure from "../../ui/Types/Measure";
 
 class Field extends Div {
 
-    label;
-    holder = new Div();
-    input;
-    name = "";
-    type = null;
+    protected holder: Div = new Div();
+    protected input: InputTyped | Input | InputFile | Select | TextArea;
+    protected name: string = "";
+    public type: number | null = null;
+    protected placeholder: string = "";
+    protected label: Tag | null ;
 
-    constructor(text = "", name = "", placeholder = "") {
+    constructor(text: string = "", name: string = "", placeholder: string = "") {
         super();
 
         this.name = name;
@@ -16,7 +28,7 @@ class Field extends Div {
         this.placeholder = placeholder;
 
         if (text.length > 0) {
-            this.label = new Text(text);
+            this.label = new P(text);
             this.add(this.label);
         }
 
@@ -28,34 +40,39 @@ class Field extends Div {
 
     loadStyles() {
         if (this.placeholder.length > 0) {
-            this.input.setPlaceholder(this.placeholder);
+            if (this.input instanceof InputTyped) {
+                this.input.setPlaceholder(this.placeholder);
+            }
         }
 
         this.setWidth(100, Measure.PERCENT);
-        this.setMarginBottom(7);
+        this.setMarginBottom({ value: 7 });
 
         if (this.label != null) {
-            this.label.setMargin(0);
-            this.label.setMarginBottom(3);
-            this.label.setFontSize(0.9, Measure.REM);
-            this.label.setMarginLeft(2);
+            this.label.setMargin({ value: 0 });
+            this.label.setMarginBottom({ value: 3 });
+            this.label.setFontSize({ value: 0.9, measure: Measure.REM});
+            this.label.setMarginLeft({ value: 2 });
         }
 
         this.holder.setDisplay(Display.FLEX);
-        this.holder.setPadding(5);
+        this.holder.setPadding({ value: 5 });
         this.holder.setBorder({
             color: "#474747",
             type: "solid",
-            size: 1
+            size: { value: 1 }
         });
-        this.holder.setBorderRadius(5);
+        this.holder.setBorderRadius({ value: 5 });
         this.holder.setHeight(30);
         this.holder.setBackgroundColor("#f5f5f5");
         this.holder.setWidth(100, Measure.PERCENT);
-        this.holder.setMargin(0);
+        this.holder.setMargin({ value: 0 });
         this.holder.setBoxSizing(BoxSizing.BORDER_BOX);
         this.holder.setTransition({
-            duration: "0.2s"
+            duration: {
+                value: 0.2,
+                measure: TimeMeasure.S
+            }
         });
         this.holder.setAlignItems(AlignItems.CENTER);
 
@@ -63,20 +80,22 @@ class Field extends Div {
         this.input.setHeight(100, Measure.PERCENT);
         this.input.setWidth(100, Measure.PERCENT);
         this.input.setBackgroundColor("transparent");
-        this.input.setMargin(0);
+        this.input.setMargin({ value: 0 });
         this.input.setOutline("none");
-        this.input.setPadding(0);
+        this.input.setPadding({ value: 0 });
 
         // effects
 
         this.holder.onClick(() => {
-            this.input.setFocus();
+            (this.input as Input).setFocus();
         });
 
         this.input.onFocusIn(() => {
             this.holder.setBorder({
                 color: "#10d4f3",
-                size: 1,
+                size: {
+                    value: 1
+                },
                 type: "solid"
             });
             this.holder.setShadow({
@@ -89,7 +108,9 @@ class Field extends Div {
             this.holder.setBorder({
                 color: "#474747",
                 type: "solid",
-                size: 1
+                size: {
+                    value: 1
+                }
             });
             this.holder.setShadow("none");
         });
@@ -99,7 +120,7 @@ class Field extends Div {
         return this.input.getValue();
     }
 
-    setName(name) {
+    setName(name: string) {
         this.name = name;
     }
 
@@ -110,7 +131,9 @@ class Field extends Div {
     focus() {
         this.holder.setBorder({
             color: "#10d4f3",
-            size: 1,
+            size: {
+                value: 1
+            },
             type: "solid"
         });
         this.holder.setShadow({
@@ -123,7 +146,9 @@ class Field extends Div {
         this.holder.setBorder({
             color: "#474747",
             type: "solid",
-            size: 1
+            size: {
+                value: 1
+            }
         });
         this.holder.setShadow("none");
     }
@@ -131,7 +156,9 @@ class Field extends Div {
     setInvalid() {
         this.holder.setBorder({
             color: "#e14e4e",
-            size: 1,
+            size: {
+                value: 1
+            },
             type: "solid"
         });
         this.holder.setShadow({
@@ -141,3 +168,5 @@ class Field extends Div {
     }
 
 }
+
+export default Field;

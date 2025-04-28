@@ -20,12 +20,12 @@ class DefaultButton extends Button {
         this.setCursor("pointer");
 
         this.onClick((e) => {
-            this.click(e);
+            this.makeClick(e);
         });
         
     }
 
-    click(event: MouseEvent) {
+    private makeClick(event: MouseEvent) {
         event.preventDefault();
 
         const diameter = Math.max(this.tag.clientWidth, this.tag.clientHeight);

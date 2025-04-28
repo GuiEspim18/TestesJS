@@ -26,7 +26,7 @@ import ElementNS from "./ElementNS/ElementNS";
 
 class Tag {
 
-    protected tag: HTMLElement;
+    public tag: HTMLElement;
 
     constructor(tag = "div", text = "") {
         this.setTag(tag);
@@ -60,12 +60,8 @@ class Tag {
         this.tag.style.backgroundImage = `url('${image}')`;
     }
 
-    setBackgroundSize(size: number, measure: TMeasure = Measure.PIXELS) {
-        if (!isNaN(parseFloat(String(size))) && isFinite(size)) {
-            this.tag.style.backgroundSize = String(this.formatMeasure(size, measure));
-        } else {
-            this.tag.style.backgroundSize = String(size);
-        }
+    setBackgroundSize(size: string) {
+        this.tag.style.backgroundSize = size;
     }
 
     setBackgroundPosition(position: TPosition) {
@@ -118,7 +114,11 @@ class Tag {
             if (border.radius) {
                 this.tag.style.borderRadius = String(this.formatMeasure(border.radius.value, border.radius.measure == null ? Measure.PIXELS : border.radius.measure));
             }
-            this.tag.style.border = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
+            if (border.border) {
+                this.tag.style.border = `${border.type} ${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
+            } else {
+                this.tag.style.border = `${this.formatMeasure(border.size.value, border.size.measure == null ?  Measure.PIXELS : border.size.measure)} ${border.color}`;
+            }
         }
     }
 
@@ -471,6 +471,11 @@ class Tag {
     
     onResize(event: (...args: any[]) => any) {
         window.addEventListener("resize", event);
+    }
+
+
+    click() {
+        this.load().click();
     }
     
 

@@ -6,27 +6,27 @@ class InputFile extends Input {
         (this.tag as HTMLInputElement).type = "file";
     }
 
-    setAccept(accept: string) {
+    public setAccept(accept: string) {
         (this.tag as HTMLInputElement).accept = accept;
     }
 
-    setMultiple(multiple: boolean) {
+    public setMultiple(multiple: boolean) {
         (this.tag as HTMLInputElement).multiple = multiple;
     }
 
-    setCapture(capture: string) {
+    public setCapture(capture: string) {
         (this.tag as HTMLInputElement).capture = capture;
     }
 
-    setWebkitdirectory(webkitdirectory: boolean) {
+    public setWebkitdirectory(webkitdirectory: boolean) {
         (this.tag as HTMLInputElement).webkitdirectory = webkitdirectory ;
     }
 
-    getFiles() {
+    public getFiles() {
         return (this.tag as HTMLInputElement).files;
     }
 
-    click() {
+    public click() {
         this.tag.click();
     }
 }
