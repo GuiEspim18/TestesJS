@@ -1,11 +1,14 @@
 import Field from "../Field.js";
 import Select from "../../../ui/Tags/Input/Select/Select.js";
+import FieldType from "../FieldType.js";
 
 class SelectField extends Field {
     options = new Array();
 
     constructor(text = "", name = "", options = new Array()) {
         super(text, name);
+
+        this.type = FieldType.SELECT;
 
         this.input = new Select();
         this.holder.add(this.input);

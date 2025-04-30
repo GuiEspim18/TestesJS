@@ -15,6 +15,8 @@ class Controller {
                     return this.validateLength();
                 case FieldType.EMAIL:
                     return this.validateEmail();
+                case FieldType.SELECT:
+                    return this.validateLength();
             }
         }
         return true;
@@ -39,6 +41,10 @@ class Controller {
             return false;
         }
         return false;
+    }
+
+    validateSelect() {
+        
     }
 
     containsWhiteSpace(str) {

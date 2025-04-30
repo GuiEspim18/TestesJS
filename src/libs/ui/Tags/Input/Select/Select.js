@@ -42,6 +42,10 @@ class Select extends Tag {
         return this.tag.value;
     }
 
+    setFocus() {
+        this.tag.focus();
+    }
+
     loadOptions() {
         if (this.options.length > 0 &&  this.tag.childNodes.length > 0) {
             for (let child of this.tag.children) {
@@ -49,7 +53,7 @@ class Select extends Tag {
             }
         }
         for (let option of this.options) {
-            this.tag.appendChild(option);
+            this.add(option);
         }
     }
 }

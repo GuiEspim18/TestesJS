@@ -11,7 +11,7 @@ class Option extends Tag {
         }
         if (text.length > 0) {
             this.text = new P(text);
-            this.tag.add(this.text);
+            this.add(this.text);
         }
     }
 
